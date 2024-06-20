@@ -1,6 +1,17 @@
 <div class="container mt-5">
-    <h1>Página de Inicio del Cliente</h1>
-    <p>Bienvenido a la página de inicio del cliente.</p>
-    <!-- Aquí puedes añadir más contenido específico para el cliente -->
+  <div class="d-flex justify-content-end">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-user"></i> {{ username }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/cliente/profile">Perfil</a>
+        <a class="dropdown-item" href="#" (click)="logout()">Cerrar sesión</a>
+      </div>
+    </div>
+    
+
   </div>
-  
+  <h1>Página de Inicio del Cliente</h1>
+  <p>Bienvenido a la página de inicio del cliente.</p>
+</div>
