@@ -24,4 +24,9 @@ export class ClienteHomeComponent implements OnInit{
     localStorage.removeItem('cliente');
     this.router.navigate(['/']);
   }
+
+  //navegar por pedidos
+  navigateToPedido() {
+    this.router.navigate(['/cliente-pedido']);
+  }
 }

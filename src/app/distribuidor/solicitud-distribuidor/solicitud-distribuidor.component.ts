@@ -26,7 +26,8 @@ export class SolicitudDistribuidorComponent {
       id_estadosolicitud: 1,
       username: '',
       password: '',
-      fechasolicitud: new Date().toISOString()
+      fechasolicitud: new Date().toISOString(),
+      disponibilidad: 'Ofline'
     };
 
     this.http.post('http://localhost:3000/api/distribuidor', solicitudConFecha).subscribe(

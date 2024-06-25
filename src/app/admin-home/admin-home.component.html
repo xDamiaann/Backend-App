@@ -13,4 +13,31 @@
   <h1>Página de Inicio del Admin</h1>
   <p>Bienvenido a la página de inicio del admin.</p>
   <button class="btn btn-primary mt-3" (click)="navigateToSolicitudes()">Revisar Solicitudes de Distribuidores</button>
+  <div class="dropdown mt-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownGestionGeografica" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Gestión Geográfica
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownGestionGeografica">
+      <a class="dropdown-item" (click)="navigateToParroquias()">Parroquias</a>
+      <a class="dropdown-item" (click)="navigateToBarrios()">Barrios</a>
+    </div>
+  </div>
+  <div class="dropdown mt-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownGestionDatos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Gestión de Datos del Sistema
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownGestionDatos">
+      <a class="dropdown-item" (click)="navigateToEstadoPedidos()">Estados de Pedidos</a>
+      <a class="dropdown-item" (click)="navigateToEstadoSolicitudes()">Estados de Solicitudes</a>
+    </div>
+  </div>
+  <div class="dropdown mt-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownGestionProductos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Gestión de Productos
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownGestionProductos">
+      <a class="dropdown-item" (click)="navigateToProductos()">Productos</a>
+      <a class="dropdown-item" (click)="navigateToPresentaciones()">Presentaciones</a>
+    </div>
+  </div>
 </div>

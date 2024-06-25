@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <h2>Gestión de Estados de Pedidos</h2>
+    <div class="d-flex justify-content-between align-items-center">
+      <h3>Estados de Pedidos</h3>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#agregarEstadoPedidoModal">Agregar Estado</button>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estado of estadosPedidos">
+          <td>{{ estado.nombre }}</td>
+          <td>{{ estado.descripcion }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminarEstadoPedido(estado.id_estadopedido)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="agregarEstadoPedidoModal" tabindex="-1" role="dialog" aria-labelledby="agregarEstadoPedidoModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="agregarEstadoPedidoModalLabel">Agregar Nuevo Estado</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (submit)="agregarEstadoPedido()">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" [(ngModel)]="nuevoEstadoPedido.nombre" name="nombre" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" [(ngModel)]="nuevoEstadoPedido.descripcion" name="descripcion" class="form-control" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

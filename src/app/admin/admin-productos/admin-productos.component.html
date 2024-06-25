@@ -1,0 +1,78 @@
+<div class="container mt-5">
+    <h2>Gestión de Productos</h2>
+    <div class="d-flex justify-content-between align-items-center">
+      <h3>Productos</h3>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#agregarProductoModal">Agregar Producto</button>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Presentación</th>
+          <th>Distribuidor</th>
+          <th>Stock</th>
+          <th>Precio</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos">
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.descripcion }}</td>
+          <td>{{ producto.presentacionNombre }}</td>
+          <td>{{ producto.distribuidorNombre }}</td>
+          <td>{{ producto.stock }}</td>
+          <td>{{ producto.precio }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminarProducto(producto.id_producto)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="agregarProductoModal" tabindex="-1" role="dialog" aria-labelledby="agregarProductoModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="agregarProductoModalLabel">Agregar Nuevo Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (submit)="agregarProducto()">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" [(ngModel)]="nuevoProducto.nombre" name="nombre" class="form-control" required>
+                <input type="hidden" id="id_admin" [(ngModel)]="nuevoProducto.id_admin" name="id_admin" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" [(ngModel)]="nuevoProducto.descripcion" name="descripcion" class="form-control" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="presentacion">Presentación:</label>
+                <select id="presentacion" [(ngModel)]="nuevoProducto.id_presentacion" name="id_presentacion" class="form-control" required>
+                  <option *ngFor="let presentacion of presentaciones" [value]="presentacion.id_presentacion">{{ presentacion.nombre }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="distribuidor">Distribuidor:</label>
+                <select id="distribuidor" [(ngModel)]="nuevoProducto.id_distribuidor" name="id_distribuidor" class="form-control" required>
+                  <option *ngFor="let distribuidor of distribuidores" [value]="distribuidor.id_distribuidor">{{ distribuidor.nombre }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" [(ngModel)]="nuevoProducto.stock" name="stock" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

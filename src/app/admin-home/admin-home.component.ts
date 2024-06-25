@@ -32,4 +32,34 @@ export class AdminHomeComponent implements OnInit{
   navigateToSolicitudes() {
     this.router.navigate(['/admin-solicitudes']);
   }
+
+  //navegar por parroquias
+  navigateToParroquias() {
+    this.router.navigate(['/admin-parroquias']);
+  }
+
+  //navegar por barrios
+  navigateToBarrios() {
+    this.router.navigate(['/admin-barrios']);
+  }
+
+  //navegar por estado pedido
+  navigateToEstadoPedidos() {
+    this.router.navigate(['/admin-estado-pedidos']);
+  }
+
+  //navegar por estados solicitudes
+  navigateToEstadoSolicitudes() {
+    this.router.navigate(['/admin-estado-solicitudes']);
+  }
+
+  //navegar por productos
+  navigateToProductos() {
+    this.router.navigate(['/admin-productos']);
+  }
+
+  //navegar por presentaciones de productos
+  navigateToPresentaciones() {
+    this.router.navigate(['/admin-presentaciones']);
+  }
 }
