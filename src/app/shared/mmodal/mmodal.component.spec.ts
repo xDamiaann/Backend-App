@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ClientePedidoComponent } from './cliente-pedido.component';
 
-describe('ClientePedidoComponent', () => {
-  let component: ClientePedidoComponent;
-  let fixture: ComponentFixture<ClientePedidoComponent>;
+import { MmodalComponent } from './mmodal.component';
+
+describe('MmodalComponent', () => {
+  let component: MmodalComponent;
+  let fixture: ComponentFixture<MmodalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClientePedidoComponent ]
+      declarations: [ MmodalComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ClientePedidoComponent);
+    fixture = TestBed.createComponent(MmodalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

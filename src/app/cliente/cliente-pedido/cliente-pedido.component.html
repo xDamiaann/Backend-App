@@ -76,3 +76,13 @@
 
 </div>
 
+<app-mmodal
+  [idModal]="'distribuidores'"
+  [icono]="'./assets/img/success.png'"
+  [titulo]="'Seleccione Distribuidor'"
+  [descripcion]="''"
+  [distribuidores]="distribuidores"
+  (selectDistr)="onSelect($event)"
+  [tipo]="1"
+  #distribuidoresModal
+></app-mmodal>

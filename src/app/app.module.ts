@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +22,7 @@ import { AdminEstadoSolicitudesComponent } from './admin/admin-estado-solicitude
 import { AdminPresentacionesComponent } from './admin/admin-presentaciones/admin-presentaciones.component';
 import { AdminProductosComponent } from './admin/admin-productos/admin-productos.component';
 import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.component';
+import { MmodalComponent } from './shared/mmodal/mmodal.component';
 
 
 
@@ -41,6 +41,7 @@ import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.
     AdminEstadoSolicitudesComponent,
     AdminPresentacionesComponent,
     AdminProductosComponent,
+    MmodalComponent,
     ClientePedidoComponent
   ],
   imports: [

@@ -14,6 +14,12 @@ export class ClienteServiceService {
     return this.http.post<any>(`${this.apiUrl}/pedido`, pedido);
   }
 
-  
+  getProductosDisponibles(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/productos/disponibles`);
+  }
+
+  getDistribuidoresDisponibles(pedido: any): Observable<any[]> {
+    return this.http.post<any[]>(`${this.apiUrl}/distribuidor/disponibles`, pedido);
+  }
 
 }

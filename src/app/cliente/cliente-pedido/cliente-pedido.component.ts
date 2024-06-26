@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClienteServiceService } from '../../cliente/cliente-service.service'; // Cambiamos al servicio correcto
 import { AdminServiceService } from 'src/app/admin/admin-service.service';
+import { MmodalComponent } from 'src/app/shared/mmodal/mmodal.component';
+
 
 interface Producto {
   nombre: string;
@@ -22,6 +24,8 @@ interface PedidoDetalle {
   styleUrls: ['./cliente-pedido.component.css']
 })
 export class ClientePedidoComponent implements OnInit {
+
+  @ViewChild('distribuidoresModal') distribuidoresModal!: MmodalComponent;
   productos: Producto[] = [];
   pedido = {
     ubicacion: '',
@@ -29,7 +33,7 @@ export class ClientePedidoComponent implements OnInit {
   };
 
   idCliente: string='';
-  
+  distribuidores:any=[];
 
   constructor(private clienteService: ClienteServiceService, private router: Router,private adminService: AdminServiceService) {}
 
@@ -103,14 +107,33 @@ export class ClientePedidoComponent implements OnInit {
         ...this.pedido,
         id_cliente: this.idCliente
       };
-      this.clienteService.realizarPedido(pedidoConCliente).subscribe(
-        () => {
-          this.router.navigate(['/cliente-home']);
+      this.clienteService.getDistribuidoresDisponibles(pedidoConCliente).subscribe(
+        (distribuidores: any[]) => {
+          this.distribuidores = distribuidores;
+          this.distribuidoresModal.abrir();  
         },
-        (error: any) => {
-          console.error('Error al realizar pedido:', error);
+        error => {
+          console.error('Error al obtener distribuidores:', error);
         }
       );
     }
+  }
+
+  onSelect(event: any) {
+    const distribuidorSeleccionado = event; // Obtener el distribuidor seleccionado del evento
+    const pedidoFinal = {
+      ...this.pedido,
+      distribuidor: distribuidorSeleccionado,
+      id_cliente: this.idCliente
+    };
+
+    this.clienteService.realizarPedido(pedidoFinal).subscribe(
+      () => {
+        this.router.navigate(['/cliente-home']);
+      },
+      error => {
+        console.error('Error al realizar pedido:', error);
+      }
+    );
   }
 }
