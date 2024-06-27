@@ -1,0 +1,41 @@
+<button
+  type="button"
+  class="hidden"
+  data-bs-toggle="modal"
+  [attr.data-bs-target]="'#' + idModal"
+  id="modalPublicar"
+  #modalPublicar
+  style="display: none;"
+>
+  Modal
+</button>
+
+<div
+  class="modal fade"
+  [id]="idModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 *ngIf="title !== ''" class="modal-title">{{ title }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="tipo === 1">
+            <h2>ejemplo</h2>
+            <button (click)="Selectdistribuidor(distribuidores.id)"></button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

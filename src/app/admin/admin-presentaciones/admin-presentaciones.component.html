@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <h2>Gestión de Presentaciones</h2>
+    <div class="d-flex justify-content-between align-items-center">
+      <h3>Presentaciones</h3>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#agregarPresentacionModal">Agregar Presentación</button>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let presentacion of presentaciones">
+          <td>{{ presentacion.nombre }}</td>
+          <td>{{ presentacion.descripcion }}</td>
+          <td>{{ presentacion.precio }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminarPresentacion(presentacion.id_presentacion)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="agregarPresentacionModal" tabindex="-1" role="dialog" aria-labelledby="agregarPresentacionModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="agregarPresentacionModalLabel">Agregar Nueva Presentación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (submit)="agregarPresentacion()">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" [(ngModel)]="nuevaPresentacion.nombre" name="nombre" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" [(ngModel)]="nuevaPresentacion.descripcion" name="descripcion" class="form-control" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" [(ngModel)]="nuevaPresentacion.precio" name="precio" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
