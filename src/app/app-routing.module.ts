@@ -17,6 +17,7 @@ import { AdminEstadoSolicitudesComponent } from './admin/admin-estado-solicitude
 import { AdminPresentacionesComponent } from './admin/admin-presentaciones/admin-presentaciones.component';
 import { AdminProductosComponent } from './admin/admin-productos/admin-productos.component';
 import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.component';
+import { AdminAbastecerComponent } from './admin/admin-abastecer/admin-abastecer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'admin-estado-solicitudes', component:AdminEstadoSolicitudesComponent}, //ruta para la gestion de solicitudes
   { path: 'admin-presentaciones', component:AdminPresentacionesComponent}, //ruta para la gestion de presentaciones del producto
   { path: 'admin-productos', component:AdminProductosComponent}, //ruta para la gestion de productos
-  { path: 'cliente-pedido', component:ClientePedidoComponent} //ruta para la realizacion del pedido
+  { path: 'cliente-pedido', component:ClientePedidoComponent}, //ruta para la realizacion del pedido
+  { path: 'admin-abastecer', component:AdminAbastecerComponent} //ruta para abastecer a los distribuidores
 ];
 
 @NgModule({
