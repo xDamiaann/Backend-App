@@ -23,6 +23,7 @@ import { AdminPresentacionesComponent } from './admin/admin-presentaciones/admin
 import { AdminProductosComponent } from './admin/admin-productos/admin-productos.component';
 import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.component';
 import { MmodalComponent } from './shared/mmodal/mmodal.component';
+import { AdminAbastecerComponent } from './admin/admin-abastecer/admin-abastecer.component';
 
 
 
@@ -42,7 +43,8 @@ import { MmodalComponent } from './shared/mmodal/mmodal.component';
     AdminPresentacionesComponent,
     AdminProductosComponent,
     MmodalComponent,
-    ClientePedidoComponent
+    ClientePedidoComponent,
+    AdminAbastecerComponent
   ],
   imports: [
     BrowserModule,

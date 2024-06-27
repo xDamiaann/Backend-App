@@ -2,6 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+interface Presentacion {
+  id_presentacion: number;
+  nombre: string;
+  precio: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -106,6 +112,19 @@ export class AdminServiceService {
 
   cargarDistribuidoresDisponibles(): Observable<any> {
     return this.http.get(`${this.apiUrl}/distribuidores/disponibles`);
+  }
+
+  abastecerDistribuidor(abastecer:any):Observable<any>{
+    console.log(abastecer);
+    return this.http.post<any>(`${this.apiUrl}/productodistribuidor`, abastecer);
+  }
+
+  obtenerPresentacionPorProducto(id_producto: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/producto/${id_producto}/presentacion`);
+  }
+
+  obtenerPresentacionesPorNombreProducto(nombre_producto: string): Observable<Presentacion[]> {
+    return this.http.get<Presentacion[]>(`${this.apiUrl}/producto/${nombre_producto}/presentaciones`);
   }
   
 }

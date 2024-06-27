@@ -10,8 +10,9 @@
           <th>Nombre</th>
           <th>Descripción</th>
           <th>Presentación</th>
-          <th>Distribuidor</th>
-          <th>Stock</th>
+          <!-- <th>Distribuidor</th>
+          <th>Stock</th> -->
+          
           <th>Precio</th>
           <th></th>
         </tr>
@@ -21,8 +22,9 @@
           <td>{{ producto.nombre }}</td>
           <td>{{ producto.descripcion }}</td>
           <td>{{ producto.presentacionNombre }}</td>
-          <td>{{ producto.distribuidorNombre }}</td>
-          <td>{{ producto.stock }}</td>
+          <!-- <td>{{ producto.distribuidorNombre }}</td>
+          <td>{{ producto.stock }}</td> -->
+          
           <td>{{ producto.precio }}</td>
           <td>
             <button class="btn btn-danger" (click)="eliminarProducto(producto.id_producto)">Eliminar</button>
@@ -58,16 +60,18 @@
                   <option *ngFor="let presentacion of presentaciones" [value]="presentacion.id_presentacion">{{ presentacion.nombre }}</option>
                 </select>
               </div>
-              <div class="form-group">
+
+              <!-- <div class="form-group">
                 <label for="distribuidor">Distribuidor:</label>
                 <select id="distribuidor" [(ngModel)]="nuevoProducto.id_distribuidor" name="id_distribuidor" class="form-control" required>
                   <option *ngFor="let distribuidor of distribuidores" [value]="distribuidor.id_distribuidor">{{ distribuidor.nombre }}</option>
                 </select>
-              </div>
-              <div class="form-group">
+              </div> -->
+              <!-- <div class="form-group">
                 <label for="stock">Stock:</label>
                 <input type="number" id="stock" [(ngModel)]="nuevoProducto.stock" name="stock" class="form-control" required>
-              </div>
+              </div> -->
+              
               <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
           </div>
