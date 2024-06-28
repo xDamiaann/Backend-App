@@ -62,4 +62,8 @@ export class AdminHomeComponent implements OnInit{
   navigateToPresentaciones() {
     this.router.navigate(['/admin-presentaciones']);
   }
+
+  navigateToAbastecerDistribuidores(){
+    this.router.navigate(['/admin-abastecer']);
+  }
 }
