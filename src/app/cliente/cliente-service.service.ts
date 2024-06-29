@@ -22,4 +22,8 @@ export class ClienteServiceService {
     return this.http.post<any[]>(`${this.apiUrl}/distribuidor/disponibles`, pedido);
   }
 
+  obtenerPresentacionesPorID(id_presentacion: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/presentacion/${id_presentacion}`);
+  }
+
 }

@@ -15,7 +15,17 @@ interface Producto {
 
 interface PedidoDetalle {
   producto: Producto;
+  presentacion: any;
   cantidad: number;
+  precio: number;
+}
+
+interface FormData {
+  id_distribuidor: number | null;
+  id_producto: number | null;
+  id_productopresentacion: number | null;
+  stock: number | null;
+  precio: number | null;
 }
 
 @Component({
@@ -26,14 +36,32 @@ interface PedidoDetalle {
 export class ClientePedidoComponent implements OnInit {
 
   @ViewChild('distribuidoresModal') distribuidoresModal!: MmodalComponent;
-  productos: Producto[] = [];
+  //productos: Producto[] = [];
   pedido = {
     ubicacion: '',
     detalles: [] as PedidoDetalle[]
   };
 
+  formData: FormData = {
+    id_distribuidor: null,
+    id_producto: null,
+    id_productopresentacion: null,
+    stock: null,
+    precio: null
+  };
+
+
+  productos: any[] = [];
+  presentaciones: any[] = [];
+  selectedProducto: number | null = null;
+  selectedPresentacion: number | null = null;
+  cantidad: number | null = null;
+  carrito: any[] = [];
+  distribuidores: any[] = [];
+  precio: number | null = null;
+
   idCliente: string='';
-  distribuidores:any=[];
+
 
   constructor(private clienteService: ClienteServiceService, private router: Router,private adminService: AdminServiceService) {}
 
@@ -46,18 +74,38 @@ export class ClientePedidoComponent implements OnInit {
     this.cargarProductos();
   }
 
+  // cargarProductos() {
+  //   this.adminService.cargarProductos().subscribe(
+  //     (data: Producto[]) => {
+  //       // Filtrar productos únicos con el mayor stock
+  //       const productosMap = new Map<string, Producto>();
+  //       data.forEach((producto: Producto) => {
+  //         const existingProducto = productosMap.get(producto.nombre);
+  //         if (!existingProducto || producto.stock > existingProducto.stock) {
+  //           productosMap.set(producto.nombre, producto);
+  //         }
+  //       });
+  //       this.productos = Array.from(productosMap.values());
+  //       console.log(this.productos);
+  //     },
+  //     error => {
+  //       console.error('Error al cargar productos:', error);
+  //     }
+  //   );
+  // }
+
+
   cargarProductos() {
     this.adminService.cargarProductos().subscribe(
-      (data: Producto[]) => {
-        // Filtrar productos únicos con el mayor stock
-        const productosMap = new Map<string, Producto>();
-        data.forEach((producto: Producto) => {
-          const existingProducto = productosMap.get(producto.nombre);
-          if (!existingProducto || producto.stock > existingProducto.stock) {
-            productosMap.set(producto.nombre, producto);
-          }
+      data => {
+        this.productos = data;
+        this.productos.forEach(producto => {
+          this.adminService.obtenerPresentacionesPorProducto(producto.id_producto).subscribe(
+            presentaciones => {
+              producto.presentaciones = presentaciones;
+            }
+          );
         });
-        this.productos = Array.from(productosMap.values());
       },
       error => {
         console.error('Error al cargar productos:', error);
@@ -65,11 +113,48 @@ export class ClientePedidoComponent implements OnInit {
     );
   }
 
+
+  getPresentaciones(id:number) {
+     
+    
+  }
+
+  onPresentacionChange(event: any, producto: any) {
+    const idPresentacion = +event.target.value;
+    this.adminService.obtenerPresentacionesPorID(idPresentacion).subscribe(
+      data => {
+        producto.precioSeleccionado = data.precio;
+        producto.presentacionSeleccionada = data; 
+      },
+      error => console.error(error)
+    );
+  }
+
+  agregarAlPedido(producto: any) {
+    const presentacionSeleccionada = producto.presentacionSeleccionada;
+    if (!presentacionSeleccionada) {
+      return; // No se puede agregar el producto sin una presentación seleccionada
+    }
+    const detalleExistente = this.pedido.detalles.find(detalle => 
+      detalle.producto === producto && detalle.presentacion.id_presentacion === presentacionSeleccionada.id_presentacion
+    );
+    if (detalleExistente) {
+      detalleExistente.cantidad += Math.min(detalleExistente.cantidad + 1, producto.stock);
+    } else {
+      this.pedido.detalles.push({
+        producto,
+        presentacion: presentacionSeleccionada,
+        cantidad: 1,
+        precio: producto.precioSeleccionado
+      });
+    }
+  }
+
   productoSeleccionado(producto: Producto): boolean {
     return this.pedido.detalles.some(detalle => detalle.producto === producto);
   }
 
-  toggleProductoSeleccionado(producto: Producto, event: Event) {
+  toggleProductoSeleccionado(producto: any, event: Event) {
     const inputElement = event.target as HTMLInputElement;
     const isChecked = inputElement.checked;
     if (isChecked) {
@@ -77,7 +162,12 @@ export class ClientePedidoComponent implements OnInit {
       if (detalleExistente) {
         detalleExistente.cantidad += Math.min(detalleExistente.cantidad + 1, producto.stock);
       } else {
-        this.pedido.detalles.push({ producto, cantidad: 1 });
+        this.pedido.detalles.push({ 
+          producto, 
+          presentacion: producto.presentacionSeleccionada, 
+          cantidad: 1, 
+          precio: producto.precioSeleccionado 
+        });
       }
     } else {
       this.pedido.detalles = this.pedido.detalles.filter(detalle => detalle.producto !== producto);
