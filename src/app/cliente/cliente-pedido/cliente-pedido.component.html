@@ -25,7 +25,12 @@
               </td>
               <td>{{ producto.precioSeleccionado }}</td>
               <td>
-                <button class="btn btn-primary" (click)="agregarAlPedido(producto)">Agregar</button>
+                <button 
+                  class="btn btn-primary" 
+                  (click)="agregarAlPedido(producto)" 
+                  [disabled]="producto.presentacionSeleccionada && isProductoPresentacionEnPedido(producto, producto.presentacionSeleccionada)">
+                  Agregar
+                </button>
               </td>
             </tr>
           </tbody>

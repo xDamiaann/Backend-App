@@ -6,6 +6,7 @@ import { MmodalComponent } from 'src/app/shared/mmodal/mmodal.component';
 
 
 interface Producto {
+  id_producto: number;
   nombre: string;
   presentacionNombre: string;
   precio: number;
@@ -60,10 +61,10 @@ export class ClientePedidoComponent implements OnInit {
   distribuidores: any[] = [];
   precio: number | null = null;
 
-  idCliente: string='';
+  idCliente: string = '';
 
 
-  constructor(private clienteService: ClienteServiceService, private router: Router,private adminService: AdminServiceService) {}
+  constructor(private clienteService: ClienteServiceService, private router: Router, private adminService: AdminServiceService) { }
 
   ngOnInit(): void {
     const adminJson = localStorage.getItem('cliente');
@@ -100,6 +101,7 @@ export class ClientePedidoComponent implements OnInit {
       data => {
         this.productos = data;
         this.productos.forEach(producto => {
+          producto.id_producto = producto.id_producto; // Verifica que esta propiedad exista
           this.adminService.obtenerPresentacionesPorProducto(producto.id_producto).subscribe(
             presentaciones => {
               producto.presentaciones = presentaciones;
@@ -114,9 +116,9 @@ export class ClientePedidoComponent implements OnInit {
   }
 
 
-  getPresentaciones(id:number) {
-     
-    
+  getPresentaciones(id: number) {
+
+
   }
 
   onPresentacionChange(event: any, producto: any) {
@@ -124,7 +126,7 @@ export class ClientePedidoComponent implements OnInit {
     this.adminService.obtenerPresentacionesPorID(idPresentacion).subscribe(
       data => {
         producto.precioSeleccionado = data.precio;
-        producto.presentacionSeleccionada = data; 
+        producto.presentacionSeleccionada = data;
       },
       error => console.error(error)
     );
@@ -135,7 +137,7 @@ export class ClientePedidoComponent implements OnInit {
     if (!presentacionSeleccionada) {
       return; // No se puede agregar el producto sin una presentación seleccionada
     }
-    const detalleExistente = this.pedido.detalles.find(detalle => 
+    const detalleExistente = this.pedido.detalles.find(detalle =>
       detalle.producto === producto && detalle.presentacion.id_presentacion === presentacionSeleccionada.id_presentacion
     );
     if (detalleExistente) {
@@ -150,6 +152,12 @@ export class ClientePedidoComponent implements OnInit {
     }
   }
 
+  isProductoPresentacionEnPedido(producto: any, presentacion: any): boolean {
+    return this.pedido.detalles.some(detalle =>
+      detalle.producto === producto && detalle.presentacion.id_presentacion === presentacion.id_presentacion
+    );
+  }
+
   productoSeleccionado(producto: Producto): boolean {
     return this.pedido.detalles.some(detalle => detalle.producto === producto);
   }
@@ -162,11 +170,11 @@ export class ClientePedidoComponent implements OnInit {
       if (detalleExistente) {
         detalleExistente.cantidad += Math.min(detalleExistente.cantidad + 1, producto.stock);
       } else {
-        this.pedido.detalles.push({ 
-          producto, 
-          presentacion: producto.presentacionSeleccionada, 
-          cantidad: 1, 
-          precio: producto.precioSeleccionado 
+        this.pedido.detalles.push({
+          producto,
+          presentacion: producto.presentacionSeleccionada,
+          cantidad: 1,
+          precio: producto.precioSeleccionado
         });
       }
     } else {
@@ -190,17 +198,11 @@ export class ClientePedidoComponent implements OnInit {
   }
 
   realizarPedido() {
-   
-    
-    if (this.idCliente!='') {  
-      const pedidoConCliente = {
-        ...this.pedido,
-        id_cliente: this.idCliente
-      };
-      this.clienteService.getDistribuidoresDisponibles(pedidoConCliente).subscribe(
+    if (this.idCliente != '') {
+      this.clienteService.getDistribuidoresConStock(this.pedido.detalles).subscribe(
         (distribuidores: any[]) => {
-          this.distribuidores = distribuidores;
-          this.distribuidoresModal.abrir();  
+          this.distribuidores = distribuidores.filter(distribuidor => distribuidor.disponibilidad === 'Libre');
+          this.distribuidoresModal.abrir();
         },
         error => {
           console.error('Error al obtener distribuidores:', error);
@@ -213,13 +215,23 @@ export class ClientePedidoComponent implements OnInit {
     const distribuidorSeleccionado = event; // Obtener el distribuidor seleccionado del evento
     const pedidoFinal = {
       ...this.pedido,
-      distribuidor: distribuidorSeleccionado,
-      id_cliente: this.idCliente
+      detalles: this.pedido.detalles.map(detalle => ({
+        id_producto: detalle.producto.id_producto,  // Asegurarse de que este ID esté presente
+        id_presentacion: detalle.presentacion.id_presentacion,  // Asegurarse de que este ID esté presente
+        cantidad: detalle.cantidad,
+        precio: detalle.precio,
+        id_distribuidor: distribuidorSeleccionado.id_distribuidor // Asegúrate de incluir id_distribuidor aquí
+      })),
+      id_cliente: this.idCliente,
+      id_distribuidor: distribuidorSeleccionado.id_distribuidor
     };
+
+    console.log("Pedido final que se enviará:", pedidoFinal);
 
     this.clienteService.realizarPedido(pedidoFinal).subscribe(
       () => {
         this.router.navigate(['/cliente-home']);
+        window.location.reload();
       },
       error => {
         console.error('Error al realizar pedido:', error);
