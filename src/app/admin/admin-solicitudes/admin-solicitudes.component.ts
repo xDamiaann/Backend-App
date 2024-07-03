@@ -12,9 +12,9 @@ export class AdminSolicitudesComponent implements OnInit {
   estadosSolicitud: any;
   resp: any;
   solicitud: any;
-  estado: number=0;
+  estado: number = 0;
 
-  constructor(private http: HttpClient, private adminService:AdminServiceService) {}
+  constructor(private http: HttpClient, private adminService: AdminServiceService) { }
 
   ngOnInit(): void {
     this.cargarSolicitudes();
@@ -27,7 +27,7 @@ export class AdminSolicitudesComponent implements OnInit {
       data => {
         // Asegurarte de que data es un array
         if (Array.isArray(data)) {
-          this.solicitudes = data.filter(solicitud => solicitud.id_estadosolicitud === 1);
+          this.solicitudes = data//.filter(solicitud => solicitud.id_estadosolicitud === 1);
           console.log('Solicitudes cargadas:', this.solicitudes);
         } else {
           console.error('Los datos no son un array:', data);
@@ -37,7 +37,7 @@ export class AdminSolicitudesComponent implements OnInit {
         console.error('Error al cargar solicitudes:', error);
       }
     );
-    
+
   }
 
   cargarEstadosSolicitud() {
@@ -51,7 +51,7 @@ export class AdminSolicitudesComponent implements OnInit {
         console.error('Error al obtener el estado de las solicitudes', error);
       }
     );
-  
+
   }
 
   actualizarSolicitud(id: number) {
@@ -70,21 +70,21 @@ export class AdminSolicitudesComponent implements OnInit {
     );
   }
 
-/*
-  actualizarSolicitud(id: number) {
-    console.log('Actualizando solicitud:', id); // Log para verificar la solicitud a actualizar
-    this.adminService.actualizarSolicitud(id,this.estado).subscribe(
-      data => {
-        this.resp = data;
-        console.log("actualizar",this.resp); // Puedes manejar los datos como necesites
-      },
-      error => {
-        console.error('Error al actualizar el estado', error);
-      }
-    );   
-   
-  }
-    */
+  /*
+    actualizarSolicitud(id: number) {
+      console.log('Actualizando solicitud:', id); // Log para verificar la solicitud a actualizar
+      this.adminService.actualizarSolicitud(id,this.estado).subscribe(
+        data => {
+          this.resp = data;
+          console.log("actualizar",this.resp); // Puedes manejar los datos como necesites
+        },
+        error => {
+          console.error('Error al actualizar el estado', error);
+        }
+      );   
+     
+    }
+      */
   /*
   onEstadoSolicitudChange(event: any, solicitud: any): void {
     console.log('Evento change:', event); // Log para verificar el evento

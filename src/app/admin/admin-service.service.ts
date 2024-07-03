@@ -14,11 +14,11 @@ interface Presentacion {
 export class AdminServiceService {
   private apiUrl = 'http://localhost:3000/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  actualizarSolicitud(id: number,estado:number): Observable<any> {
+  actualizarSolicitud(id: number, estado: number): Observable<any> {
     return this.http.put(`${this.apiUrl}/distribuidor/${id}`, {
-      "id_estadosolicitud":estado
+      "id_estadosolicitud": estado
     });
   }
 
@@ -26,12 +26,12 @@ export class AdminServiceService {
     return this.http.get(`${this.apiUrl}/estado-solicitud/`);
   }
 
-  cargarSolicitudes(){
+  cargarSolicitudes() {
     return this.http.get(`${this.apiUrl}/distribuidor/`);
   }
 
   cargarParroquias(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/parroquia`);
+    return this.http.get(`${this.apiUrl}/parroquia/`);
   }
 
   agregarParroquia(parroquia: any): Observable<any> {
@@ -83,12 +83,35 @@ export class AdminServiceService {
     return this.http.delete<any>(`${this.apiUrl}/estado-solicitud/${id}`);
   }
 
+  //METODOS PARA LOS PRODUCTOS
   cargarProductos(): Observable<any> {
     return this.http.get<any[]>(`${this.apiUrl}/producto`);
   }
 
+  obtenerPresentacionesPorProducto(id_producto: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/producto/${id_producto}/presentaciones`);
+  }
+
+
+  obtenerPresentacionesPorID(id_presentacion: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/presentacion/${id_presentacion}`);
+  }
+
   agregarProducto(producto: any): Observable<any> {
+    console.log(producto);
     return this.http.post<any>(`${this.apiUrl}/producto`, producto);
+  }
+
+  verificarProducto(nombre: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/producto/nombre/${nombre}`);
+  }
+
+  agregarProductoPresentacion(productoPresentacion: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/productopresentacion`, productoPresentacion);
+  }
+
+  verificarProductoPresentacion(id_producto: number, id_presentacion: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/productopresentacion/${id_producto}/${id_presentacion}`);
   }
 
   eliminarProducto(id: number): Observable<any> {
@@ -114,7 +137,7 @@ export class AdminServiceService {
     return this.http.get(`${this.apiUrl}/distribuidores/disponibles`);
   }
 
-  abastecerDistribuidor(abastecer:any):Observable<any>{
+  abastecerDistribuidor(abastecer: any): Observable<any> {
     console.log(abastecer);
     return this.http.post<any>(`${this.apiUrl}/productodistribuidor`, abastecer);
   }
@@ -126,5 +149,5 @@ export class AdminServiceService {
   obtenerPresentacionesPorNombreProducto(nombre_producto: string): Observable<Presentacion[]> {
     return this.http.get<Presentacion[]>(`${this.apiUrl}/producto/${nombre_producto}/presentaciones`);
   }
-  
+
 }

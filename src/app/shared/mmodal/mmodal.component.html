@@ -1,41 +1,68 @@
-<button
-  type="button"
-  class="hidden"
-  data-bs-toggle="modal"
-  [attr.data-bs-target]="'#' + idModal"
-  id="modalPublicar"
-  #modalPublicar
-  style="display: none;"
->
+<button type="button" class="hidden" data-bs-toggle="modal" [attr.data-bs-target]="'#' + idModal" id="modalPublicar"
+  #modalPublicar style="display: none;">
   Modal
 </button>
 
-<div
-  class="modal fade"
-  [id]="idModal"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
+<div class="modal fade" [id]="idModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0">
         <h5 *ngIf="title !== ''" class="modal-title">{{ title }}</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <ng-container *ngIf="tipo === 1">
-            <h2>ejemplo</h2>
-            <button (click)="Selectdistribuidor(distribuidores.id)"></button>
+          <div *ngFor="let distribuidor of distribuidores">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">{{ distribuidor.nombre }} {{ distribuidor.apellido }}</h5>
+                <p class="card-text">Dirección: {{ distribuidor.direccion }}</p>
+                <p class="card-text">Teléfono: {{ distribuidor.telefono }}</p>
+                <p class="card-text">Email: {{ distribuidor.email }}</p>
+                <button class="btn btn-primary" (click)="Selectdistribuidor(distribuidor)">
+                  Seleccionar
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="tipo === 3">
+          <ng-container *ngIf="this.val==0">
+            <button class="btn btn-warning" (click)="MetodoPago(1)">Efectivo</button>
+            <button class="btn btn-warning" (click)="MetodoPago(2)">PayPal</button>
+            <div id="paypal-button-container"></div>
+
+          </ng-container>
+          <ng-container *ngIf="this.val==1">
+            <h3> Por favor, realice el pago al distribuidor</h3>
+          </ng-container>
+
+
+        </ng-container>
+        <ng-container *ngIf="tipo === 4">
+          <ng-container *ngIf="this.valor==1">
+            <h3>Tu pago ha sido procesado correctamente</h3>
+            <button class="btn btn-primary" (click)="finalizar()">
+              Finalizar
+            </button>
+
+          </ng-container>
+          <ng-container *ngIf="this.valor==2">
+            <h3> No se ha podido procesar tu pago</h3>
+            <button class="btn btn-primary" (click)="finalizar()">
+              Finalizar
+            </button>
+
+          </ng-container>
+
+
         </ng-container>
       </div>
     </div>
   </div>
 </div>
+
+<ng-container *ngIf="this.val == 2">
+  <div id="paypal-button-container"></div>
+</ng-container>

@@ -1,44 +1,56 @@
 <div class="container mt-5">
   <h2>Registro de Cliente</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="cedula">Cédula</label>
-      <input type="text" class="form-control" id="cedula" [(ngModel)]="cliente.cedula" name="cedula" required>
+      <input type="text" class="form-control" id="cedula" formControlName="cedula" required>
+      <div *ngIf="clienteForm.get('cedula')?.invalid && clienteForm.get('cedula')?.touched" class="text-danger">
+        Cédula inválida
+      </div>
     </div>
     <div class="form-group">
       <label for="nombre">Nombre</label>
-      <input type="text" class="form-control" id="nombre" [(ngModel)]="cliente.nombre" name="nombre" required>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
     </div>
     <div class="form-group">
       <label for="apellido">Apellido</label>
-      <input type="text" class="form-control" id="apellido" [(ngModel)]="cliente.apellido" name="apellido" required>
+      <input type="text" class="form-control" id="apellido" formControlName="apellido" required>
     </div>
     <div class="form-group">
       <label for="direccion">Dirección</label>
-      <input type="text" class="form-control" id="direccion" [(ngModel)]="cliente.direccion" name="direccion" required>
+      <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
     </div>
     <div class="form-group">
       <label for="telefono">Teléfono</label>
-      <input type="text" class="form-control" id="telefono" [(ngModel)]="cliente.telefono" name="telefono" required>
+      <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
+      <div *ngIf="clienteForm.get('telefono')?.invalid && clienteForm.get('telefono')?.touched" class="text-danger">
+        Teléfono inválido
+      </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" [(ngModel)]="cliente.email" name="email" required>
+      <input type="email" class="form-control" id="email" formControlName="email" required>
+      <div *ngIf="clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched" class="text-danger">
+        Correo inválido
+      </div>
     </div>
     <div class="form-group">
       <label for="username">Nombre de Usuario</label>
-      <input type="text" class="form-control" id="username" [(ngModel)]="cliente.username" name="username" required>
+      <input type="text" class="form-control" id="username" formControlName="username" required>
+      <div *ngIf="clienteForm.get('username')?.invalid && clienteForm.get('username')?.touched" class="text-danger">
+        Nombre de usuario ya tomado
+      </div>
     </div>
     <div class="form-group">
       <label for="password">Contraseña</label>
-      <input type="password" class="form-control" id="password" [(ngModel)]="cliente.password" name="password" required>
+      <input type="password" class="form-control" id="password" formControlName="password" required>
     </div>
     <div class="form-group">
       <label for="id_barrio">Barrio</label>
-      <select class="form-control" id="id_barrio" [(ngModel)]="cliente.id_barrio" name="id_barrio" required>
+      <select class="form-control" id="id_barrio" formControlName="id_barrio" required>
         <option *ngFor="let barrio of barrio" [value]="barrio.id_barrio">{{ barrio.nombre }}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Registrarse</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!formularioValido()">Registrarse</button>
   </form>
 </div>
