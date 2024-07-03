@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:3000/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   registerClient(cliente: any): Observable<any> {
-   // console.log(cliente);
+    // console.log(cliente);
     return this.http.post(`${this.apiUrl}/cliente/`, cliente);
   }
 
@@ -34,5 +34,8 @@ export class AuthService {
     return this.http.get(`${this.apiUrl}/barrio/`);
   }
 
+  checkUsername(username: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/cliente/check-username/${username}`);
+  }
   // Otros métodos como login, logout, etc.
 }

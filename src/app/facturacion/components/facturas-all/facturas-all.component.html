@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <h2>Facturas</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Número de Factura</th>
+                <th>Fecha</th>
+                <th>ID Pedido</th>
+                <th>Subtotal</th>
+                <th>IVA</th>
+                <th>Valor Total</th>
+                <th>Método de Pago</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let factura of facturas">
+                <td>{{ factura.numfactura }}</td>
+                <td>{{ factura.fecha | date:'short' }}</td>
+                <td>{{ factura.id_pedido }}</td>
+                <td>{{ factura.subtotal | currency }}</td>
+                <td>{{ factura.iva | currency }}</td>
+                <td>{{ factura.valortotal | currency }}</td>
+                <td>{{ factura.metodo_pago }}</td>
+                <td><button (click)="Detalle(factura.id_factura)">Detalles</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

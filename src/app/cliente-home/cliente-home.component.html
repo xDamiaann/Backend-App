@@ -1,7 +1,9 @@
 <div class="container mt-5">
+
   <div class="d-flex justify-content-end">
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user"></i> {{ username }}
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -9,10 +11,14 @@
         <a class="dropdown-item" href="#" (click)="logout()">Cerrar sesión</a>
       </div>
     </div>
-    
+
 
   </div>
   <h1>Página de Inicio del Cliente</h1>
   <p>Bienvenido a la página de inicio del cliente.</p>
   <button class="btn btn-primary mt-3" (click)="navigateToPedido()">Realizar Pedido</button>
+  <div class="container mt-5">
+    <!-- Otros contenidos del home del cliente -->
+    <button class="btn btn-primary" routerLink="/cliente-pedidos">Ver Mis Pedidos</button>
+  </div>
 </div>
