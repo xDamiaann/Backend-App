@@ -1,31 +1,39 @@
 <div class="container mt-5">
-    <h2>Solicitud para ser Distribuidor</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="cedula">Cédula:</label>
-        <input type="text" class="form-control" id="cedula" [(ngModel)]="solicitud.cedula" name="cedula" required>
+  <h2>Solicitud para ser Distribuidor</h2>
+  <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="cedula">Cédula:</label>
+      <input type="text" class="form-control" id="cedula" formControlName="cedula">
+      <div *ngIf="solicitudForm.get('cedula')?.invalid && solicitudForm.get('cedula')?.touched" class="text-danger">
+        Cédula inválida
       </div>
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" [(ngModel)]="solicitud.nombre" name="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre">
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input type="text" class="form-control" id="apellido" formControlName="apellido">
+    </div>
+    <div class="form-group">
+      <label for="direccion">Dirección:</label>
+      <textarea class="form-control" id="direccion" formControlName="direccion"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="text" class="form-control" id="telefono" formControlName="telefono">
+      <div *ngIf="solicitudForm.get('telefono')?.invalid && solicitudForm.get('telefono')?.touched" class="text-danger">
+        Teléfono inválido
       </div>
-      <div class="form-group">
-        <label for="apellido">Apellido:</label>
-        <input type="text" class="form-control" id="apellido" [(ngModel)]="solicitud.apellido" name="apellido" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <div *ngIf="solicitudForm.get('email')?.invalid && solicitudForm.get('email')?.touched" class="text-danger">
+        Correo inválido
       </div>
-      <div class="form-group">
-        <label for="direccion">Dirección:</label>
-        <textarea class="form-control" id="direccion" [(ngModel)]="solicitud.direccion" name="direccion" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="telefono">Teléfono:</label>
-        <input type="text" class="form-control" id="telefono" [(ngModel)]="solicitud.telefono" name="telefono" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="solicitud.email" name="email" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
-    </form>
-  </div>
-  
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!solicitudForm.valid">Enviar Solicitud</button>
+  </form>
+</div>

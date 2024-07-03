@@ -60,7 +60,7 @@ export class ClientePedidoComponent implements OnInit {
   carrito: any[] = [];
   distribuidores: any[] = [];
   precio: number | null = null;
-
+  pedidos: any[] = [];
   idCliente: string = '';
 
 
@@ -235,6 +235,19 @@ export class ClientePedidoComponent implements OnInit {
       },
       error => {
         console.error('Error al realizar pedido:', error);
+      }
+    );
+  }
+
+  reasignarDistribuidor(pedido: any) {
+    this.clienteService.reasignarDistribuidor(pedido.id_pedido, pedido.id_distribuidor).subscribe(
+      (res) => {
+        console.log("Distribuidor reasignado exitosamente", res);
+        this.router.navigate(['/cliente-home']);
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Error al reasignar distribuidor:', error);
       }
     );
   }

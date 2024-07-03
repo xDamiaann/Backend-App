@@ -19,6 +19,10 @@ import { AdminProductosComponent } from './admin/admin-productos/admin-productos
 import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.component';
 import { AdminAbastecerComponent } from './admin/admin-abastecer/admin-abastecer.component';
 import { DistribuidorPedidosComponent } from './distribuidor/distribuidor-pedidos/distribuidor-pedidos/distribuidor-pedidos.component';
+import { ClientePedidosComponent } from './cliente/cliente-pedidos/cliente-pedidos/cliente-pedidos.component';
+import { FacturasAllComponent } from './facturacion/components/facturas-all/facturas-all.component';
+import { Validaciones } from './utils/validaciones';
+import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +44,11 @@ const routes: Routes = [
   { path: 'admin-productos', component: AdminProductosComponent }, //ruta para la gestion de productos
   { path: 'cliente-pedido', component: ClientePedidoComponent }, //ruta para la realizacion del pedido
   { path: 'admin-abastecer', component: AdminAbastecerComponent }, //ruta para abastecer a los distribuidores
-  { path: 'distribuidor-pedidos', component: DistribuidorPedidosComponent }
+  { path: 'distribuidor-pedidos', component: DistribuidorPedidosComponent },
+  { path: 'cliente-pedidos', component: ClientePedidosComponent },
+  { path: 'facturas', component: FacturasAllComponent },
+  { path: 'validaciones', component: Validaciones },
+  { path: 'pago-confirmado', component: PagoConfirmadoComponent }
 ];
 
 @NgModule({

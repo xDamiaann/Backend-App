@@ -14,7 +14,7 @@ import { DistribuidorHomeComponent } from './distribuidor-home/distribuidor-home
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { SolicitudDistribuidorComponent } from './distribuidor/solicitud-distribuidor/solicitud-distribuidor.component';
 import { AdminSolicitudesComponent } from './admin/admin-solicitudes/admin-solicitudes.component';
-import { AdminServiceService} from './admin/admin-service.service';
+import { AdminServiceService } from './admin/admin-service.service';
 import { AdminParroquiasComponent } from './admin/admin-parroquias/admin-parroquias.component';
 import { AdminBarriosComponent } from './admin/admin-barrios/admin-barrios.component';
 import { AdminEstadoPedidosComponent } from './admin/admin-estado-pedidos/admin-estado-pedidos.component';
@@ -25,6 +25,11 @@ import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.
 import { MmodalComponent } from './shared/mmodal/mmodal.component';
 import { AdminAbastecerComponent } from './admin/admin-abastecer/admin-abastecer.component';
 import { DistribuidorPedidosComponent } from './distribuidor/distribuidor-pedidos/distribuidor-pedidos/distribuidor-pedidos.component';
+import { ClientePedidosComponent } from './cliente/cliente-pedidos/cliente-pedidos/cliente-pedidos.component';
+import { FacturasAllComponent } from './facturacion/components/facturas-all/facturas-all.component';
+import { DetalleFacturaComponent } from './facturacion/components/detalle-factura/detalle-factura.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component'
 
 
 
@@ -46,7 +51,11 @@ import { DistribuidorPedidosComponent } from './distribuidor/distribuidor-pedido
     MmodalComponent,
     ClientePedidoComponent,
     AdminAbastecerComponent,
-    DistribuidorPedidosComponent
+    DistribuidorPedidosComponent,
+    ClientePedidosComponent,
+    FacturasAllComponent,
+    DetalleFacturaComponent,
+    PagoConfirmadoComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +66,11 @@ import { DistribuidorPedidosComponent } from './distribuidor/distribuidor-pedido
     HttpClientModule, // Asegúrate de agregar esta línea
     AuthModule,
     NgbModule,
+    ReactiveFormsModule,// Importa BrowserAnimationsModule
+
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

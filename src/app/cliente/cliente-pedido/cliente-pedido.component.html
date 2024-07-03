@@ -25,9 +25,7 @@
               </td>
               <td>{{ producto.precioSeleccionado }}</td>
               <td>
-                <button 
-                  class="btn btn-primary" 
-                  (click)="agregarAlPedido(producto)" 
+                <button class="btn btn-primary" (click)="agregarAlPedido(producto)"
                   [disabled]="producto.presentacionSeleccionada && isProductoPresentacionEnPedido(producto, producto.presentacionSeleccionada)">
                   Agregar
                 </button>
@@ -55,13 +53,8 @@
               <td>{{ detalle.producto.nombre }}</td>
               <td>{{ detalle.presentacion.nombre }}</td>
               <td>
-                <input 
-                  type="number" 
-                  [(ngModel)]="detalle.cantidad" 
-                  [min]="1" 
-                  [max]="detalle.producto.stock" 
-                  (change)="cambiarCantidad(detalle, $event)"
-                >
+                <input type="number" [(ngModel)]="detalle.cantidad" [min]="1" [max]="detalle.producto.stock"
+                  (change)="cambiarCantidad(detalle, $event)">
               </td>
               <td>{{ detalle.precio * detalle.cantidad }}</td>
               <td>
@@ -74,15 +67,22 @@
     </div>
   </div>
   <button class="btn btn-success mt-3" (click)="realizarPedido()">Realizar Pedido</button>
+
+  <div *ngFor="let pedido of pedidos">
+    <h3>Pedido #{{ pedido.id_pedido }}</h3>
+    <p>Estado: {{ pedido.estado }}</p>
+    <ul>
+      <li *ngFor="let detalle of pedido.detalles">
+        {{ detalle.producto_nombre }} - {{ detalle.presentacion_nombre }}: {{ detalle.cantidad }} unidades a ${{
+        detalle.total / detalle.cantidad }}
+      </li>
+    </ul>
+    <button (click)="reasignarDistribuidor(pedido)">Reasignar Distribuidor</button>
+  </div>
 </div>
 
-<app-mmodal
-  [idModal]="'distribuidores'"
-  [icono]="'./assets/img/success.png'"
-  [titulo]="'Seleccione Distribuidor'"
-  [descripcion]="''"
-  [distribuidores]="distribuidores"
-  (selectDistr)="onSelect($event)"
-  [tipo]="1"
-  #distribuidoresModal
-></app-mmodal>
+
+
+<app-mmodal [idModal]="'distribuidores'" [icono]="'./assets/img/success.png'" [titulo]="'Seleccione Distribuidor'"
+  [descripcion]="''" [distribuidores]="distribuidores" (selectDistr)="onSelect($event)" [tipo]="1"
+  #distribuidoresModal></app-mmodal>
