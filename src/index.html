@@ -2,21 +2,398 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <base href="/">
+
+  <title>IntApp</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+
+  <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="src/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/templatemo.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+  <link rel="stylesheet" href="./src/assets/css/fontawesome.min.css">
+
 </head>
 
 <body>
+  <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:intapp@agua.ec">contacto@intagua.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:0984291013">0984291013</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+  
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+      <div class="container d-flex justify-content-between align-items-center">
+
+          <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+              IntApp
+          </a>
+
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+              <div class="flex-fill">
+                  <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                      <li class="nav-item">
+                          <a href="index.html" class="nav-item nav-link active"  >Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="./about.html" class="nav-item nav-link active" >Sobre Nosotros</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="shop.html">Comprar</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="contact.html">Contactos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Inicio de Sesión</a>
+                    </li>
+                  </ul>
+              </div>
+              <div class="navbar align-self-center d-flex">
+                  <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                      <div class="input-group">
+                          <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                          <div class="input-group-text">
+                              <i class="fa fa-fw fa-search"></i>
+                          </div>
+                      </div>
+                  </div>
+                  <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                      <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                  </a>
+                  <a class="nav-icon position-relative text-decoration-none" href="#">
+                      <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                      <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                  </a>
+                  <a class="nav-icon position-relative text-decoration-none" href="#">
+                      <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                      <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                  </a>
+              </div>
+          </div>
+
+      </div>
+  </nav>
+  <!-- Close Header -->
+
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="w-100 pt-1 mb-5 text-right">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="" method="get" class="modal-content modal-body border-0 p-0">
+              <div class="input-group mb-2">
+                  <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                  <button type="submit" class="input-group-text bg-success text-light">
+                      <i class="fa fa-fw fa-search text-white"></i>
+                  </button>
+              </div>
+          </form>
+      </div>
+  </div>
+
+
+
+    <!-- Start Banner Hero -->
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+          <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+          <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <div class="container">
+                  <div class="row p-5">
+                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                          <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
+                      </div>
+                      <div class="col-lg-6 mb-0 d-flex align-items-center">
+                          <div class="text-align-left align-self-center">
+                              <h1 class="h1 text-success"><b>Calidad garantizada </b> </h1>
+                              <h3 class="h2"> Distribución de agua embotellada en Riobamba. </h3>
+                              <p>
+                                Agua pura y segura para tu hogar y oficina.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="container">
+                  <div class="row p-5">
+                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                          <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                      </div>
+                      <div class="col-lg-6 mb-0 d-flex align-items-center">
+                          <div class="text-align-left">
+                              <h1 class="h1"><b>Entrega Rápida y</b> Confiable</h1>
+                              
+                              <p>
+                                Con <strong>INTAPP</strong>, puedes rastrear a tu distribuidor en tiempo real.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="container">
+                  <div class="row p-5">
+                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                          <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
+                      </div>
+                      <div class="col-lg-6 mb-0 d-flex align-items-center">
+                          <div class="text-align-left">
+                              <h1 class="h1">Compromiso con el medio ambiente</h1>
+                              <h3 class="h2"> Envases reciclables </h3>
+                              <p>
+                                Con prácticas sostenibles en toda nuestra cadena de suministro.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+          <i class="fas fa-chevron-left"></i>
+      </a>
+      <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+          <i class="fas fa-chevron-right"></i>
+      </a>
+  </div>
+  <!-- End Banner Hero -->
+
+  
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+      <div class="row text-center pt-3">
+          <div class="col-lg-6 m-auto">
+              <h1 class="h1">Conoce Nuestros Productos</h1>
+              <p>
+                INTAPP Confianza que se bebe...!!!
+              </p>
+          </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 p-5 mt-3 text-center">
+          <a href="shop-single.html">
+            <img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border" style="width: 150px; height: 150px;">
+          </a>
+          <h5 class="text-center mt-3 mb-3">BOTELLÓN 20L AQUA PREMIUM (LIQUÍDO)</h5>
+          <p class="text-center"><a class="btn btn-success " href="shop-single.html">Comprar</a></p>
+        </div>
+        <div class="col-12 col-md-4 p-5 mt-3 text-center">
+          <a href="shop-single.html">
+            <img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border" style="width: 150px; height: 150px;">
+          </a>
+          <h5 class="text-center mt-3 mb-3">BOTELLA 500ML AQUA PREMIUM</h5>
+          <p class="text-center"><a class="btn btn-success"  href="shop-single.html">Comprar</a></p>
+        </div>
+      </div>
+      
+  </section>
+  <!-- End Categories of The Month -->
+
+
+    <!-- Start Featured Product -->
+    <section class="bg-light">
+      <div class="container py-5">
+          <div class="row text-center py-3">
+              <div class="col-lg-6 m-auto">
+                  <h1 class="h1">Beneficios de Consumir Agua</h1>
+                  <p>
+                    En INTAGUA, nos dedicamos a proporcionar agua embotellada de la más alta calidad para mantenerte 
+                    saludable e hidratado. Nuestra agua pasa por rigurosos controles de calidad para garantizar su 
+                    pureza y seguridad. ¡Elige INTAGUA y disfruta de los innumerables beneficios del agua pura y fresca!
+                  </p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12 col-md-4 mb-4">
+                  <div class="card h-100">
+                      <img src="./assets/img/feature_prod_01.jpg" class="card-img-top" alt="...">
+                      
+                      <div class="card-body">
+                          <a class="h2 text-decoration-none text-dark">Mantente Hidratado, Mantente Saludable</a>
+                          <p class="card-text">
+                            El consumo regular de agua es esencial para mantener la hidratación adecuada del cuerpo. La hidratación mejora la función cerebral, regula la temperatura corporal y ayuda a transportar nutrientes y oxígeno a las células. ¡Bebe agua y siente la diferencia!
+                          </p>
+                          
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12 col-md-4 mb-4">
+                  <div class="card h-100">
+                      <a href="shop-single.html">
+                          <img src="./assets/img/feature_prod_02.jpg" class="card-img-top" alt="...">
+                      </a>
+                      <div class="card-body">
+                          
+                          <a class="h2 text-decoration-none text-dark">Agua: Tu Aliado Energético</a>
+                          <p class="card-text">
+                            El agua ayuda a mejorar tu rendimiento físico y mental. Mantenerse hidratado puede prevenir la fatiga, mejorar la concentración y aumentar tu nivel de energía durante el día. ¡Añade más vitalidad a tu vida con cada sorbo!                          </p>
+                          
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12 col-md-4 mb-4">
+                  <div class="card h-100">
+                      <a href="shop-single.html">
+                          <img src="./assets/img/feature_prod_03.jpg" class="card-img-top" alt="...">
+                      </a>
+                      <div class="card-body">
+                          
+                          <a class="h2 text-decoration-none text-dark">Agua: El Secreto para una Digestión Saludable</a>
+                          <p class="card-text">
+                            El agua es crucial para una buena digestión. Ayuda a disolver los nutrientes y facilita su absorción en el cuerpo. Además, beber agua antes de las comidas puede ayudarte a sentirte lleno y apoyar tus objetivos de pérdida de peso.                          </p>
+                       
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- End Featured Product -->
+
+  
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+      <div class="container">
+          <div class="row">
+
+              <div class="col-md-4 pt-5">
+                  <h2 class="h2 text-success border-bottom pb-3 border-light logo">IntApp</h2>
+                  <ul class="list-unstyled text-light footer-link-list">
+                      <li>
+                          <i class="fas fa-map-marker-alt fa-fw"></i>
+                          Calle Principal 123, Riobamba, Ecuador
+                      </li>
+                      <li>
+                          <i class="fa fa-phone fa-fw"></i>
+                          <a class="text-decoration-none" href="tel:0984291013">0984291013</a>
+                      </li>
+                      <li>
+                          <i class="fa fa-envelope fa-fw"></i>
+                          <a class="text-decoration-none" href="mailto:info@company.com">contacto@intagua.com</a>
+                      </li>
+                  </ul>
+              </div>
+
+              <div class="col-md-4 pt-5">
+                  <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+                  <ul class="list-unstyled text-light footer-link-list">
+                      <li><a class="text-decoration-none" href="#">Botellón 20L</a></li>
+                      <li><a class="text-decoration-none" href="#">Botella 500ml</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-md-4 pt-5">
+                  <h2 class="h2 text-light border-bottom pb-3 border-light">Información Adicional</h2>
+                  <ul class="list-unstyled text-light footer-link-list">
+                      <li><a class="text-decoration-none" href="#">Inicio</a></li>
+                      <li><a class="text-decoration-none" href="#">Sobre Nosotros</a></li>
+                      <li><a class="text-decoration-none" href="#">Inicio Sesión</a></li>
+                      <li><a class="text-decoration-none" href="#">Contacto</a></li>
+                  </ul>
+              </div>
+
+          </div>
+
+          <div class="row text-light mb-4">
+              <div class="col-12 mb-3">
+                  <div class="w-100 my-3 border-top border-light"></div>
+              </div>
+              <div class="col-auto me-auto">
+                  <ul class="list-inline text-left footer-icons">
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="col-auto">
+                  <label class="sr-only" for="subscribeEmail">Email address</label>
+                  <div class="input-group mb-2">
+                      <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                      <div class="input-group-text btn-success text-light">Subscribe</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="w-100 bg-black py-3">
+          <div class="container">
+              <div class="row pt-2">
+                  <div class="col-12">
+                      <p class="text-left text-light">
+                          Copyright &copy; 2024 IntApp
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </footer>
+  <!-- End Footer -->
+    <!-- Codigos que no se si deben ir aqui  
   <app-root></app-root>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script
     src="https://www.paypal.com/sdk/js?client-id=AXOb346G6NcxbV3qqM3vvXvVw0M5O48onPkFsbx9aSJI20M_3fJ7FCEKlBhvCfG2lwwfQv_53j0tIjxO&currency=EC"></script>
+-->
+  <!-- Start Script -->
+  <script src="assets/js/jquery-1.11.0.min.js"></script>
+  <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/templatemo.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <!-- End Script -->
+
 
 </body>
 
