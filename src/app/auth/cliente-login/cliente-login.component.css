@@ -1,0 +1,36 @@
+/* Estilos para el footer */
+.footer-green {
+    background-color: #59AB6E; /* Color de fondo del footer */
+    color: #fff; /* Color del texto del footer */
+}
+
+.footer-green a {
+    color: #fff; /* Color de los enlaces dentro del footer */
+}
+
+.footer-green a:hover {
+    color: #f8f9fa; /* Color del texto al hacer hover sobre los enlaces del footer */
+}
+
+/* Estilos para los botones */
+.btn-green {
+    background-color: #59AB6E; /* Color de fondo de los botones */
+    border-color: #59AB6E; /* Color del borde de los botones */
+    color: #fff; /* Color del texto de los botones */
+}
+
+.btn-green:hover {
+    background-color: #4A9B5F; /* Color de fondo de los botones al hacer hover */
+    border-color: #4A9B5F; /* Color del borde de los botones al hacer hover */
+}
+
+.btn-secondary-green {
+    background-color: #6c757d; /* Color de fondo del botón secundario a gris */
+    border-color: #6c757d; /* Color del borde del botón secundario a gris */
+    color: #fff; /* Color del texto del botón secundario a blanco */
+}
+
+.btn-secondary-green:hover {
+    background-color: #5a6268; /* Color de fondo del botón secundario al hacer hover */
+    border-color: #545b62; /* Color del borde del botón secundario al hacer hover */
+}

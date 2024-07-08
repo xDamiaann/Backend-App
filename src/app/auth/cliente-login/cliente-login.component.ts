@@ -17,6 +17,20 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  navigateToCliente() {
+    this.router.navigate(['login-cliente']);
+  }
+  navigateToDistribuidor() {
+    this.router.navigate(['login-distribuidor']);
+  }
+  navigateToAdmin() {
+    this.router.navigate(['login-admin']);
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']); // Navega a la ruta '/register'
+  }
+
   onSubmit() {
     this.authService.loginCliente(this.credentials).subscribe(
       response => {
@@ -35,3 +49,8 @@ export class LoginComponent {
     );
   }
 }
+
+
+
+
+  

@@ -188,4 +188,32 @@ body, ul, li, p, a, label, input, div {
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+  body {
+      font-size: 16px; /* Tamaño de fuente base */
+  }
+
+  .tempaltemo-carousel .h1 {
+      font-size: 2rem; /* Tamaño de fuente para encabezados grandes */
+  }
+
+  .container {
+      width: 100%; /* Ancho completo para contenedor principal */
+      max-width: 1200px; /* Máximo ancho para mantener el diseño controlado */
+      margin: 0 auto; /* Centra el contenedor */
+      padding: 0 20px; /* Añade un poco de espacio a los lados del contenedor */
+      box-sizing: border-box; /* Incluye el padding en el ancho total */
+  }
+
+  /* Ajuste de tamaño de fuente para otros elementos según necesidad */
+  .product-wap .h3,
+  .product-wap li,
+  .product-wap i,
+  .product-wap p {
+      font-size: 1rem; /* Ajusta el tamaño de fuente para elementos de productos */
+  }
+
+  /* Otros ajustes según necesidad */
+}
+
+
