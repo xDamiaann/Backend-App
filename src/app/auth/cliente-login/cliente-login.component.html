@@ -47,7 +47,7 @@
        <div class="container d-flex justify-content-between align-items-center">
 
            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-               Zay
+               IntApp
            </a>
 
            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,13 +114,13 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
+        <form (ngSubmit)="onSubmit()">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Iniciar Sesión Cliente</p>
             
           </div>
 
-          
+          <p></p>
 
           <!-- Email input -->
           <div data-mdb-input-init class="form-outline mb-4">
@@ -162,32 +162,103 @@
       </div>
     </div>
   </div>
-  <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 footer-green">
+  
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+      <div class="container">
+          <div class="row">
 
-    <!-- Copyright -->
-    <div class="text-white mb-3 mb-md-0">
-      Copyright © IntApp 2024. All rights reserved.
-    </div>
-    <!-- Copyright -->
+              <div class="col-md-4 pt-5">
+                  <h2 class="h2 text-success border-bottom pb-3 border-light logo">IntApp</h2>
+                  <ul class="list-unstyled text-light footer-link-list">
+                      <li>
+                          <i class="fas fa-map-marker-alt fa-fw"></i>
+                          Calle Principal 123, Riobamba, Ecuador
+                      </li>
+                      <li>
+                          <i class="fa fa-phone fa-fw"></i>
+                          <a class="text-decoration-none" href="tel:0984291013">0984291013</a>
+                      </li>
+                      <li>
+                          <i class="fa fa-envelope fa-fw"></i>
+                          <a class="text-decoration-none" href="mailto:info@company.com">contacto@intagua.com</a>
+                      </li>
+                  </ul>
+              </div>
 
-    <!-- Right -->
-    <div>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="#!" class="text-white">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </div>
-</section>
+              <div class="col-md-4 pt-5">
+                  <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+                  <ul class="list-unstyled text-light footer-link-list">
+                      <li><a class="text-decoration-none" href="#">Botellón 20L</a></li>
+                      <li><a class="text-decoration-none" href="#">Botella 500ml</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-md-4 pt-5">
+                  <h2 class="h2 text-light border-bottom pb-3 border-light">Información Adicional</h2>
+                  <ul class="list-unstyled text-light footer-link-list">
+                      <li><a href="index.html" class="text-decoration-none"  >Inicio</a></li>
+                      <li>      <a routerLink="/about" class="text-decoration-none">Sobre Nosotros</a></li>
+                      <li><a class="text-decoration-none" href="#">Inicio Sesión</a></li>
+                      <li><a class="text-decoration-none" href="#">Contacto</a></li>
+                  </ul>
+              </div>
+
+          </div>
+
+          <div class="row text-light mb-4">
+              <div class="col-12 mb-3">
+                  <div class="w-100 my-3 border-top border-light"></div>
+              </div>
+              <div class="col-auto me-auto">
+                  <ul class="list-inline text-left footer-icons">
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                          <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="col-auto">
+                  <label class="sr-only" for="subscribeEmail">Email address</label>
+                  <div class="input-group mb-2">
+                      <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                      <div class="input-group-text btn-success text-light">Subscribe</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="w-100 bg-black py-3">
+          <div class="container">
+              <div class="row pt-2">
+                  <div class="col-12">
+                      <p class="text-left text-light">
+                          Copyright &copy; 2024 IntApp
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </footer>
+  <!-- End Footer -->
+   
+
+  <!-- Start Script -->
+  <script src="assets/js/jquery-1.11.0.min.js"></script>
+  <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/templatemo.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <!-- End Script --></section>
 
 </body>
 </html>

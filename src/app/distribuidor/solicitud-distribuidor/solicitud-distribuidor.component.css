@@ -1,0 +1,67 @@
+/* Estilos para el footer */
+.footer-green {
+    background-color: #59AB6E; /* Color de fondo del footer */
+    color: #fff; /* Color del texto del footer */
+  }
+  
+  .footer-green a {
+    color: #fff; /* Color de los enlaces dentro del footer */
+  }
+  
+  .footer-green a:hover {
+    color: #f8f9fa; /* Color del texto al hacer hover sobre los enlaces del footer */
+  }
+  
+  /* Estilos para los botones */
+  .btn-green {
+    background-color: white; /* Color de fondo de los botones */
+    border-color: white; /* Color del borde de los botones */
+    color: #4A9B5F; /* Color del texto de los botones */
+  }
+  
+  .btn-green:hover {
+    background-color: #4A9B5F; /* Color de fondo de los botones al hacer hover */
+    border-color: #4A9B5F; /* Color del borde de los botones al hacer hover */
+  }
+  
+  .btn-secondary-green {
+    background-color: white; /* Color de fondo del botón secundario a gris */
+    border-color: white; /* Color del borde del botón secundario a gris */
+    color: #fff; /* Color del texto del botón secundario a blanco */
+  }
+  
+  .btn-secondary-green:hover {
+    background-color: white; /* Color de fondo del botón secundario al hacer hover */
+    border-color: white; /* Color del borde del botón secundario al hacer hover */
+  }
+  
+  /* Estilos generales */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe como mínimo el alto completo de la ventana */
+    margin: 0;
+  }
+  
+  .content {
+    flex: 1; /* El contenido ocupa todo el espacio restante */
+  }
+  
+  .footer-green {
+    background-color: #59AB6E; /* Color de fondo verde */
+    position: fixed; /* Fija el footer en la parte inferior */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    bottom: 0; /* Se coloca al final de la ventana */
+    left: 0; /* Alinea el footer a la izquierda */
+    text-align: center; /* Centra el contenido del footer */
+  }
+  
+  .footer-green .text-white {
+    margin-bottom: 0; /* Elimina el margen inferior de los elementos de texto dentro del footer */
+  }
+  
+  .footer-green div:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último div (para los íconos de redes sociales) */
+  }
+  
+  

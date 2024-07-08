@@ -15,6 +15,16 @@ export class SolicitudDistribuidorComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
 
+  navigateToCliente() {
+    this.router.navigate(['login-cliente']);
+  }
+  navigateToDistribuidor() {
+    this.router.navigate(['login-distribuidor']);
+  }
+  navigateToAdmin() {
+    this.router.navigate(['login-admin']);
+  }
+
   ngOnInit(): void {
     this.solicitudForm = this.fb.group({
       cedula: ['', [Validators.required, this.validarCedula.bind(this)]],
