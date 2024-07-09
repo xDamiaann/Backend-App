@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './shop.components.html',
-  styleUrls: ['./shop.components.css']
+  selector: 'app-shop',
+  templateUrl: './shop.component.html',
+  styleUrls: ['./shop.component.css']
 })
 
 export class ShopComponent {

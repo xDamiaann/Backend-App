@@ -24,6 +24,7 @@ import { FacturasAllComponent } from './facturacion/components/facturas-all/fact
 import { Validaciones } from './utils/validaciones';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
 import { AboutComponent } from './about/about.component';
+import { ShopComponent } from './shop/shop.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,8 +52,10 @@ const routes: Routes = [
   { path: 'validaciones', component: Validaciones },
   { path: 'pago-confirmado', component: PagoConfirmadoComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'shop', component: ShopComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/home' },
+  
 ];
 
 @NgModule({
