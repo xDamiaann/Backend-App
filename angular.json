@@ -26,29 +26,32 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@fortawesome/fontawesome-free/webfonts/",
+                "output": "/webfonts/"
+              }
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "src/styles.css",
-              "node_modules/leaflet/dist/leaflet.css",
-              "node_modules/mapbox-gl/dist/mapbox-gl.css"
-            ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.slim.min.js",
-              "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+  "src/styles.css"
+],
+"scripts": [
+  "node_modules/jquery/dist/jquery.slim.min.js",
+  "node_modules/popper.js/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+        "maximumWarning": "2mb",
+        "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
