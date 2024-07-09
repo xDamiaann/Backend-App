@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FacturaServiceService } from '../../factura.service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-facturas-all',
   templateUrl: './facturas-all.component.html',

@@ -3,6 +3,7 @@ import { ClienteServiceService } from '../../cliente-service.service'; // Cambia
 import { ActivatedRoute, Router } from '@angular/router';
 import { MmodalComponent } from 'src/app/shared/mmodal/mmodal.component';
 // import { ToastrService } from 'ngx-toastr';
+import { NgModule } from '@angular/core';
 
 declare var bootstrap: any;
 
