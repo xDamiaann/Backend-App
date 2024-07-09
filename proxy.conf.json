@@ -1,0 +1,10 @@
+{
+    "/osm": {
+        "target": "https://{s}.tile.openstreetmap.org",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/osm": ""
+        }
+    }
+}

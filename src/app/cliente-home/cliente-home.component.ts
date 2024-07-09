@@ -9,11 +9,24 @@ import { ClienteServiceService } from '../cliente/cliente-service.service';
 })
 export class ClienteHomeComponent implements OnInit {
   username: string = ''; //Inicializar la propiedad
+  ubicacion: string = '';
   pedidos: any[] = [];
   idCliente: string = '';
   distribuidores: any = [];
 
   constructor(private router: Router, private clienteService: ClienteServiceService) { }
+
+  obtenerUbicacionCliente() {
+    this.clienteService.obtenerUbicacion().subscribe(
+      (ubicacion: any) => {
+        this.ubicacion = ubicacion;
+        console.log(this.ubicacion);
+      },
+      error => {
+        console.error('Error al obtener la ubicación del cliente:', error);
+      }
+    );
+  }
 
   ngOnInit(): void {
     const clienteJson = localStorage.getItem('cliente');
@@ -22,6 +35,7 @@ export class ClienteHomeComponent implements OnInit {
       this.username = cliente ? cliente.username : '';
       this.idCliente = cliente ? cliente.id : '';
       this.cargarPedidosCliente();
+      this.obtenerUbicacionCliente();
     }
   }
 

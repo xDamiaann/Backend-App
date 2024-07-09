@@ -31,6 +31,8 @@ import { DetalleFacturaComponent } from './facturacion/components/detalle-factur
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component'
 
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MapaComponent } from './distribuidor/mapa/mapa.component';
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
     ClientePedidosComponent,
     FacturasAllComponent,
     DetalleFacturaComponent,
-    PagoConfirmadoComponent
+    PagoConfirmadoComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
     AuthModule,
     NgbModule,
     ReactiveFormsModule,// Importa BrowserAnimationsModule
+    LeafletModule,
 
   ],
   providers: [AdminServiceService],
