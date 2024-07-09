@@ -1,67 +1,76 @@
 <div class="container mt-5">
-    <h2>Gestión de Barrios</h2>
-    <div class="d-flex justify-content-between align-items-center">
-      <h3>Barrios</h3>
-      <button class="btn btn-primary" data-toggle="modal" data-target="#agregarBarrioModal">Agregar Barrio</button>
-    </div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Parroquia</th>
-          <th>Ubicación</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let barrio of barrios">
-          <td>{{ barrio.nombre }}</td>
-          <td>{{ barrio.descripcion }}</td>
-          <td>{{ barrio.parroquiaNombre }}</td>
-          <td>{{ barrio.ubicacion }}</td>
-          <td>
-            <button class="btn btn-danger" (click)="eliminarBarrio(barrio.id_barrio)">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="agregarBarrioModal" tabindex="-1" role="dialog" aria-labelledby="agregarBarrioModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="agregarBarrioModalLabel">Agregar Nuevo Barrio</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form (submit)="agregarBarrio()">
-              <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" [(ngModel)]="nuevoBarrio.nombre" name="nombre" class="form-control" required>
-                <input type="hidden" id="id_admin" [(ngModel)]="nuevoBarrio.id_admin" name="id_admin" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" [(ngModel)]="nuevoBarrio.descripcion" name="descripcion" class="form-control" required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="parroquia">Parroquia:</label>
-                <select id="parroquia" [(ngModel)]="nuevoBarrio.id_parroquia" name="id_parroquia" class="form-control" required>
-                  <option *ngFor="let parroquia of parroquias" [value]="parroquia.id_parroquia">{{ parroquia.nombre }}</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="ubicacion">Ubicación:</label>
-                <input type="text" id="ubicacion" [(ngModel)]="nuevoBarrio.ubicacion" name="ubicacion" class="form-control" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Agregar</button>
-            </form>
-          </div>
+  <h2>Gestión de Barrios</h2>
+  <div class="d-flex justify-content-between align-items-center">
+    <h3>Barrios</h3>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#agregarBarrioModal"
+      (click)="onModalShown()">Agregar Barrio</button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Parroquia</th>
+        <th>Ubicación</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let barrio of barrios">
+        <td>{{ barrio.barrionombre }}</td>
+        <td>{{ barrio.descripcion }}</td>
+        <td>{{ barrio.parroquianombre }}</td>
+        <td>{{ barrio.ubicacion }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="eliminarBarrio(barrio.id_barrio)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="agregarBarrioModal" tabindex="-1" role="dialog" aria-labelledby="agregarBarrioModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="agregarBarrioModalLabel">Agregar Nuevo Barrio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (submit)="agregarBarrio()">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" [(ngModel)]="nuevoBarrio.nombre" name="nombre" class="form-control"
+                required>
+              <input type="hidden" id="id_admin" [(ngModel)]="nuevoBarrio.id_admin" name="id_admin"
+                class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción:</label>
+              <textarea id="descripcion" [(ngModel)]="nuevoBarrio.descripcion" name="descripcion" class="form-control"
+                required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="parroquia">Parroquia:</label>
+              <select id="parroquia" [(ngModel)]="nuevoBarrio.id_parroquia" name="id_parroquia" class="form-control"
+                required>
+                <option *ngFor="let parroquia of parroquias" [value]="parroquia.id_parroquia">{{ parroquia.nombre }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ubicacion">Ubicación:</label>
+              <div id="map" class="map-container"></div>
+              <input type="text" id="ubicacion" [(ngModel)]="nuevoBarrio.ubicacion" name="ubicacion"
+                class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </form>
         </div>
       </div>
     </div>
+  </div>
 </div>

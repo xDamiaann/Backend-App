@@ -23,6 +23,8 @@ import { ClientePedidosComponent } from './cliente/cliente-pedidos/cliente-pedid
 import { FacturasAllComponent } from './facturacion/components/facturas-all/facturas-all.component';
 import { Validaciones } from './utils/validaciones';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
+import { MapaComponent } from './distribuidor/mapa/mapa.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -48,7 +50,8 @@ const routes: Routes = [
   { path: 'cliente-pedidos', component: ClientePedidosComponent },
   { path: 'facturas', component: FacturasAllComponent },
   { path: 'validaciones', component: Validaciones },
-  { path: 'pago-confirmado', component: PagoConfirmadoComponent }
+  { path: 'pago-confirmado', component: PagoConfirmadoComponent },
+  { path: 'mapa', component: MapaComponent }
 ];
 
 @NgModule({

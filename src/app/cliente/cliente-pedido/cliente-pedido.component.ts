@@ -43,6 +43,7 @@ export class ClientePedidoComponent implements OnInit {
     detalles: [] as PedidoDetalle[]
   };
 
+  ubicacion: string = '';
   formData: FormData = {
     id_distribuidor: null,
     id_producto: null,
@@ -73,6 +74,7 @@ export class ClientePedidoComponent implements OnInit {
       this.idCliente = cliente ? cliente.id : '';
     }
     this.cargarProductos();
+    this.obtenerUbicacionCliente();
   }
 
   // cargarProductos() {
@@ -212,9 +214,12 @@ export class ClientePedidoComponent implements OnInit {
   }
 
   onSelect(event: any) {
+
+    console.log("ubicacion", this.ubicacion);
     const distribuidorSeleccionado = event; // Obtener el distribuidor seleccionado del evento
     const pedidoFinal = {
       ...this.pedido,
+      ubicacion: this.ubicacion,
       detalles: this.pedido.detalles.map(detalle => ({
         id_producto: detalle.producto.id_producto,  // Asegurarse de que este ID esté presente
         id_presentacion: detalle.presentacion.id_presentacion,  // Asegurarse de que este ID esté presente
@@ -248,6 +253,18 @@ export class ClientePedidoComponent implements OnInit {
       },
       (error) => {
         console.error('Error al reasignar distribuidor:', error);
+      }
+    );
+  }
+
+  obtenerUbicacionCliente() {
+    this.clienteService.obtenerUbicacion().subscribe(
+      (ubicacion: any) => {
+        this.ubicacion = `${ubicacion.lat},${ubicacion.lng}`;
+        console.log(this.ubicacion);
+      },
+      error => {
+        console.error('Error al obtener la ubicación del cliente:', error);
       }
     );
   }

@@ -32,4 +32,30 @@ export class DistribuidorService {
   generarFactura(id_pedido: number, pedido: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/factura/${id_pedido}`, { pedido });
   }
+
+  getLocation(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/distributor/location`);
+  }
+
+  obtenerUbicacion(): Observable<any> {
+    return new Observable((observer) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            observer.next({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            });
+            observer.complete();
+          },
+          (error) => {
+            observer.error(error);
+          }
+        );
+      } else {
+        observer.error('Geolocation not supported by this browser.');
+      }
+    });
+  }
+
 }
