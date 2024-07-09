@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './auth/cliente-register/cliente-register.component';
 import { HomeComponent } from './home/home.component';
@@ -23,8 +23,6 @@ import { ClientePedidosComponent } from './cliente/cliente-pedidos/cliente-pedid
 import { FacturasAllComponent } from './facturacion/components/facturas-all/facturas-all.component';
 import { Validaciones } from './utils/validaciones';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
-import { MapaComponent } from './distribuidor/mapa/mapa.component';
-
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,8 +48,7 @@ const routes: Routes = [
   { path: 'cliente-pedidos', component: ClientePedidosComponent },
   { path: 'facturas', component: FacturasAllComponent },
   { path: 'validaciones', component: Validaciones },
-  { path: 'pago-confirmado', component: PagoConfirmadoComponent },
-  { path: 'mapa', component: MapaComponent }
+  { path: 'pago-confirmado', component: PagoConfirmadoComponent }
 ];
 
 @NgModule({

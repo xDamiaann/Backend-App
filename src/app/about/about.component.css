@@ -1,0 +1,20 @@
+.nav-link {
+    cursor: pointer; /* Asegúrate de que el cursor sea una mano */
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline; /* O cualquier estilo de hover que prefieras */
+  }
+
+  .dropdown-item {
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
