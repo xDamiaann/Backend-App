@@ -45,9 +45,7 @@
   
   "src/assets/js/bootstrap.bundle.min.js",
   "src/assets/js/jquery-1.11.0.min.js",
-  "node_modules/jquery/dist/jquery.min.js",
-  "src/assets/js/owl.carousel.min.js"
-  
+  "node_modules/jquery/dist/jquery.min.js"  
    
 ]
           },

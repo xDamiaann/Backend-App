@@ -1,14 +1,14 @@
 
-import { Component,ViewEncapsulation } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { WOW } from 'wowjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  encapsulation: ViewEncapsulation.None,
+ 
   animations: [
     trigger('fadeIn', [
       state('void', style({ opacity: 0 })),
@@ -37,6 +37,9 @@ export class HomeComponent {
     this.router.navigate(['about']);
   }
 
+  ngOnInit() {
+    new WOW().init();
+  }
 
 }
 

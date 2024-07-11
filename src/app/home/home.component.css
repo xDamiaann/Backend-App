@@ -30,3 +30,35 @@
     margin: 5px;
   }
   
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.service-content {
+    flex-grow: 1;
+}
+
+.service .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Alineación central de los elementos */
+}
+
+.service .col-lg-6,
+.service .col-xl-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Asegura que los elementos se estiren verticalmente */
+}
+
+.service .col-lg-6 .service-item,
+.service .col-xl-4 .service-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2rem; /* Ajusta este valor según sea necesario */
+}
