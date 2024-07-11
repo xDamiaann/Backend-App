@@ -62,3 +62,9 @@
     justify-content: space-between;
     margin-bottom: 2rem; /* Ajusta este valor según sea necesario */
 }
+
+.blog-img img {
+  height: 300px; /* Ajusta la altura deseada */
+  width: 100%; /* Ajusta la anchura al 100% del contenedor */
+  object-fit: cover; /* Ajusta el modo de ajuste para cubrir */
+}

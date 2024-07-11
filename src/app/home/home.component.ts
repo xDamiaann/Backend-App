@@ -21,8 +21,8 @@ import { WOW } from 'wowjs';
 
 export class HomeComponent {
 
-  constructor(private router: Router) { } // Usa @Inject(Router) aquí
-
+  constructor(private router: Router) { }
+  
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
   }
@@ -40,6 +40,11 @@ export class HomeComponent {
   ngOnInit() {
     new WOW().init();
   }
+
+
+
+  currentDate: Date = new Date();
+
 
 }
 

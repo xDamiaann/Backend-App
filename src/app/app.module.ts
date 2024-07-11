@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './home/home.component';
@@ -21,17 +22,14 @@ import { AdminEstadoPedidosComponent } from './admin/admin-estado-pedidos/admin-
 import { AdminEstadoSolicitudesComponent } from './admin/admin-estado-solicitudes/admin-estado-solicitudes.component';
 import { AdminPresentacionesComponent } from './admin/admin-presentaciones/admin-presentaciones.component';
 import { AdminProductosComponent } from './admin/admin-productos/admin-productos.component';
-import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.component';
 import { MmodalComponent } from './shared/mmodal/mmodal.component';
+import { ClientePedidoComponent } from './cliente/cliente-pedido/cliente-pedido.component';
 import { AdminAbastecerComponent } from './admin/admin-abastecer/admin-abastecer.component';
 import { DistribuidorPedidosComponent } from './distribuidor/distribuidor-pedidos/distribuidor-pedidos/distribuidor-pedidos.component';
 import { ClientePedidosComponent } from './cliente/cliente-pedidos/cliente-pedidos/cliente-pedidos.component';
 import { FacturasAllComponent } from './facturacion/components/facturas-all/facturas-all.component';
 import { DetalleFacturaComponent } from './facturacion/components/detalle-factura/detalle-factura.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component'
-
-
+import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
 
 @NgModule({
   declarations: [
@@ -59,18 +57,18 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    CommonModule,
-    HttpClientModule,
-    AuthModule,
-    NgbModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    HttpClientModule,
+    NgbModule,
+    CommonModule,
+    AuthModule,
+    AppRoutingModule
   ],
-  providers: [AdminServiceService],
+  providers: [
+    AdminServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
