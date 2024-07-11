@@ -34,15 +34,21 @@
               }
             ],
             "styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-  "src/styles.css"
+  "src/styles.css",
+  "src/assets/css/bootstrap.min.css",
+  "src/assets/css/style.css",
+  "src/assets/lib/animate/animate.min.css",
+  "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
+   "src/assets/css/custom.css"
 ],
 "scripts": [
-  "node_modules/jquery/dist/jquery.slim.min.js",
-  "node_modules/popper.js/dist/umd/popper.min.js",
-  "node_modules/bootstrap/dist/js/bootstrap.min.js",
-  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+  
+  "src/assets/js/bootstrap.bundle.min.js",
+  "src/assets/js/jquery-1.11.0.min.js",
+  "node_modules/jquery/dist/jquery.min.js",
+  "src/assets/js/owl.carousel.min.js"
+  
+   
 ]
           },
           "configurations": {

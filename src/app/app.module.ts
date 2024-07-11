@@ -66,7 +66,8 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
     HttpClientModule,
     AuthModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]
