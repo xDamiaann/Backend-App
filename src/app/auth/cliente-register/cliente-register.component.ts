@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   };
 
   private usernameSubject = new Subject<string>();
+  private cedulaSubject = new Subject<string>();
 
   constructor(
     private fb: FormBuilder,
@@ -42,47 +43,74 @@ export class RegisterComponent implements OnInit {
       id_barrio: [null, Validators.required]
     });
 
-    if (this.clienteForm) {
-      this.authService.getBarrios().subscribe(
-        response => {
-          this.barrio = response;
-          console.log("datos", this.barrio);
-        },
-        error => {
-          console.error('Error al obtener los barrios', error);
-        }
-      );
+    this.authService.getBarrios().subscribe(
+      response => {
+        this.barrio = response;
+        console.log("datos", this.barrio);
+      },
+      error => {
+        console.error('Error al obtener los barrios', error);
+      }
+    );
 
-      this.usernameSubject.pipe(
-        debounceTime(300),
-        switchMap((username: string) => {
-          if (username) {
-            return this.authService.checkUsername(username).pipe(
-              switchMap((isTaken: boolean) => of(isTaken))
-            );
-          } else {
-            return of(false);
-          }
-        })
-      ).subscribe(
-        (isTaken: boolean) => {
-          this.validaciones.username = !isTaken;
-          if (isTaken) {
-            this.clienteForm.get('username')?.setErrors({ taken: true });
-          } else {
-            this.clienteForm.get('username')?.setErrors(null);
-          }
-        },
-        (error: any) => {
-          console.error('Error al verificar el username', error);
-          this.validaciones.username = false;
+    // Validación de Username
+    this.usernameSubject.pipe(
+      debounceTime(300),
+      switchMap((username: string) => {
+        if (username) {
+          return this.authService.checkUsername(username).pipe(
+            switchMap((isTaken: boolean) => of(isTaken))
+          );
+        } else {
+          return of(false);
         }
-      );
+      })
+    ).subscribe(
+      (isTaken: boolean) => {
+        this.validaciones.username = !isTaken;
+        if (isTaken) {
+          this.clienteForm.get('username')?.setErrors({ taken: true });
+        } else {
+          this.clienteForm.get('username')?.setErrors(null);
+        }
+      },
+      (error: any) => {
+        console.error('Error al verificar el username', error);
+        this.validaciones.username = false;
+      }
+    );
 
-      this.clienteForm.get('username')?.valueChanges.subscribe(username => {
-        this.usernameSubject.next(username);
-      });
-    }
+    this.clienteForm.get('username')?.valueChanges.subscribe(username => {
+      this.usernameSubject.next(username);
+    });
+
+    // Validación de Cédula
+    this.clienteForm.get('cedula')?.valueChanges.pipe(
+      debounceTime(300),
+      switchMap(cedula => {
+        const valid = Validaciones.cedulaEcuatoriana(cedula);
+        if (!valid) {
+          this.clienteForm.get('cedula')?.setErrors({ invalidCedula: true });
+          return of(false);
+        } else {
+          this.clienteForm.get('cedula')?.setErrors(null);
+          return this.authService.checkCedula(cedula).pipe(
+            switchMap((isTaken: boolean) => of(isTaken))
+          );
+        }
+      })
+    ).subscribe(
+      (isTaken: boolean) => {
+        this.validaciones.cedula = !isTaken;
+        if (isTaken) {
+          this.clienteForm.get('cedula')?.setErrors({ taken: true });
+        }
+      },
+      (error: any) => {
+        console.error('Error al verificar la cédula', error);
+        this.validaciones.cedula = false;
+      }
+    );
   }
 
   validarCedula(control: any) {

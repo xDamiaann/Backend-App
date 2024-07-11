@@ -37,5 +37,11 @@ export class AuthService {
   checkUsername(username: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/cliente/check-username/${username}`);
   }
+
+  checkCedula(cedula: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/cliente/check-cedula/${cedula}`);
+  }
+
+
   // Otros métodos como login, logout, etc.
 }

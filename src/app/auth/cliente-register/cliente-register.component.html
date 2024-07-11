@@ -4,8 +4,9 @@
     <div class="form-group">
       <label for="cedula">Cédula</label>
       <input type="text" class="form-control" id="cedula" formControlName="cedula" required>
-      <div *ngIf="clienteForm.get('cedula')?.invalid && clienteForm.get('cedula')?.touched" class="text-danger">
-        Cédula inválida
+      <div *ngIf="clienteForm.get('cedula')?.errors && clienteForm.get('cedula')?.touched">
+        <span *ngIf="clienteForm.get('cedula')?.hasError('invalidCedula')" class="text-danger">Cédula inválida</span>
+        <span *ngIf="clienteForm.get('cedula')?.hasError('taken')" class="text-danger">Cédula ya está en uso</span>
       </div>
     </div>
     <div class="form-group">
@@ -48,7 +49,7 @@
     <div class="form-group">
       <label for="id_barrio">Barrio</label>
       <select class="form-control" id="id_barrio" formControlName="id_barrio" required>
-        <option *ngFor="let barrio of barrio" [value]="barrio.id_barrio">{{ barrio.nombre }}</option>
+        <option *ngFor="let barrio of barrio" [value]="barrio.id_barrio">{{ barrio.barrionombre }}</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!formularioValido()">Registrarse</button>
