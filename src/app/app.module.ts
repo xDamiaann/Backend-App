@@ -30,6 +30,7 @@ import { FacturasAllComponent } from './facturacion/components/facturas-all/fact
 import { DetalleFacturaComponent } from './facturacion/components/detalle-factura/detalle-factura.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component'
+import { ShopComponent } from './shop/shop.component';
 
 
 
@@ -55,7 +56,8 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
     ClientePedidosComponent,
     FacturasAllComponent,
     DetalleFacturaComponent,
-    PagoConfirmadoComponent
+    PagoConfirmadoComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,

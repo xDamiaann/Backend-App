@@ -37,6 +37,10 @@ export class HomeComponent {
     this.router.navigate(['about']);
   }
 
+  navigateToShop() {
+    this.router.navigate(['shop']);
+  }
+
   ngOnInit() {
     new WOW().init();
   }

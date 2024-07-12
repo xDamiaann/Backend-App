@@ -20,4 +20,13 @@ export class AboutComponent  {
   navigateToAdmin() {
     this.router.navigate(['login-admin']);
   }
+
+  
+  navigateToAbout() {
+    this.router.navigate(['about']);
+  }
+
+  navigateToShop() {
+    this.router.navigate(['shop']);
+  }
 }
