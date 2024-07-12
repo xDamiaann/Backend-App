@@ -11,16 +11,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
               "leaflet",
               "mapbox-gl"
             ],
-            "outputPath": {
-              "base": "dist/proyecto"
-            },
+            "outputPath": "dist/proyecto",
             "index": "src/index.html",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -29,27 +28,25 @@
               "src/favicon.ico",
               "src/assets",
               {
-                "glob": "**/*",
+                "glob": "*/",
                 "input": "node_modules/@fortawesome/fontawesome-free/webfonts/",
                 "output": "/webfonts/"
               }
             ],
             "styles": [
-  "src/styles.css",
-  "src/assets/css/bootstrap.min.css",
-  "src/assets/css/style.css",
-  "src/assets/lib/animate/animate.min.css",
-  "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
-   "src/assets/css/custom.css"
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+  "src/styles.css"
 ],
 "scripts": [
-  
-  "src/assets/js/bootstrap.bundle.min.js",
-  "src/assets/js/jquery-1.11.0.min.js",
-  "node_modules/jquery/dist/jquery.min.js"  
-   
-],
-"browser": "src/main.ts"
+  "node_modules/jquery/dist/jquery.slim.min.js",
+  "node_modules/popper.js/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+  "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/wowjs/dist/wow.min.js",
+    "node_modules/jquery/dist/jquery.min.js"
+]
           },
           "configurations": {
             "production": {
@@ -68,7 +65,9 @@
               "outputHashing": "all"
             },
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -83,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "proyecto:build:production"
+              "browserTarget": "proyecto:build:production"
             },
             "development": {
-              "buildTarget": "proyecto:build:development"
+              "browserTarget": "proyecto:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "proyecto:build"
+            "browserTarget": "proyecto:build"
           }
         },
         "test": {
@@ -122,3 +121,5 @@
     "analytics": "9b3c4725-0b36-4690-a0ca-96ecb1f3e0f2"
   }
 }
+
+
