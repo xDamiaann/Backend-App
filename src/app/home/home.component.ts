@@ -41,6 +41,10 @@ export class HomeComponent {
     this.router.navigate(['shop']);
   }
 
+  navigateToContacto() {
+    this.router.navigate(['contacto']);
+  }
+
   ngOnInit() {
     new WOW().init();
   }

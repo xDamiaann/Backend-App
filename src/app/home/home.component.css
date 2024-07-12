@@ -1,70 +1,18 @@
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    color: #333;
-  }
-  
-  p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #666;
-  }
-  
-  .owl-carousel {
-    margin-top: 20px;
-  }
-  
-  .owl-carousel .item {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px;
-  }
-  
-  .service-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+.carousel-inner {
+  background-color: #001442; /* Color de fondo del carrusel */
 }
 
-.service-content {
-    flex-grow: 1;
+.carousel-item {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
-.service .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Alineación central de los elementos */
-}
-
-.service .col-lg-6,
-.service .col-xl-4 {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; /* Asegura que los elementos se estiren verticalmente */
-}
-
-.service .col-lg-6 .service-item,
-.service .col-xl-4 .service-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 2rem; /* Ajusta este valor según sea necesario */
-}
-
-.blog-img img {
-  height: 300px; /* Ajusta la altura deseada */
-  width: 100%; /* Ajusta la anchura al 100% del contenedor */
-  object-fit: cover; /* Ajusta el modo de ajuste para cubrir */
+.carousel-item.active {
+  opacity: 1;
+  position: relative;
 }

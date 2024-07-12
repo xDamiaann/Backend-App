@@ -25,6 +25,7 @@ import { Validaciones } from './utils/validaciones';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
 import { AboutComponent } from './about/about.component';
 import { ShopComponent } from './shop/shop.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +55,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: '**', redirectTo: '' }, // Manejo de rutas no encontradas
   { path: 'shop', component: ShopComponent },
+  { path: 'contacto', component: ContactoComponent },
+
 ];
 
 @NgModule({

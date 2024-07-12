@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,6 +31,8 @@ import { DetalleFacturaComponent } from './facturacion/components/detalle-factur
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component'
 import { ShopComponent } from './shop/shop.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -57,8 +59,10 @@ import { ShopComponent } from './shop/shop.component';
     FacturasAllComponent,
     DetalleFacturaComponent,
     PagoConfirmadoComponent,
-    ShopComponent
+    ShopComponent,
+    ContactoComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -68,7 +72,13 @@ import { ShopComponent } from './shop/shop.component';
     HttpClientModule,
     AuthModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]

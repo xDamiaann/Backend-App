@@ -46,7 +46,9 @@
   "node_modules/jquery/dist/jquery.min.js",
               "node_modules/wowjs/dist/wow.min.js",
     "node_modules/jquery/dist/jquery.min.js"
-]
+],
+"serviceWorker": true,
+"ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {

@@ -2,13 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  selector: 'app-contacto',
+ templateUrl: './contacto.component.html',
+  styleUrl: './contacto.component.css'
 })
-
-export class AboutComponent  {
-
+export class ContactoComponent {
   constructor(private router: Router) {}
 
   navigateToCliente() {
@@ -33,4 +31,5 @@ export class AboutComponent  {
   navigateToContacto() {
     this.router.navigate(['contacto']);
   }
+
 }
