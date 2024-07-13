@@ -9,6 +9,8 @@ import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
   styleUrls: ['./cliente-login.component.css']
 })
 export class LoginComponent {
+
+
   credentials = {
     username: '',
     password: ''
@@ -31,6 +33,20 @@ export class LoginComponent {
   navigateToRegister() {
     this.router.navigate(['/register']); // Navega a la ruta '/register'
   }
+
+  navigateToAbout() {
+    this.router.navigate(['about']);
+  }
+
+  navigateToShop() {
+    this.router.navigate(['shop']);
+  }
+
+  navigateToContacto() {
+    this.router.navigate(['contacto']);
+  }
+
+ 
 
   onSubmit() {
     this.authService.loginCliente(this.credentials).subscribe(

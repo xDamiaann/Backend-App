@@ -53,9 +53,10 @@ const routes: Routes = [
   { path: 'validaciones', component: Validaciones },
   { path: 'pago-confirmado', component: PagoConfirmadoComponent },
   { path: 'about', component: AboutComponent },
-  { path: '**', redirectTo: '' }, // Manejo de rutas no encontradas
   { path: 'shop', component: ShopComponent },
   { path: 'contacto', component: ContactoComponent },
+  { path: '**', redirectTo: '' } // Manejo de rutas no encontradas
+  
 
 ];
 

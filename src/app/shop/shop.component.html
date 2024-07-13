@@ -1,3 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- index.html -->
+<head>
+
+    <title>IntApp</title>
+    <meta charset="utf-8">
+    <title>IntApp</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+
+     <!-- Icon Font Stylesheet -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  
+  
+</head>
+
+
+<body>
+
+ <!-- Navbar & Hero Start -->
+ <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="text-primary"><img src="assets/img/logo.png" alt="Logo"> Intapp</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link ">Inicio</a>
+                <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
+                <a (click)="navigateToShop()" class="nav-item nav-link active">Productos</a>
+                <a href="blog.html" class="nav-item nav-link">Noticias</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
+                        <a href="product.html" class="dropdown-item">Nuestros Productos</a>
+                        <a href="team.html" class="dropdown-item">Equipo</a>
+                    </div>
+                </div>
+                <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+            </div>
+            <div class="d-none d-xl-flex me-3">
+                <div class="d-flex flex-column pe-3 border-end border-primary">
+                    <span class="text-body">Contáctanos</span>
+                    <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
+                <div class="dropdown-menu m-0">
+                    
+                    <a (click)="navigateToCliente()" class="dropdown-item">Cliente</a>
+                    <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
+                    <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Nuestros Productos</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active text-primary">Nuestros Productos</li>
+            </ol>    
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+
+
+
+ <!-- Modal Search Start -->
+ <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h4 class="modal-title mb-0" id="exampleModalLabel">Buscar por palabra clave</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="input-group-text btn border p-3"><i class="fa fa-search text-white"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Search End -->
+
+
+  <!-- Products Start -->
+  <div class="container-fluid product py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-uppercase text-primary">Nuestros Productos</h4>
+            <h1 class="display-3 text-capitalize mb-3">"Protege a Tu Familia con Agua de la Mejor Calidad"</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="product-item">
+                    <img src="assets/img/product-1.png" class="img-fluid w-100 rounded-top"  alt="Image">
+                    <div class="product-content bg-light text-center rounded-bottom p-4">
+                        <p>500ml Cada Botella</p>
+                        <a href="#" class="h4 d-inline-block mb-3">Botella de Agua Mineral</a>
+                        <p class="fs-4 text-primary mb-3">$0.50</p>
+                        <a (click)="scrollToElement('info-botella-500ml')"  class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="product-item">
+                    <img src="assets/img/product-2.png" class="img-fluid w-100 rounded-top"  alt="Image">
+                    <div class="product-content bg-light text-center rounded-bottom p-4">
+                        <p>20L Cada Botellón</p>
+                        <a href="#" class="h4 d-inline-block mb-3">Botellón de agua mineral</a>
+                        <p class="fs-4 text-primary mb-3">$1.00</p>
+                        <a (click)="scrollToElement('info-botellon')"  class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+<p>
+
+</p>
+<p>
+
+</p>
+<!-- Información adicional más abajo -->
+
+
+<div class="bg-light rounded p-4 mb-4 wow fadeInRight" data-wow-delay="0.2s">
+    <div class="row align-items-center">
+        <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
+            <img src="assets/img/product-1.png" alt="Botella de agua mineral de 500ml" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-8">
+            <div id="info-botella-500ml" class="mt-5">
+                <h2>Botella de agua mineral de 500ml</h2>
+                <p class="text-justify">Disfruta del refrescante sabor y la comodidad de nuestra botella de agua mineral de 500ml. Esta botella está diseñada para mantener la pureza y frescura del agua, ideal para llevar contigo a donde vayas.</p>
+                <ul>
+                    <li><strong>Contenido:</strong> 500ml de agua mineral purificada.</li>
+                    <li><strong>Beneficios:</strong> Nutritiva y refrescante, perfecta para hidratarte en cualquier momento del día.</li>
+                    <li><strong>Características:</strong> Tapón hermético para mantener la frescura, etiqueta informativa con detalles sobre el origen y tratamiento del agua.</li>
+                    <li><strong>Uso recomendado:</strong> Ideal para deportistas, oficinistas y cualquier persona consciente de la importancia de la hidratación.</li>
+                </ul>
+                <p class="text-justify">No pierdas la oportunidad de disfrutar de agua pura y de calidad en una botella práctica y fácil de transportar. ¡Ordénala ahora y mantén tu salud siempre en primer lugar!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light rounded p-4 mb-4  wow fadeInLeft" data-wow-delay="0.2s">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <div id="info-botellon" class="mt-5">
+                <h2>Botellón de agua mineral de 20L</h2>
+                <p class="text-justify">Nuestro botellón de agua mineral de 20 litros es ideal para hogares, oficinas y eventos que requieren una fuente confiable de agua pura y fresca. Diseñado para mantener la calidad y pureza del agua durante un largo período de tiempo, este botellón es la elección perfecta para satisfacer las necesidades de hidratación de grandes grupos.</p>
+                <ul>
+                    <li><strong>Capacidad:</strong> 20 litros de agua mineral purificada.</li>
+                    <li><strong>Beneficios:</strong> Frescura y pureza garantizadas, ideal para consumir directamente o utilizar en dispensadores de agua.</li>
+                    <li><strong>Características:</strong> Tapón seguro y hermético que asegura la frescura del agua, asa ergonómica para fácil transporte y manejo.</li>
+                    <li><strong>Uso recomendado:</strong> Perfecto para hogares grandes, oficinas, centros educativos, y eventos donde se requiere una fuente continua de agua de calidad.</li>
+                </ul>
+                <p class="text-justify">No te preocupes por quedarte sin agua en momentos clave. Con nuestro botellón de 20 litros, tendrás agua pura y segura siempre disponible, asegurando la salud y bienestar de todos los que dependen de una hidratación adecuada.</p>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-3 mb-lg-0">
+            <img src="assets/img/product-2.png" alt="Botellón de agua mineral de 20L" class="img-fluid rounded float-end">
+        </div>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+<!-- Products End -->
+
+
+ 
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <div class="footer-item">
+                               
+                                <h3 class="text-white mb-4">
+                                    <img src="assets/img/logo.png" alt="Logo" style="height: 40px; width: auto;" class="me-2">
+                                    IntApp
+                                </h3>
+
+                               <p class="mb-3">Intagua es una marca que parece estar relacionada con productos de agua, ofreciendo diferentes presentaciones.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Sobre Nosotros</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Por qué Elegirnos?</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Horario de Atención</h4>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Lun - Viern:</h6>
+                                <p class="text-white mb-0">09.00 am A 07.00 pm</p>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Sábado:</h6>
+                                <p class="text-white mb-0">10.00 am A 05.00 pm</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Información de Contacto</h4>
+                            <a href="#"><i class="fa fa-map-marker-alt me-2"></i>123 Calle Principal, Riobamba, Ecuador</a>
+                            <a href="mailto:info&#64;intagua.com"><i class="fas fa-envelope me-2"></i> info&#64;intagua.com</a>
+                            <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i> +1-800-555-1234</a>
+                            <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i> +593 984291013</a>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                       
+                    
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>IntApp</a>, Todos los Derechos Reservados.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-body">
+                          Diseñado por IntApp <a class="border-bottom text-white" href="">IntApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/wow/wow.min.js"></script>
+    <script src="assets/lib/easing/easing.min.js"></script>
+    <script src="assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="assets/lib/counterup/counterup.min.js"></script>
+    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    
+<!-- Bootstrap Bundle with Popper -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<!-- Wow.js -->
+<script src="assets/js/wow.min.js"></script>
+<!-- Initialize Wow.js -->
+<script>
+    new WOW().init();
+</script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/main.js"></script>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <!DOCTYPE html>
 <html lang="en">

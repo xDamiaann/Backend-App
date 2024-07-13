@@ -29,9 +29,7 @@ import { ClientePedidosComponent } from './cliente/cliente-pedidos/cliente-pedid
 import { FacturasAllComponent } from './facturacion/components/facturas-all/facturas-all.component';
 import { DetalleFacturaComponent } from './facturacion/components/detalle-factura/detalle-factura.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component'
-import { ShopComponent } from './shop/shop.component';
-import { ContactoComponent } from './contacto/contacto.component';
+import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 
@@ -58,9 +56,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ClientePedidosComponent,
     FacturasAllComponent,
     DetalleFacturaComponent,
-    PagoConfirmadoComponent,
-    ShopComponent,
-    ContactoComponent
+    PagoConfirmadoComponent
+   
   ],
   
   imports: [
