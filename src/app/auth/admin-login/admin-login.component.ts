@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -15,14 +15,20 @@ export class AdminLoginComponent {
   token: any;
   admin: any;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
+
+  ngOnInit(): void {
+    if (this.authService.isAdminLoggedIn()) {
+      this.router.navigate(['/admin-home']);
+    }
+  }
 
   onSubmit() {
     this.authService.loginAdmin(this.credentials).subscribe(
       response => {
         // Aquí manejas la respuesta del backend
         this.token = response.token;
-        this.admin=response.admin;
+        this.admin = response.admin;
         localStorage.setItem('token', this.token);
         localStorage.setItem('admin', JSON.stringify(this.admin));
 

@@ -21,7 +21,6 @@ export class AdminSolicitudesComponent implements OnInit {
     this.cargarEstadosSolicitud();
   }
 
-
   cargarSolicitudes() {
     this.adminService.cargarSolicitudes().subscribe(
       data => {

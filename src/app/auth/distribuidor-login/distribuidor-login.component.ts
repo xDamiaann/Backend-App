@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,6 +18,12 @@ export class DistribuidorLoginComponent {
   private watchId: number | null = null;
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
+
+  ngOnInit(): void {
+    if (this.authService.isDistribuidorLoggedIn()) {
+      this.router.navigate(['/distribuidor-home']);
+    }
+  }
 
   onSubmit() {
     this.authService.loginDistribuidor(this.credentials).subscribe(

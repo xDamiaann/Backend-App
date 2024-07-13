@@ -24,13 +24,15 @@ import { FacturasAllComponent } from './facturacion/components/facturas-all/fact
 import { Validaciones } from './utils/validaciones';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
 import { MapaComponent } from './distribuidor/mapa/mapa.component';
-
+import { ClienteAuthGuard } from './utils/cliente-auth.guard';
+import { AdminAuthGuard } from './utils/admin-auth.guard';
+import { DistribuidorAuthGuard } from './utils/distribuidor-auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login-cliente', component: LoginComponent },
-  { path: 'login-distribuidor', component: DistribuidorLoginComponent },
-  { path: 'login-admin', component: AdminLoginComponent },
+  { path: 'login-cliente', component: LoginComponent, canActivate: [ClienteAuthGuard] },
+  { path: 'login-distribuidor', component: DistribuidorLoginComponent, canActivate: [DistribuidorAuthGuard] },
+  { path: 'login-admin', component: AdminLoginComponent, canActivate: [AdminAuthGuard] },
   { path: 'register-cliente', component: RegisterComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full' },
   { path: 'cliente-home', component: ClienteHomeComponent }, //ruta para la pagina de inicio del cliente
@@ -51,7 +53,8 @@ const routes: Routes = [
   { path: 'facturas', component: FacturasAllComponent },
   { path: 'validaciones', component: Validaciones },
   { path: 'pago-confirmado', component: PagoConfirmadoComponent },
-  { path: 'mapa', component: MapaComponent }
+  { path: 'mapa', component: MapaComponent },
+
 ];
 
 @NgModule({

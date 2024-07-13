@@ -42,6 +42,16 @@ export class AuthService {
     return this.http.get(`${this.apiUrl}/cliente/check-cedula/${cedula}`);
   }
 
+  isClienteLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
 
+  isAdminLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  isDistribuidorLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
   // Otros métodos como login, logout, etc.
 }
