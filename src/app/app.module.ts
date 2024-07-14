@@ -1,5 +1,5 @@
 import { NgModule, isDevMode } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -30,14 +30,17 @@ import { FacturasAllComponent } from './facturacion/components/facturas-all/fact
 import { DetalleFacturaComponent } from './facturacion/components/detalle-factura/detalle-factura.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
+//import { ServiceWorkerModule } from '@angular/service-worker';
 
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+//import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MapaComponent } from './distribuidor/mapa/mapa.component';
 import { ClienteProfileComponent } from './cliente/cliente-profile/cliente-profile.component';
 import { DistribuidorProfileComponent } from './distribuidor/distribuidor-profile/distribuidor-profile.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
-
+import { MenuGeneralComponent } from "./shared/menu-general/menu-general.component";
+import { MenuClienteComponent } from "./shared/menu-cliente/menu-cliente.component";
+import { ProfileClienteComponent } from './cliente/profile-cliente/profile-cliente.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -61,13 +64,13 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
     ClientePedidosComponent,
     FacturasAllComponent,
     DetalleFacturaComponent,
-    PagoConfirmadoComponent
-   
     PagoConfirmadoComponent,
+    // PagoConfirmadoComponent,
     MapaComponent,
     ClienteProfileComponent,
     DistribuidorProfileComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
+    ProfileClienteComponent,
   ],
 
   imports: [
@@ -78,14 +81,17 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
     CommonModule,
     HttpClientModule,
     AuthModule,
-    NgbModule,
+    RouterModule,
+    //NgbModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    //ServiceWorkerModule.register('ngsw-worker.js', {
+    //enabled: !isDevMode(),
+    // Register the ServiceWorker as soon as the application is stable
+    // or after 30 seconds (whichever comes first).
+    // registrationStrategy: 'registerWhenStable:30000'
+    //}),
+    MenuGeneralComponent,
+    MenuClienteComponent
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]

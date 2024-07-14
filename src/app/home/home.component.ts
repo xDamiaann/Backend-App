@@ -8,7 +8,7 @@ import { WOW } from 'wowjs';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
- 
+
   animations: [
     trigger('fadeIn', [
       state('void', style({ opacity: 0 })),
@@ -22,7 +22,7 @@ import { WOW } from 'wowjs';
 export class HomeComponent {
 
   constructor(private router: Router) { }
-  
+
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
   }
@@ -46,7 +46,7 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-    new WOW().init();
+    //new WOW().init();
   }
 
 

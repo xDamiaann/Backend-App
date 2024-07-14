@@ -15,6 +15,7 @@ export class ClienteProfileComponent implements OnInit {
     const clienteJson = localStorage.getItem('cliente');
     if (clienteJson) {
       this.cliente = JSON.parse(clienteJson);
+      console.log("cliente", this.cliente);
     }
   }
 }

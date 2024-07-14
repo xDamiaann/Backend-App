@@ -6,6 +6,7 @@ import { LoginComponent } from './cliente-login/cliente-login.component';
 import { DistribuidorLoginComponent } from './distribuidor-login/distribuidor-login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuGeneralComponent } from "../shared/menu-general/menu-general.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MenuGeneralComponent
   ]
 })
 export class AuthModule { }
