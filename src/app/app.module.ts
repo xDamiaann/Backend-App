@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +29,8 @@ import { ClientePedidosComponent } from './cliente/cliente-pedidos/cliente-pedid
 import { FacturasAllComponent } from './facturacion/components/facturas-all/facturas-all.component';
 import { DetalleFacturaComponent } from './facturacion/components/detalle-factura/detalle-factura.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component'
+import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -56,22 +57,27 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
     FacturasAllComponent,
     DetalleFacturaComponent,
     PagoConfirmadoComponent
+   
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     CommonModule,
-    HttpClientModule, // Asegúrate de agregar esta línea
+    HttpClientModule,
     AuthModule,
     NgbModule,
-    ReactiveFormsModule,// Importa BrowserAnimationsModule
-    LeafletModule,
-
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
