@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'login-cliente', component: LoginComponent },
   { path: 'login-distribuidor', component: DistribuidorLoginComponent },
   { path: 'login-admin', component: AdminLoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register-cliente', component: RegisterComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full' },
   { path: 'cliente-home', component: ClienteHomeComponent }, //ruta para la pagina de inicio del cliente
   { path: 'distribuidor-home', component: DistribuidorHomeComponent }, //ruta para la pagina de inicio del distribuidor

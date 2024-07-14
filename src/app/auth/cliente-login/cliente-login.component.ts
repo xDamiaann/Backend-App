@@ -68,6 +68,10 @@ export class LoginComponent {
     );
   }
 
+  navigateToClienteRegister() {
+    this.router.navigate(['register-cliente']);
+  }
+
   // obtenerUbicacionCliente() {
   //   this.ClienteService.obtenerUbicacion().subscribe(
   //     (ubicacion: any) => {
