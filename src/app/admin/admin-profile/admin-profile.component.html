@@ -1,0 +1,9 @@
+<div class="container mt-5">
+    <h2>Perfil del Administrador</h2>
+    <div *ngIf="admin">
+        <p><strong>Nombre:</strong> {{ admin.nombre }}</p>
+        <p><strong>Email:</strong> {{ admin.email }}</p>
+        <p><strong>Teléfono:</strong> {{ admin.telefono }}</p>
+        <!-- Añade más campos según tus necesidades -->
+    </div>
+</div>

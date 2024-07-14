@@ -37,6 +37,7 @@ interface FormData {
 export class ClientePedidoComponent implements OnInit {
 
   @ViewChild('distribuidoresModal') distribuidoresModal!: MmodalComponent;
+  @ViewChild('distribuidoresCombinadosModal') distribuidoresCombinadosModal!: MmodalComponent;
   //productos: Producto[] = [];
   pedido = {
     ubicacion: '',
@@ -64,6 +65,7 @@ export class ClientePedidoComponent implements OnInit {
   pedidos: any[] = [];
   idCliente: string = '';
 
+  distribuidoresCombinados: any[] = [];
 
   constructor(private clienteService: ClienteServiceService, private router: Router, private adminService: AdminServiceService) { }
 
@@ -203,8 +205,24 @@ export class ClientePedidoComponent implements OnInit {
     if (this.idCliente != '') {
       this.clienteService.getDistribuidoresConStock(this.pedido.detalles).subscribe(
         (distribuidores: any[]) => {
-          this.distribuidores = distribuidores.filter(distribuidor => distribuidor.disponibilidad === 'Libre');
-          this.distribuidoresModal.abrir();
+          if (distribuidores.length > 0) {
+            this.distribuidores = distribuidores.filter(distribuidor => distribuidor.disponibilidad === 'Libre');
+            console.log('normales', this.distribuidores);
+            this.distribuidoresModal.abrir();
+          } else {
+            this.clienteService.getDistribuidoresCombinados(this.pedido.detalles).subscribe(
+              (distribuidores: any[]) => {
+                this.distribuidoresCombinados = distribuidores;
+                this.distribuidoresCombinadosModal.distribuidores = distribuidores;
+                this.distribuidoresCombinadosModal.detalles = this.pedido.detalles;
+                console.log('combinados', this.distribuidoresCombinados);
+                this.distribuidoresCombinadosModal.abrir();
+              },
+              error => {
+                console.error('Error al obtener distribuidores combinados:', error);
+              }
+            );
+          }
         },
         error => {
           console.error('Error al obtener distribuidores:', error);
@@ -212,7 +230,6 @@ export class ClientePedidoComponent implements OnInit {
       );
     }
   }
-
   onSelect(event: any) {
 
     console.log("ubicacion", this.ubicacion);
@@ -256,6 +273,7 @@ export class ClientePedidoComponent implements OnInit {
       }
     );
   }
+
 
   obtenerUbicacionCliente() {
     this.clienteService.obtenerUbicacion().subscribe(

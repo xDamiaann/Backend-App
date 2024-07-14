@@ -1,0 +1,9 @@
+<div class="container mt-5">
+    <h2>Perfil del Cliente</h2>
+    <div *ngIf="cliente">
+        <p><strong>Nombre:</strong> {{ cliente.nombre }}</p>
+        <p><strong>Email:</strong> {{ cliente.email }}</p>
+        <p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+        <!-- Añade más campos según tus necesidades -->
+    </div>
+</div>

@@ -27,6 +27,9 @@ import { MapaComponent } from './distribuidor/mapa/mapa.component';
 import { ClienteAuthGuard } from './utils/cliente-auth.guard';
 import { AdminAuthGuard } from './utils/admin-auth.guard';
 import { DistribuidorAuthGuard } from './utils/distribuidor-auth.guard';
+import { ClienteProfileComponent } from './cliente/cliente-profile/cliente-profile.component';
+import { DistribuidorProfileComponent } from './distribuidor/distribuidor-profile/distribuidor-profile.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +57,9 @@ const routes: Routes = [
   { path: 'validaciones', component: Validaciones },
   { path: 'pago-confirmado', component: PagoConfirmadoComponent },
   { path: 'mapa', component: MapaComponent },
+  { path: 'cliente-profile', component: ClienteProfileComponent },
+  { path: 'admin-profile', component: AdminProfileComponent },
+  { path: 'distribuidor-profile', component: DistribuidorProfileComponent },
 
 ];
 

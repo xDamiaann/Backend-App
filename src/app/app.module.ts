@@ -33,6 +33,9 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MapaComponent } from './distribuidor/mapa/mapa.component';
+import { ClienteProfileComponent } from './cliente/cliente-profile/cliente-profile.component';
+import { DistribuidorProfileComponent } from './distribuidor/distribuidor-profile/distribuidor-profile.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 
 
 @NgModule({
@@ -58,7 +61,10 @@ import { MapaComponent } from './distribuidor/mapa/mapa.component';
     FacturasAllComponent,
     DetalleFacturaComponent,
     PagoConfirmadoComponent,
-    MapaComponent
+    MapaComponent,
+    ClienteProfileComponent,
+    DistribuidorProfileComponent,
+    AdminProfileComponent
   ],
   imports: [
     BrowserModule,

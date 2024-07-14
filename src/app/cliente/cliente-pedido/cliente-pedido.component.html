@@ -86,3 +86,8 @@
 <app-mmodal [idModal]="'distribuidores'" [icono]="'./assets/img/success.png'" [titulo]="'Seleccione Distribuidor'"
   [descripcion]="''" [distribuidores]="distribuidores" (selectDistr)="onSelect($event)" [tipo]="1"
   #distribuidoresModal></app-mmodal>
+
+<!-- Modal para distribuidores combinados -->
+<app-mmodal [idModal]="'distribuidores-combinados'" [icono]="'./assets/img/success.png'"
+  [titulo]="'Seleccione Distribuidores Combinados'" [descripcion]="''" [distribuidores]="distribuidoresCombinados"
+  (selectDistr)="onSelect($event)" [tipo]="5" #distribuidoresCombinadosModal></app-mmodal>
