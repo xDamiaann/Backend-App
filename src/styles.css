@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import './assets/css/bootstrap.min.css';
+@import './assets/css/style.css';
+
+/* Importaciones globales */
+
+@import 'src/assets/lib/animate/animate.min.css';
+@import 'src/assets/lib/owlcarousel/assets/owl.carousel.min.css';
+
+
+/* Estilos adicionales específicos para este componente */
+/* Si no hay estilos adicionales específicos, estas secciones pueden no ser necesarias */
+
+/* Bibliotecas de estilos */
+@import 'src/assets/lib/animate/animate.min.css'; 
+
+/* Estilos personalizados de Bootstrap */
+@import 'src/assets/css/bootstrap.min.css';
+
+/* Estilos de plantilla */
+@import 'src/assets/css/style.css';
+

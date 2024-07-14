@@ -9,6 +9,8 @@ import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
   styleUrls: ['./cliente-login.component.css']
 })
 export class LoginComponent {
+
+
   credentials = {
     username: '',
     password: ''
@@ -17,6 +19,34 @@ export class LoginComponent {
   cliente: any;
 
   constructor(private authService: AuthService, private router: Router, private ClienteService: ClienteServiceService) { }
+
+  navigateToCliente() {
+    this.router.navigate(['login-cliente']);
+  }
+  navigateToDistribuidor() {
+    this.router.navigate(['login-distribuidor']);
+  }
+  navigateToAdmin() {
+    this.router.navigate(['login-admin']);
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']); // Navega a la ruta '/register'
+  }
+
+  navigateToAbout() {
+    this.router.navigate(['about']);
+  }
+
+  navigateToShop() {
+    this.router.navigate(['shop']);
+  }
+
+  navigateToContacto() {
+    this.router.navigate(['contacto']);
+  }
+
+
 
 
   ngOnInit(): void {
@@ -70,3 +100,8 @@ export class LoginComponent {
   //   );
   // }
 }
+
+
+
+
+

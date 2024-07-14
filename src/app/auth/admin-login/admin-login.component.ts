@@ -23,6 +23,17 @@ export class AdminLoginComponent {
     }
   }
 
+  navigateToCliente() {
+    this.router.navigate(['login-cliente']);
+  }
+  navigateToDistribuidor() {
+    this.router.navigate(['login-distribuidor']);
+  }
+  navigateToAdmin() {
+    this.router.navigate(['login-admin']);
+  }
+
+
   onSubmit() {
     this.authService.loginAdmin(this.credentials).subscribe(
       response => {

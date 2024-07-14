@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- index.html -->
+<head>
+
+    <title>IntApp</title>
+    <meta charset="utf-8">
+    <title>IntApp</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+
+     <!-- Icon Font Stylesheet -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  
+  
+</head>
+
+
+<body>
+
+ <!-- Navbar & Hero Start -->
+ <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="text-primary"><img src="assets/img/logo.png" alt="Logo"> Intapp</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link ">Inicio</a>
+                <a (click)="navigateToAbout()" class="nav-item nav-link active">Sobre Nosotros</a>
+                <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
+                <a href="blog.html" class="nav-item nav-link">Noticias</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
+                        <a href="product.html" class="dropdown-item">Nuestros Productos</a>
+                        <a href="team.html" class="dropdown-item">Equipo</a>
+                    </div>
+                </div>
+                <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+            </div>
+            <div class="d-none d-xl-flex me-3">
+                <div class="d-flex flex-column pe-3 border-end border-primary">
+                    <span class="text-body">Contáctanos</span>
+                    <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
+                <div class="dropdown-menu m-0">
+                    
+                    <a (click)="navigateToCliente()" class="dropdown-item">Cliente</a>
+                    <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
+                    <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Sobre Nosotros</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active text-primary">Sobre Nosotros</li>
+            </ol>    
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+
+
+
+ <!-- Modal Search Start -->
+ <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h4 class="modal-title mb-0" id="exampleModalLabel">Buscar por palabra clave</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="input-group-text btn border p-3"><i class="fa fa-search text-white"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Search End -->
+
+
+
+
+<!-- About Start -->
+<div class="container-fluid about overflow-hidden py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="about-img rounded h-100">
+                    <img src="assets/img/about.png" class="img-fluid rounded h-100 w-100" style="object-fit: cover;" alt="">
+                    <div class="about-exp"><span>20 Años de Experiencia</span></div>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="about-item">
+                    <h4 class="text-primary text-uppercase">Sobre Nosotros</h4>
+                    <h1 class="display-3 mb-3">Entregamos Agua de Calidad.</h1>
+                    <p class="mb-4">En Intagua, nos dedicamos a proporcionar agua embotellada de la más alta calidad, asegurando la pureza y seguridad a través de procesos rigurosos de filtración y control.</p>
+                    <div class="bg-light rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;"><i class="fas fa-tint text-white fa-2x"></i></div>
+                                    </div>
+                                    <div class="">
+                                        <a href="#" class="h4 d-inline-block mb-3">Clientes Satisfechos</a>
+                                        <p class="mb-0">Nuestros clientes confían en nosotros por nuestro compromiso con la calidad y el servicio excepcional.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;"><i class="fas fa-faucet text-white fa-2x"></i></div>
+                                    </div>
+                                    <div class="">
+                                        <a href="#" class="h4 d-inline-block mb-3">Productos Estándar</a>
+                                        <p class="mb-0">Ofrecemos productos de agua embotellada que cumplen con los más altos estándares de calidad y seguridad.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;"><i class="fas fa-mobile-alt text-white fa-2x"></i></div>
+                                    </div>
+                                    <div class="">
+                                        <a href="#" class="h4 d-inline-block mb-3">Intapp: Tu Aliado en la Gestión del Agua</a>
+                                        <p class="mb-0">Accede a Intapp, nuestra aplicación web, para gestionar tus pedidos de agua embotellada, realizar pagos y recibir notificaciones en tiempo real desde cualquier dispositivo con internet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+
+
+
+
+
+</body>
+
+</html>       
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+        <title>IntApp</title>
+        <meta charset="utf-8">
+        <base href="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Íconos y fuentes --
+        <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+        <script src="assets/js/jquery-1.11.0.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+      
+
+</head>
+
+<body>
+   <!-- Start Top Nav --
+   <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <i class="fa fa-envelope mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:intapp@agua.ec">contacto@intagua.com</a>
+                <i class="fa fa-phone mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:0984291013">0984291013</a>
+            </div>
+            <div>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Close Top Nav -->
+
+
+    <!-- Header --
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                IntApp
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-item nav-link active"  >Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                          <a routerLink="/about" class="nav-link">Sobre Nosotros</a>
+                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Comprar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contactos</a>
+                        </li>
+                        <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
+                          <div class="dropdown-menu text-capitalize">
+                            <a (click)="navigateToCliente()" class="dropdown-item">Cliente</a>
+                            <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
+                            <a (click)="navigateToAdmin()" class="dropdown-item">Admin</a>
+                          </div>
+                      </div>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal --
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <section class="bg-success py-5">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-md-8 text-white">
+                    <h1>Sobre Nosotros</h1>
+                    <p>
+                        Intagua es una empresa comprometida con la excelencia en la distribución de 
+                        agua embotellada en la zona urbana de Riobamba. Nos dedicamos a proporcionar 
+                        agua de la más alta calidad, asegurando su disponibilidad y pureza para 
+                        nuestros clientes. Nuestro enfoque se centra en la satisfacción del cliente 
+                        y la eficiencia operativa, garantizando un servicio confiable y puntual.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/img/about-hero.svg" alt="About Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Close Banner -->
+
+    <!-- Start Section --
+    <section class="container py-5">
+        <div class="row text-center pt-5 pb-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Nuestros Servicios</h1>
+                <p>
+                    Ofrecemos servicios de entrega directa a domicilio para asegurar que nuestros clientes reciban agua fresca y purificada de manera oportuna y conveniente.                </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-lg-4 pb-5">
+                <div class="row text-center py-3">
+                    <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
+                        <h2 class="h5 mt-4 text-center">Servicios de entrega</h2>
+                        <p>Nos comprometemos a realizar entregas rápidas y eficientes, con políticas claras de devolución para mantener la satisfacción del cliente en todo momento.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-6 col-lg-4 pb-5">
+                <div class="row text-center py-3">
+                    <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
+                        <h2 class="h5 mt-4 text-center">IntApp</h2>
+                        <p>Facilitamos el acceso a nuestros servicios a través de Intapp, permitiendo a los usuarios gestionar sus pedidos y recibir notificaciones en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-6 col-lg-4 pb-5">
+                <div class="row text-center py-3">
+                    <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
+                        <h2 class="h5 mt-4 text-center">Envío y devolución</h2>
+                        <p>Nos comprometemos a realizar entregas rápidas y eficientes, con políticas claras de devolución para mantener la satisfacción del cliente en todo momento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </section>
+    <!-- End Section -->
+
+    
+
+    
+
+    
+    <!-- Start Footer --
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+  
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">IntApp</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            Calle Principal 123, Riobamba, Ecuador
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="tel:0984291013">0984291013</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:info@company.com">contacto@intagua.com</a>
+                        </li>
+                    </ul>
+                </div>
+  
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Botellón 20L</a></li>
+                        <li><a class="text-decoration-none" href="#">Botella 500ml</a></li>
+                    </ul>
+                </div>
+  
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Información Adicional</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a href="index.html" class="text-decoration-none"  >Inicio</a></li>
+                        <li>      <a routerLink="/about" class="text-decoration-none">Sobre Nosotros</a></li>
+                        <li><a class="text-decoration-none" href="#">Inicio Sesión</a></li>
+                        <li><a class="text-decoration-none" href="#">Contacto</a></li>
+                    </ul>
+                </div>
+  
+            </div>
+  
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                        <div class="input-group-text btn-success text-light">Subscribe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 IntApp
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+    </footer>
+    <!-- End Footer -->
+     
+
+    <!-- Start Script --
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- End Script --
+</body>
+
+</html>
+-->

@@ -19,6 +19,16 @@ export class DistribuidorLoginComponent {
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
+  navigateToCliente() {
+    this.router.navigate(['login-cliente']);
+  }
+  navigateToDistribuidor() {
+    this.router.navigate(['login-distribuidor']);
+  }
+  navigateToAdmin() {
+    this.router.navigate(['login-admin']);
+  }
+
   ngOnInit(): void {
     if (this.authService.isDistribuidorLoggedIn()) {
       this.router.navigate(['/distribuidor-home']);

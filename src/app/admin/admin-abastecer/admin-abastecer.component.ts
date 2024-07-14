@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
+import { NgModule } from '@angular/core';
 
 interface Presentacion {
   id_presentacion: number;
@@ -30,15 +31,15 @@ export class AdminAbastecerComponent implements OnInit {
   };
 
 
-  
-  distribuidores :any= [];
-  productos :any= [];
-  presentaciones: any[]  = [];
+
+  distribuidores: any = [];
+  productos: any = [];
+  presentaciones: any[] = [];
 
   constructor(
     private AdminService: AdminServiceService,
-    
-  ) {}
+
+  ) { }
 
   ngOnInit() {
     this.cargarDistribuidores();
@@ -59,7 +60,7 @@ export class AdminAbastecerComponent implements OnInit {
     );
   }
 
-  
+
   onProductoChange() {
     if (this.formData.id_producto) {
       this.AdminService.obtenerPresentacionesPorProducto(this.formData.id_producto).subscribe(
@@ -76,7 +77,7 @@ export class AdminAbastecerComponent implements OnInit {
 
 
   onPresentacionChange() {
-    const id=this.formData.id_productopresentacion;
+    const id = this.formData.id_productopresentacion;
     this.presentaciones.forEach(element => {
       if (element.id_presentacion == this.formData.id_productopresentacion) {
         this.formData.precio = element.Presentacion ? element.Presentacion.precio : element.precio; // Maneja ambos casos
