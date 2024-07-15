@@ -1,5 +1,5 @@
 <app-menu-cliente></app-menu-cliente>
-<div class="container mt-5">
+<div class="container mt-5 py-5">
     <h2>Mis Pedidos REALIZADOS DEL CLIENTE</h2>
     <div *ngFor="let pedido of pedidos" class="card mb-3">
         <div class="card-body">
@@ -28,6 +28,10 @@
     </div>
 </div>
 
+
+<div class="mt-5">
+    <app-footer></app-footer>
+</div>
 <app-mmodal [idModal]="'distribuidores'" [icono]="'./assets/img/success.png'" [titulo]="'Seleccione Distribuidor'"
     [descripcion]="''" [distribuidores]="distribuidores" (selectDistr)="onSelect($event)" [tipo]="1"
     #distribuidoresModal></app-mmodal>

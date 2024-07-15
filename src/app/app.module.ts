@@ -40,6 +40,7 @@ import { MenuGeneralComponent } from "./shared/menu-general/menu-general.compone
 import { MenuClienteComponent } from "./shared/menu-cliente/menu-cliente.component";
 import { RouterModule } from '@angular/router';
 import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
+import { FooterComponent } from "./shared/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil
     MapaComponent,
     DistribuidorProfileComponent,
     AdminProfileComponent,
-    ClientePerfilComponent
+    ClientePerfilComponent,
   ],
 
   imports: [
@@ -89,7 +90,8 @@ import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil
     // registrationStrategy: 'registerWhenStable:30000'
     //}),
     MenuGeneralComponent,
-    MenuClienteComponent
+    MenuClienteComponent,
+    FooterComponent
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]

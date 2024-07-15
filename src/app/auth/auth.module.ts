@@ -7,6 +7,7 @@ import { DistribuidorLoginComponent } from './distribuidor-login/distribuidor-lo
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuGeneralComponent } from "../shared/menu-general/menu-general.component";
+import { FooterComponent } from "../shared/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MenuGeneralComponent } from "../shared/menu-general/menu-general.compon
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MenuGeneralComponent
+    MenuGeneralComponent,
+    FooterComponent
   ]
 })
 export class AuthModule { }
