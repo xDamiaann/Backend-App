@@ -64,44 +64,44 @@
             <input type="password" class="form-control input_pass" id="password" [(ngModel)]="credentials.password"
               name="password" required placeholder="Contraseña">
 
-
-          </div>
-          <div class="form-group">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customControlInline">
-              <label class="custom-control-label" for="customControlInline">Recordarme</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customControlInline">
+                            <label class="custom-control-label" for="customControlInline">Recordarme</label>
+                        </div>
+                    </div>
+                        <div class="d-flex justify-content-center mt-3 login_container">
+               
+                            <div class="text-center">
+                                <button type="submit" class="btn login_btn mb-3">Iniciar Sesión</button>
+                                <div class="d-flex justify-content-center links">
+                                    <a href="#">Olvidaste tu Contraseña?</a>
+                                </div>
+                            </div>
+                            
+               
+                </div>
+                </form>
             </div>
-          </div>
-          <div class="d-flex justify-content-center mt-3 login_container">
-
-            <div class="text-center">
-              <button type="submit" class="btn login_btn mb-3">Iniciar Sesión</button>
-              <div class="d-flex justify-content-center links">
-                <a href="#">Olvidaste tu Contraseña?</a>
-              </div>
+            <div class="d-flex justify-content-center mt-3 login_container">
+                <div class="d-flex justify-content-center align-items-center">
+                    <span style="color: white; margin-right: 10px;">No tienes cuenta?</span> 
+                   
+                    <div class="d-flex justify-content-center links">
+                        <a  class="text-decoration-none text-white" (click)="navigateToRegister()">Regístrate</a>
+                    </div>
+                   
+                </div>
             </div>
-
-
-          </div>
-        </form>
-      </div>
-      <div class="d-flex justify-content-center mt-3 login_container">
-        <div class="d-flex justify-content-center align-items-center">
-          <span style="color: white; margin-right: 10px;">No tienes cuenta?</span>
-
-          <div class="d-flex justify-content-center links">
-            <a class="text-decoration-none text-white" (click)="navigateToRegister()">Regístrate</a>
-          </div>
-
+            
+            
+            
+            
+            
         </div>
-      </div>
-
-
-
-
-
     </div>
-  </div>
 </div>
 
 

@@ -73,7 +73,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled', // Restaurar la posición de desplazamiento al cambiar de ruta
+    anchorScrolling: 'enabled', // Habilitar el desplazamiento a fragmentos (IDs) en la página
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
