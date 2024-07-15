@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     telefono: true,
     username: true
   };
-
+  passwordVisible: boolean = false;
   private usernameSubject = new Subject<string>();
   private cedulaSubject = new Subject<string>();
 
@@ -38,6 +38,24 @@ export class RegisterComponent implements OnInit {
   }
   navigateToAdmin() {
     this.router.navigate(['login-admin']);
+  }
+
+  navigateToAbout() {
+    this.router.navigate(['about']);
+  }
+
+  navigateToShop() {
+    this.router.navigate(['shop']);
+  }
+
+  navigateToContacto() {
+    this.router.navigate(['contacto']);
+  }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
+    passwordInput.type = this.passwordVisible ? 'text' : 'password';
   }
 
   ngOnInit(): void {
