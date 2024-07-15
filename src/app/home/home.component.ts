@@ -1,8 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { WOW } from 'wowjs';
+
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ import { WOW } from 'wowjs';
 
 export class HomeComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private elementRef: ElementRef) { }
   
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
@@ -49,6 +50,8 @@ export class HomeComponent {
     new WOW().init();
   }
 
+
+  
 
 
   currentDate: Date = new Date();
