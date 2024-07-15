@@ -25,6 +25,20 @@ export class SolicitudDistribuidorComponent implements OnInit {
     this.router.navigate(['login-admin']);
   }
 
+  navigateToAbout() {
+    this.router.navigate(['about']);
+  }
+
+  navigateToShop() {
+    this.router.navigate(['shop']);
+  }
+
+  navigateToContacto() {
+    this.router.navigate(['contacto']);
+  }
+
+
+
   ngOnInit(): void {
     this.solicitudForm = this.fb.group({
       cedula: ['', [Validators.required, this.validarCedula.bind(this)]],
@@ -59,6 +73,9 @@ export class SolicitudDistribuidorComponent implements OnInit {
     }
     return null;
   }
+
+
+
 
   onSubmit() {
     if (this.solicitudForm.valid) {
