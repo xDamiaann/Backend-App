@@ -1,3 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- index.html -->
+<head>
+
+    <title>IntApp</title>
+    <meta charset="utf-8">
+    <title>IntApp</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+
+     <!-- Icon Font Stylesheet -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+   
+
+  
+</head>
+
+<body>
+     <!-- Navbar & Hero Start -->
+     <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="text-primary"><img src="assets/img/logo.png" alt="Logo"> Intapp</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link ">Inicio</a>
+                    <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
+                    <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
+                    <a href="blog.html" class="nav-item nav-link">Noticias</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
+                            <a href="product.html" class="dropdown-item">Nuestros Productos</a>
+                            <a href="team.html" class="dropdown-item">Equipo</a>
+                        </div>
+                    </div>
+                    <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+                </div>
+                <div class="d-none d-xl-flex me-3">
+                    <div class="d-flex flex-column pe-3 border-end border-primary">
+                        <span class="text-body">Contáctanos</span>
+                        <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
+                    </div>
+                </div>
+    
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
+                    <div class="dropdown-menu m-0">
+                        
+                        <a (click)="navigateToCliente()" class="dropdown-item  ">Cliente</a>
+                        <a (click)="navigateToDistribuidor()" class="dropdown-item active">Distribuidor</a>
+                        <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Registro Cliente</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active text-primary">Registro Cliente</li>
+            </ol>    
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+
+<!-- Modal Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="input-group-text btn border p-3"><i class="fa fa-search text-white"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid centered-form">
+  <div class="form-container">
+    <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+            <h4 class="text-blue display-4 mb-4 wow fadeInDown text-center" data-wow-delay="0.1s">Registro Cliente</h4>
+
+            <div class="form-group">
+              <div class="form-group-inner">
+                <label for="cedula"><i class="fa fa-id-card bigicon"></i></label>
+                <input class="form-control" id="cedula" name="name" type="text" formControlName="cedula" placeholder="Cédula">
+              </div>
+              <div *ngIf="solicitudForm.get('cedula')?.invalid && solicitudForm.get('cedula')?.touched" class="text-danger">
+                Cédula inválida
+              </div>
+            </div>
+              
+            <div class="form-group">
+
+            <div class="form-group-inner">
+                  <label for="nombre"><i class="fa fa-user bigicon"></i></label>
+                  <input id="nombre" name="nombre" type="text" formControlName="nombre" required placeholder="Nombre" class="form-control">
+              </div>
+
+            </div>
+            <div class="form-group">
+
+              <div class="form-group-inner">
+                <label for="apellido"><i class="fa fa-user bigicon"></i></label>
+                <input id="apellido" name="apellido" type="text" formControlName="apellido" required placeholder="Apellido" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <div class="form-group-inner">
+              <label for="direccion"><i class="fa fa-map-marker-alt bigicon"></i></label>
+              <input id="direccion" name="direccion" type="text" formControlName="direccion" required placeholder="Dirección" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+
+          <div class="form-group-inner">
+            <label for="telefono"><i class="fa fa-phone bigicon"></i></label>
+            <input id="telefono" name="telefono" type="text" formControlName="telefono" required placeholder="Teléfono" class="form-control">
+            <div *ngIf="solicitudForm.get('telefono')?.invalid && solicitudForm.get('telefono')?.touched" class="text-danger">
+              Teléfono inválido
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+
+          <div class="form-group-inner">
+            <label for="email"><i class="fa fa-envelope bigicon"></i></label>
+            <input id="email" name="email" type="text" formControlName="email" required placeholder="Email" class="form-control">
+            <div *ngIf="solicitudForm.get('email')?.invalid && solicitudForm.get('email')?.touched" class="text-danger">
+              Correo inválido
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+ 
+       
+      </div>
+
+             
+              <div class="form-group">
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!solicitudForm.valid">Enviar Solicitud</button>
+  
+                  </div>
+              </div>
+          </fieldset>
+      </form>
+  </div>
+</div>
+
+
+<p></p>
+<p></p>
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <div class="footer-item">
+                               
+                                <h3 class="text-white mb-4">
+                                    <img src="assets/img/logo.png" alt="Logo" style="height: 40px; width: auto;" class="me-2">
+                                    IntApp
+                                </h3>
+
+                               <p class="mb-3">Intagua es una marca que parece estar relacionada con productos de agua, ofreciendo diferentes presentaciones.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Sobre Nosotros</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Por qué Elegirnos?</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Horario de Atención</h4>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Lun - Viern:</h6>
+                                <p class="text-white mb-0">09.00 am A 07.00 pm</p>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Sábado:</h6>
+                                <p class="text-white mb-0">10.00 am A 05.00 pm</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Información de Contacto</h4>
+                            <a href="#"><i class="fa fa-map-marker-alt me-2"></i>123 Calle Principal, Riobamba, Ecuador</a>
+                            <a href="mailto:info&#64;intagua.com"><i class="fas fa-envelope me-2"></i> info&#64;intagua.com</a>
+                            <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i> +1-800-555-1234</a>
+                            <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i> +593 984291013</a>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                       
+                    
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>IntApp</a>, Todos los Derechos Reservados.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-body">
+                          Diseñado por IntApp <a class="border-bottom text-white" href="">IntApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/wow/wow.min.js"></script>
+    <script src="assets/lib/easing/easing.min.js"></script>
+    <script src="assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="assets/lib/counterup/counterup.min.js"></script>
+    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    
+<!-- Bootstrap Bundle with Popper -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<!-- Wow.js -->
+<script src="assets/js/wow.min.js"></script>
+<!-- Initialize Wow.js -->
+<script>
+    new WOW().init();
+</script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>   
+
+
 <!--
 <!DOCTYPE html>
 <html lang="en">
