@@ -18,15 +18,18 @@ export class MmodalComponent implements OnInit {
   @Input() valor: any = 0;
   @Input() idpedido: any = 0;
   @Input() distribuidores: any[] = [];
+  @Input() detalles: any[] = [];
 
   @Output() selectDistr: EventEmitter<any> = new EventEmitter();
   @Output() pagarPedido: EventEmitter<any> = new EventEmitter();
   @Output() finalizarProceso: EventEmitter<any> = new EventEmitter();
 
+  @Output() confirmarCombinados: EventEmitter<any> = new EventEmitter();
+
   @ViewChild('modalPublicar') modalPublicar!: ElementRef;
   @ViewChild('paypalButtons', { static: true, read: ElementRef }) paypalButtonsElement!: ElementRef<any>;
 
-
+  detallesDistribuidores: any[] = [];
 
   message: string = '';
   api = '';
@@ -40,10 +43,11 @@ export class MmodalComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-
+    this.inicializarDetallesDistribuidores();
   }
 
   abrir() {
+    console.log(this.distribuidores);
     this.modalPublicar.nativeElement.click();
   }
 
@@ -74,6 +78,25 @@ export class MmodalComponent implements OnInit {
     this.finalizarProceso.emit();
   }
 
+  inicializarDetallesDistribuidores() {
+    this.detallesDistribuidores = this.distribuidores.map(distribuidor =>
+      this.detalles.map(detalle => ({
+        distribuidor: distribuidor.id_distribuidor,
+        producto: detalle.producto.id_producto,
+        presentacion: detalle.presentacion.id_presentacion,
+        cantidad: Math.min(detalle.cantidad, distribuidor.stock)
+      }))
+    );
+  }
 
+  onCantidadChange(detalle: any, distribuidor: any, nuevaCantidad: number) {
+    const indexDistribuidor = this.distribuidores.findIndex(d => d.id_distribuidor === distribuidor.id_distribuidor);
+    const indexDetalle = this.detalles.findIndex(d => d.producto.id_producto === detalle.producto.id_producto && d.presentacion.id_presentacion === detalle.presentacion.id_presentacion);
+    this.detallesDistribuidores[indexDistribuidor][indexDetalle].cantidad = nuevaCantidad;
+  }
+
+  confirmarDistribuidoresCombinados() {
+    this.confirmarCombinados.emit(this.detallesDistribuidores);
+  }
 
 }

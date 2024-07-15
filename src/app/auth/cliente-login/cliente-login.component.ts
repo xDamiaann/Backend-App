@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
@@ -46,7 +46,14 @@ export class LoginComponent {
     this.router.navigate(['contacto']);
   }
 
- 
+
+
+
+  ngOnInit(): void {
+    if (this.authService.isClienteLoggedIn()) {
+      this.router.navigate(['/cliente-home']);
+    }
+  }
 
   onSubmit() {
     this.authService.loginCliente(this.credentials).subscribe(
@@ -97,4 +104,4 @@ export class LoginComponent {
 
 
 
-  
+

@@ -1,0 +1,45 @@
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="text-primary"><img src="assets/img/logo.png" alt="Logo"> Intapp</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link ">Inicio</a>
+                <a (click)="navigateToAbout()" class="nav-item nav-link active">Sobre Nosotros</a>
+                <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
+                <a href="blog.html" class="nav-item nav-link">Noticias</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
+                        <a href="product.html" class="dropdown-item">Nuestros Productos</a>
+                        <a href="team.html" class="dropdown-item">Equipo</a>
+                    </div>
+                </div>
+                <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+            </div>
+            <div class="d-none d-xl-flex me-3">
+                <div class="d-flex flex-column pe-3 border-end border-primary">
+                    <span class="text-body">Contáctanos</span>
+                    <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
+                <div class="dropdown-menu m-0">
+
+                    <a (click)="navigateToCliente()" class="dropdown-item">Cliente</a>
+                    <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
+                    <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header End -->
+</div>

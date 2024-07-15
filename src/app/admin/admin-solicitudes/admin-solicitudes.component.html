@@ -1,39 +1,39 @@
 <div class="container mt-5">
-    <h2>Solicitudes de Distribuidor</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Cédula</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Dirección</th>
-          <th>Teléfono</th>
-          <th>Email</th>
-          <th>Fecha de Solicitud</th>
-          <th>Estado</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let solicitud of solicitudes">
-          <td>{{ solicitud.cedula }}</td>
-          <td>{{ solicitud.nombre }}</td>
-          <td>{{ solicitud.apellido }}</td>
-          <td>{{ solicitud.direccion }}</td>
-          <td>{{ solicitud.telefono }}</td>
-          <td>{{ solicitud.email }}</td>
-          <td>{{ solicitud.fechasolicitud }}</td>
-          <td>
-            <select [(ngModel)]="solicitud.id_estadosolicitud" (change)="onEstadoSolicitudChange($event, solicitud)">
-              <option *ngFor="let estado of estadosSolicitud" [value]="estado.id_estadosolicitud">{{ estado.nombre }}</option>
-            </select>
-            
-          </td>
-          <td>
-            <button (click)="actualizarSolicitud(solicitud.id_distribuidor)" class="btn btn-primary">Actualizar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h2>Solicitudes de Distribuidor</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Fecha de Solicitud</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let solicitud of solicitudes">
+        <td>{{ solicitud.cedula }}</td>
+        <td>{{ solicitud.nombre }}</td>
+        <td>{{ solicitud.apellido }}</td>
+        <td>{{ solicitud.direccion }}</td>
+        <td>{{ solicitud.telefono }}</td>
+        <td>{{ solicitud.email }}</td>
+        <td>{{ solicitud.fechasolicitud }}</td>
+        <td>
+          <select [(ngModel)]="solicitud.id_estadosolicitud" (change)="onEstadoSolicitudChange($event, solicitud)">
+            <option *ngFor="let estado of estadosSolicitud" [value]="estado.id_estadosolicitud">{{ estado.nombre }}
+            </option>
+          </select>
+
+        </td>
+        <td>
+          <button (click)="actualizarSolicitud(solicitud.id_distribuidor)" class="btn btn-primary">Actualizar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

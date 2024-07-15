@@ -58,6 +58,25 @@
 
 
         </ng-container>
+        <ng-container *ngIf="tipo === 5">
+          <div *ngFor="let distribuidor of distribuidores; let i = index">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">{{ distribuidor.nombre }} {{ distribuidor.apellido }}</h5>
+                <p class="card-text">Dirección: {{ distribuidor.direccion }}</p>
+                <p class="card-text">Teléfono: {{ distribuidor.telefono }}</p>
+                <p class="card-text">Email: {{ distribuidor.email }}</p>
+                <p class="card-text">Stock Disponible: {{ distribuidor.stock }}</p>
+                <div *ngFor="let detalle of detalles; let j = index">
+                  <label>{{ detalle.producto.nombre }} - {{ detalle.presentacion.nombre }}: </label>
+                  <input type="number" [(ngModel)]="detallesDistribuidores[i][j].cantidad" [max]="distribuidor.stock"
+                    (change)="onCantidadChange(detalle, distribuidor, detallesDistribuidores[i][j].cantidad)">
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-success" (click)="confirmarDistribuidoresCombinados()">Confirmar</button>
+        </ng-container>
       </div>
     </div>
   </div>

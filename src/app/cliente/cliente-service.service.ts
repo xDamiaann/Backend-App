@@ -32,6 +32,10 @@ export class ClienteServiceService {
     return this.http.post<any[]>(`${this.apiUrl}/distribuidor/disponibles`, pedidoDetalles);
   }
 
+  getDistribuidoresCombinados(pedidoDetalles: any[]): Observable<any[]> {
+    console.log(pedidoDetalles);
+    return this.http.post<any[]>(`${this.apiUrl}/distribuidor/combinados`, pedidoDetalles);
+  }
 
   getDistribuidoresConStockR(pedidoDetalles: any[]): Observable<any[]> {
     console.log(pedidoDetalles);

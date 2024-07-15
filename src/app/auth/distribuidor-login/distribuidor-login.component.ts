@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -28,6 +28,12 @@ export class DistribuidorLoginComponent {
   }
   navigateToAdmin() {
     this.router.navigate(['login-admin']);
+  }
+
+  ngOnInit(): void {
+    if (this.authService.isDistribuidorLoggedIn()) {
+      this.router.navigate(['/distribuidor-home']);
+    }
   }
 
   onSubmit() {

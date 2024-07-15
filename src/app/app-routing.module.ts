@@ -26,6 +26,14 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
 import { AboutComponent } from './about/about.component';
 import { ShopComponent } from './shop/shop.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { MapaComponent } from './distribuidor/mapa/mapa.component';
+import { ClienteAuthGuard } from './utils/cliente-auth.guard';
+import { AdminAuthGuard } from './utils/admin-auth.guard';
+import { DistribuidorAuthGuard } from './utils/distribuidor-auth.guard';
+import { DistribuidorProfileComponent } from './distribuidor/distribuidor-profile/distribuidor-profile.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,8 +63,12 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: '**', redirectTo: '' } // Manejo de rutas no encontradas
-  
+
+  { path: 'mapa', component: MapaComponent },
+  { path: 'admin-profile', component: AdminProfileComponent },
+  { path: 'distribuidor-profile', component: DistribuidorProfileComponent },
+  { path: 'perfil', component: ClientePerfilComponent },
+  //{ path: '**', redirectTo: '' },// Manejo de rutas no encontradas
 
 ];
 
