@@ -54,24 +54,7 @@ export class MenuClienteComponent {
 
 
   navigateToClienteProfile() {
-    console.log('Navegando a /cliente-profile]');
-    this.router.navigate(['/cliente-profile']).then(success => {
-      if (success) {
-        console.log('Navegación exitosa');
-      } else {
-        console.log('Navegación fallida');
-      }
-    });
-  }
-  navigateToClienteP() {
-    console.log('Navegando a /my-profile]');
-    this.router.navigate(['/my-profile']).then(success => {
-      if (success) {
-        console.log('Navegación exitosa');
-      } else {
-        console.log('Navegación fallida');
-      }
-    });
+    this.router.navigate(['/perfil']);
   }
 
   navigateToContacto() {

@@ -30,10 +30,10 @@ import { MapaComponent } from './distribuidor/mapa/mapa.component';
 import { ClienteAuthGuard } from './utils/cliente-auth.guard';
 import { AdminAuthGuard } from './utils/admin-auth.guard';
 import { DistribuidorAuthGuard } from './utils/distribuidor-auth.guard';
-import { ClienteProfileComponent } from './cliente/cliente-profile/cliente-profile.component';
 import { DistribuidorProfileComponent } from './distribuidor/distribuidor-profile/distribuidor-profile.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
-import { ProfileClienteComponent } from './cliente/profile-cliente/profile-cliente.component';
+import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'login-distribuidor', component: DistribuidorLoginComponent },
   { path: 'login-admin', component: AdminLoginComponent },
   { path: 'register-cliente', component: RegisterComponent },
-  //{ path: '', redirectTo: '/register', pathMatch: 'full' },
+  { path: '', redirectTo: '/register', pathMatch: 'full' },
   { path: 'cliente-home', component: ClienteHomeComponent }, //ruta para la pagina de inicio del cliente
   { path: 'distribuidor-home', component: DistribuidorHomeComponent }, //ruta para la pagina de inicio del distribuidor
   { path: 'admin-home', component: AdminHomeComponent }, //ruta para la pagina de inicio del admin
@@ -63,12 +63,12 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: '**', redirectTo: '' },// Manejo de rutas no encontradas
+
   { path: 'mapa', component: MapaComponent },
-  { path: 'cliente-profile', component: ClienteProfileComponent },
-  { path: 'my-profile', component: ProfileClienteComponent },
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'distribuidor-profile', component: DistribuidorProfileComponent },
+  { path: 'perfil', component: ClientePerfilComponent },
+  //{ path: '**', redirectTo: '' },// Manejo de rutas no encontradas
 
 ];
 

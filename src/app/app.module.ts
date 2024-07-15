@@ -34,13 +34,12 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
 
 //import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MapaComponent } from './distribuidor/mapa/mapa.component';
-import { ClienteProfileComponent } from './cliente/cliente-profile/cliente-profile.component';
 import { DistribuidorProfileComponent } from './distribuidor/distribuidor-profile/distribuidor-profile.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { MenuGeneralComponent } from "./shared/menu-general/menu-general.component";
 import { MenuClienteComponent } from "./shared/menu-cliente/menu-cliente.component";
-import { ProfileClienteComponent } from './cliente/profile-cliente/profile-cliente.component';
 import { RouterModule } from '@angular/router';
+import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
 
 @NgModule({
   declarations: [
@@ -67,10 +66,9 @@ import { RouterModule } from '@angular/router';
     PagoConfirmadoComponent,
     // PagoConfirmadoComponent,
     MapaComponent,
-    ClienteProfileComponent,
     DistribuidorProfileComponent,
     AdminProfileComponent,
-    ProfileClienteComponent,
+    ClientePerfilComponent
   ],
 
   imports: [
