@@ -11,32 +11,66 @@ import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
   styleUrl: './menu-admin.component.css'
 })
 export class MenuAdminComponent {
+  username: string = ''; // Inicializar la propiedad
   constructor(private authService: AuthService, private router: Router, private ClienteService: ClienteServiceService) { }
 
-  navigateToCliente() {
-    this.router.navigate(['login-cliente']);
-  }
-  navigateToDistribuidor() {
-    this.router.navigate(['login-distribuidor']);
-  }
-  navigateToAdmin() {
-    this.router.navigate(['login-admin']);
+
+
+  ngOnInit(): void {
+    const adminJson = localStorage.getItem('admin');
+    if (adminJson) {
+      const admin = JSON.parse(adminJson);
+      this.username = admin ? admin.username : '';
+    }
   }
 
-  navigateToRegister() {
-    this.router.navigate(['/register']); // Navega a la ruta '/register'
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('distribuidor');
+    this.router.navigate(['/']);
   }
 
-  navigateToAbout() {
-    this.router.navigate(['about']);
+
+  navigateToAdminHome() {
+    this.router.navigate(['/admin-home']);
   }
 
-  navigateToShop() {
-    this.router.navigate(['shop']);
+
+  navigateToPedidos() {
+    this.router.navigate(['/distribuidor-pedidos']);
   }
 
-  navigateToContacto() {
-    this.router.navigate(['contacto']);
+
+
+  navigateToDsitribuidores() {
+    this.router.navigate(['/admin-solicitudes']);
+  }
+
+  navigateToParroquias() {
+    this.router.navigate(['/admin-parroquias']);
+  }
+
+  navigateToBarrios() {
+    this.router.navigate(['/admin-barrios']);
+  }
+
+  navigateToEstadoPedidos() {
+    this.router.navigate(['/admin-estado-pedidos']);
+  }
+  navigateToEstadoSolicitudes() {
+    this.router.navigate(['/admin-estado-solicitudes']);
+  }
+
+  navigateToProductos() {
+    this.router.navigate(['/admin-productos']);
+  }
+
+  navigateToPresentaciones() {
+    this.router.navigate(['/admin-presentaciones']);
+  }
+
+  navigateToAbastecer() {
+    this.router.navigate(['/admin-abastecer']);
   }
 
 }

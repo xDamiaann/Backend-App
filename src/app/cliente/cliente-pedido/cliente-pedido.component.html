@@ -2,10 +2,13 @@
 <div class="container mt-5 py-5">
   <div class="row">
     <div class="col-md-6 p-3">
-      <h2>Realizar Pedido</h2>
-      <div class="row">
-        <table class="table table-bordered">
-          <thead>
+      <div class="d-flex justify-content-center align-content-justify">
+        <h2>Productos disponibles</h2>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered  table-hover table-striped text-center">
+          <thead class="thead-lightblue">
             <tr>
               <th>Nombre</th>
               <th>Presentación</th>
@@ -14,12 +17,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let producto of productos">
+            <tr *ngFor="let producto of productos" class="clr">
               <td>{{ producto.nombre }}</td>
               <td>
-                <select name="presentacion" id="presentacion" (change)="onPresentacionChange($event, producto)">
+                <select class="form-control" name="presentacion" id="presentacion"
+                  (change)="onPresentacionChange($event, producto)">
                   <option disabled selected>Seleccione una presentacion</option>
-                  <option *ngFor="let presentacion of producto.presentaciones" [value]="presentacion.id_presentacion">
+                  <option class="clr" *ngFor="let presentacion of producto.presentaciones"
+                    [value]="presentacion.id_presentacion">
                     {{ presentacion.Presentacion.nombre }}
                   </option>
                 </select>
@@ -37,10 +42,12 @@
       </div>
     </div>
     <div class="col-md-6 p-3">
-      <h2>Mi Pedido</h2>
-      <div class="row">
-        <table class="table table-bordered">
-          <thead>
+      <div class="d-flex justify-content-center align-content-justify">
+        <h2>Mi pedido</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered  table-hover table-striped text-center">
+          <thead class="thead-lightblue">
             <tr>
               <th>Nombre</th>
               <th>Presentación</th>
@@ -67,7 +74,10 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-success mt-3" (click)="realizarPedido()">Realizar Pedido</button>
+  <div class="d-flex justify-content-center align-content-justify">
+    <button class="btn btn-success mt-3" (click)="realizarPedido()">Realizar Pedido</button>
+  </div>
+
 
   <div *ngFor="let pedido of pedidos">
     <h3>Pedido #{{ pedido.id_pedido }}</h3>

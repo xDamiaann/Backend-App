@@ -41,6 +41,8 @@ import { MenuClienteComponent } from "./shared/menu-cliente/menu-cliente.compone
 import { RouterModule } from '@angular/router';
 import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
 import { FooterComponent } from "./shared/footer/footer.component";
+import { MenuDistribuidorComponent } from "./shared/menu-distribuidor/menu-distribuidor.component";
+import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
 
 @NgModule({
   declarations: [
@@ -91,7 +93,9 @@ import { FooterComponent } from "./shared/footer/footer.component";
     //}),
     MenuGeneralComponent,
     MenuClienteComponent,
-    FooterComponent
+    FooterComponent,
+    MenuDistribuidorComponent,
+    MenuAdminComponent
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]

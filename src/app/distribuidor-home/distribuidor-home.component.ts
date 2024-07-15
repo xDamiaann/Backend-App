@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './distribuidor-home.component.html',
   styleUrls: ['./distribuidor-home.component.css']
 })
-export class DistribuidorHomeComponent implements OnInit{
-  username: string= ''; // Inicializar la propiedad
+export class DistribuidorHomeComponent implements OnInit {
+  username: string = ''; // Inicializar la propiedad
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     const distribuidorJson = localStorage.getItem('distribuidor');

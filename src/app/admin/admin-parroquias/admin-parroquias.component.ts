@@ -8,9 +8,9 @@ import { AdminServiceService } from '../admin-service.service';
 })
 export class AdminParroquiasComponent implements OnInit {
   parroquias: any[] = [];
-  nuevaParroquia = { id_admin:'',nombre: '', descripcion: '' };
-  idAdmin:string='';
-  constructor(private adminService: AdminServiceService) {}
+  nuevaParroquia = { id_admin: '', nombre: '', descripcion: '' };
+  idAdmin: string = '';
+  constructor(private adminService: AdminServiceService) { }
 
   ngOnInit(): void {
 
@@ -34,7 +34,7 @@ export class AdminParroquiasComponent implements OnInit {
   }
 
   agregarParroquia() {
-    this.nuevaParroquia.id_admin=this.idAdmin;
+    this.nuevaParroquia.id_admin = this.idAdmin;
     this.adminService.agregarParroquia(this.nuevaParroquia).subscribe(
       data => {
         this.parroquias.push(data);
@@ -46,7 +46,7 @@ export class AdminParroquiasComponent implements OnInit {
         (document.querySelector('.modal-backdrop') as HTMLElement).remove();
       },
       error => {
-       
+
         console.error('Error al agregar parroquia:', error);
       }
     );

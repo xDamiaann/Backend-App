@@ -18,6 +18,12 @@ export class ClientePedidosComponent implements OnInit {
   distribuidores: any[] = [];
   pedidoSeleccionado: any;
 
+  currentPage = 1;
+  itemsPerPage = 4;
+  totalPages = 0;
+  pages: number[] = [];
+  paginatedPedidos: any[] = [];
+
   @ViewChild('distribuidoresModal') distribuidoresModal!: MmodalComponent;
   @ViewChild('pagoModal') pagoModal!: MmodalComponent;
   @ViewChild('pagoConfirmarModal') pagoConfirmarModal!: MmodalComponent;
@@ -42,6 +48,7 @@ export class ClientePedidosComponent implements OnInit {
       this.idCliente = cliente ? cliente.id : '';
     }
     this.cargarPedidosCliente();
+    this.updatePaginatedPedidos();
 
     this.route.queryParams.subscribe(params => {
       this.orderId = params['token']; // PayPal usa 'token' como nombre del parámetro para el orderId
@@ -206,6 +213,19 @@ export class ClientePedidosComponent implements OnInit {
 
   onSelectPago(event: any) {
     // Este método puede quedar vacío si no se requiere acción adicional
+  }
+  updatePaginatedPedidos(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedPedidos = this.pedidos.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number): void {
+    if (page < 1 || page > this.totalPages) {
+      return;
+    }
+    this.currentPage = page;
+    this.updatePaginatedPedidos();
   }
 }
 
