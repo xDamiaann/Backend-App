@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
 
 @Component({
   selector: 'app-distribuidor-login',
@@ -97,6 +98,20 @@ export class DistribuidorLoginComponent {
   ngOnDestroy() {
     this.stopTrackingLocation();
   }
+
+
+  navigateToAbout() {
+    this.router.navigate(['about']);
+  }
+
+  navigateToShop() {
+    this.router.navigate(['shop']);
+  }
+
+  navigateToContacto() {
+    this.router.navigate(['contacto']);
+  }
+
 
 
 }
