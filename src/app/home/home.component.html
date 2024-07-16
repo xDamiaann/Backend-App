@@ -424,30 +424,49 @@
             <h4 class="text-uppercase text-primary">Nuestros Productos</h4>
             <h1 class="display-3 text-capitalize mb-3">Ofrecemos Agua de la Mejor Calidad.</h1>
         </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="product-item">
-                    <img src="assets/img/product-1.png" class="img-fluid w-100 rounded-top" alt="500ml Bottle">
-                    <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <p>500ml 1 Botella</p>
-                        <a href="#" class="h4 d-inline-block mb-3">Botella de Agua Mineral</a>
-                        <p class="fs-4 text-primary mb-3">$0.50</p>
-                        <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" style="background-color: #ffffff !important;">
+
+                <div class="carousel-item active" *ngFor="let group of (productos | groupBy:3); let i = index"
+                    [class.active]="i === 0">
+                    <div class="row">
+                        <div class="col" *ngFor="let producto of group">
+                            <ng-container *ngIf="producto?.imagen === null">
+                                <img src="../../assets/img/general.jpg" class="card-img-top img-fluid" alt="..."
+                                    style="max-height: 600px;">
+                            </ng-container>
+                            <ng-container *ngIf="producto?.imagen !== null">
+                                <img [src]="'data:image/png;base64,' + producto.imagen"
+                                    class="card-img-top img-fluid d-block" alt="..." style="max-height: 600px;">
+                            </ng-container>
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="product-content bg-light text-center rounded-bottom p-4">
+                                    <a href="#" class="h4 d-inline-block mb-3">{{producto.nombrep}}</a>
+                                    <p class="fs-4 text-primary mb-3">{{producto.descripcionp}}</p>
+                                    <div><span style="color: black;">{{ producto.presentacion }}</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="product-item">
-                    <img src="assets/img/product-2.png" class="img-fluid w-100 rounded-top" alt="20L Bottle">
-                    <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <p>20L 1 Botellón</p>
-                        <a href="#" class="h4 d-inline-block mb-3">Botellón de Agua Mineral</a>
-                        <p class="fs-4 text-primary mb-3">$1.00</p>
-                        <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
-                    </div>
-                </div>
-            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
+
     </div>
 </div>
 <!-- Products End -->

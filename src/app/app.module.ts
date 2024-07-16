@@ -43,6 +43,8 @@ import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil
 import { FooterComponent } from "./shared/footer/footer.component";
 import { MenuDistribuidorComponent } from "./shared/menu-distribuidor/menu-distribuidor.component";
 import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
+import { GroupByPipe } from './shared/group-by.pipe';
+
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
     DistribuidorProfileComponent,
     AdminProfileComponent,
     ClientePerfilComponent,
+    GroupByPipe
   ],
 
   imports: [

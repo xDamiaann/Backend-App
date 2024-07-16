@@ -107,6 +107,7 @@ export class AdminServiceService {
   }
 
   agregarProductoPresentacion(productoPresentacion: any): Observable<any> {
+    console.log(productoPresentacion);
     return this.http.post<any>(`${this.apiUrl}/productopresentacion`, productoPresentacion);
   }
 
@@ -148,6 +149,10 @@ export class AdminServiceService {
 
   obtenerPresentacionesPorNombreProducto(nombre_producto: string): Observable<Presentacion[]> {
     return this.http.get<Presentacion[]>(`${this.apiUrl}/producto/${nombre_producto}/presentaciones`);
+  }
+
+  getAllProductosPresentaciones(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/productopresentacion/totalproductos`);
   }
 
 }
