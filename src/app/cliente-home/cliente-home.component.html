@@ -8,13 +8,86 @@
 
   </div>
   <h1>Página de Inicio del Cliente</h1>
-  <p>Bienvenido a la página de inicio del cliente.</p>
-  <button class="btn btn-primary mt-3" (click)="navigateToPedido()">Realizar Pedido</button>
-  <div class="container mt-5">
-    <!-- Otros contenidos del home del cliente -->
-    <button class="btn btn-primary" routerLink="/cliente-pedidos">Ver Mis Pedidos</button>
-    <button class="btn btn-secondary" routerLink="/cliente-profile">Mis Datos</button> <!-- Ajusta esto -->
+
+  <!-- About Start -->
+  <div class="container-fluid about overflow-hidden py-5">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+          <div class="about-img rounded h-100">
+            <img src="assets/img/about.png" class="img-fluid rounded h-100 w-100" style="object-fit: cover;" alt="">
+            <div class="about-exp"><span>20 Años de Experiencia</span></div>
+          </div>
+        </div>
+        <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+          <div class="about-item">
+            <h4 class="text-primary text-uppercase">Sobre Nosotros</h4>
+            <h1 class="display-3 mb-3">Entregamos Agua de Calidad.</h1>
+            <p class="mb-4">En Intagua, nos dedicamos a proporcionar agua embotellada de la más alta
+              calidad, asegurando la pureza y seguridad a través de procesos rigurosos de filtración y
+              control.</p>
+            <div class="bg-light rounded p-4 mb-4">
+              <div class="row">
+                <div class="col-12">
+                  <div class="d-flex">
+                    <div class="pe-4">
+                      <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                        style="width: 80px; height: 80px;"><i class="fas fa-tint text-white fa-2x"></i></div>
+                    </div>
+                    <div class="">
+                      <a href="#" class="h4 d-inline-block mb-3">Clientes Satisfechos</a>
+                      <p class="mb-0">Nuestros clientes confían en nosotros por nuestro compromiso
+                        con la calidad y el servicio excepcional.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-light rounded p-4 mb-4">
+              <div class="row">
+                <div class="col-12">
+                  <div class="d-flex">
+                    <div class="pe-4">
+                      <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                        style="width: 80px; height: 80px;"><i class="fas fa-faucet text-white fa-2x"></i></div>
+                    </div>
+                    <div class="">
+                      <a href="#" class="h4 d-inline-block mb-3">Productos Estándar</a>
+                      <p class="mb-0">Ofrecemos productos de agua embotellada que cumplen con los
+                        más altos estándares de calidad y seguridad.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-light rounded p-4 mb-4">
+              <div class="row">
+                <div class="col-12">
+                  <div class="d-flex">
+                    <div class="pe-4">
+                      <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                        style="width: 80px; height: 80px;"><i class="fas fa-mobile-alt text-white fa-2x"></i></div>
+                    </div>
+                    <div class="">
+                      <a href="#" class="h4 d-inline-block mb-3">Intapp: Tu Aliado en la Gestión
+                        del Agua</a>
+                      <p class="mb-0">Accede a Intapp, nuestra aplicación web, para gestionar tus
+                        pedidos de agua embotellada, realizar pagos y recibir notificaciones en
+                        tiempo real desde cualquier dispositivo con internet.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-secondary rounded-pill py-3 px-5">Leer Más</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- About End -->
+
+
 </div>
 <div class="mt-5">
   <app-footer></app-footer>

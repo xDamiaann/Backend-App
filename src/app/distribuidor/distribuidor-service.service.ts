@@ -58,4 +58,8 @@ export class DistribuidorService {
     });
   }
 
+  getDistribuidorInfo(DistribuidorId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/distribuidor/info/${DistribuidorId}`);
+  }
+
 }

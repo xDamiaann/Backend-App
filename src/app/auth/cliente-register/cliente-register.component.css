@@ -109,3 +109,33 @@
   display: none;
   /* Oculta el placeholder cuando el select está enfocado */
 }
+
+
+
+
+.toast-container {
+  width: max-content !important;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.toast-container {
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.toast-container {
+  --bs-toast-zindex: 1090;
+  position: absolute;
+  z-index: var(--bs-toast-zindex);
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.toast-container {
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
+}

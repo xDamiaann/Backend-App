@@ -85,10 +85,17 @@
           <div class="form-group-inner">
             <label for="cedula"><i class="fa fa-id-card bigicon"></i></label>
             <input class="form-control" id="cedula" name="name" type="text" formControlName="cedula"
-              placeholder="Cédula">
+              placeholder="Cédula" maxlength="10">
           </div>
-          <div *ngIf="clienteForm.get('cedula')?.invalid && clienteForm.get('cedula')?.touched" class="text-danger">
-            Cédula inválida
+          <div
+            *ngIf="clienteForm.get('cedula')?.invalid && (clienteForm.get('cedula')?.touched || clienteForm.get('cedula')?.dirty)"
+            class="text-danger">
+            <div *ngIf="clienteForm.get('cedula')?.errors?.['invalidCedula']" class="text-danger">
+              Cédula inválida
+            </div>
+            <div *ngIf="clienteForm.get('cedula')?.errors?.['taken']" class="text-danger">
+              Cédula ya registrada
+            </div>
           </div>
         </div>
 

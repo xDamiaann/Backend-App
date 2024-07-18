@@ -15,7 +15,9 @@
           "options": {
             "allowedCommonJsDependencies": [
               "leaflet",
-              "mapbox-gl"
+              "mapbox-gl",
+              "jquery",
+              "wowjs"
             ],
             "outputPath": "dist/proyecto",
             "index": "src/index.html",
@@ -34,29 +36,30 @@
               }
             ],
             "styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-  "src/styles.css"
-],
-"scripts": [
-  "node_modules/jquery/dist/jquery.slim.min.js",
-  "node_modules/popper.js/dist/umd/popper.min.js",
-  "node_modules/bootstrap/dist/js/bootstrap.min.js",
-  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-  "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/wowjs/dist/wow.min.js",
-    "node_modules/jquery/dist/jquery.min.js"
-],
-"serviceWorker": true,
-"ngswConfigPath": "ngsw-config.json"
+              "node_modules/jquery/dist/jquery.min.js"
+            ],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-        "maximumWarning": "2mb",
-        "maximumError": "5mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -78,16 +81,16 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "proxyConfig": "proxy.conf.json"
           },
-          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "proyecto:build:production"
+              "buildTarget": "proyecto:build:production"
             },
             "development": {
-              "browserTarget": "proyecto:build:development"
+              "buildTarget": "proyecto:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "proyecto:build"
+            "buildTarget": "proyecto:build"
           }
         },
         "test": {
@@ -123,5 +126,3 @@
     "analytics": "9b3c4725-0b36-4690-a0ca-96ecb1f3e0f2"
   }
 }
-
-

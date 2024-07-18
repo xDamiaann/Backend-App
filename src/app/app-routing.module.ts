@@ -33,7 +33,8 @@ import { DistribuidorAuthGuard } from './utils/distribuidor-auth.guard';
 import { DistribuidorProfileComponent } from './distribuidor/distribuidor-profile/distribuidor-profile.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
-
+import { ClienteFacturasComponent } from './cliente/cliente-facturas/cliente-facturas.component';
+import { NoticiasComponent } from './noticias/noticias.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -68,6 +69,9 @@ const routes: Routes = [
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'distribuidor-profile', component: DistribuidorProfileComponent },
   { path: 'perfil', component: ClientePerfilComponent },
+  { path: 'cliente-facturas', component: ClienteFacturasComponent },
+  { path: 'noticias', component: NoticiasComponent },
+
   //{ path: '**', redirectTo: '' },// Manejo de rutas no encontradas
 
 ];

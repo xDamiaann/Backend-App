@@ -1,6 +1,127 @@
 <app-menu-cliente></app-menu-cliente>
 
 <div class="container mt-5 py-5 ">
+    <div class="container-fluid centered-form">
+        <div class="form-container">
+            <form #frmAddFrase="ngForm" (ngSubmit)="onSubmit(frmAddFrase)">
+                <fieldset>
+                    <h4 class="text-blue display-4 mb-4 wow fadeInDown text-center" data-wow-delay="0.1s">Datos del
+                        Cliente
+                    </h4>
+
+                    <div class="form-group">
+                        <div class="form-group-inner">
+                            <label for="cedula"><i class="fa fa-id-card bigicon"></i></label>
+                            <input class="form-control" id="cedula" name="cedula" type="text" placeholder="Cédula"
+                                maxlength="10" [(ngModel)]="cliente.cedula" #cedula="ngModel" [ngClass]="'input'">
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group-inner">
+                            <label for="nombre"><i class="fa fa-user bigicon"></i></label>
+                            <input class="form-control" id="nombre" name="nombre" type="text" placeholder="nombre"
+                                [(ngModel)]="cliente.nombre" #nombre="ngModel" [ngClass]="'input'">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+
+                        <div class="form-group-inner">
+                            <label for="apellido"><i class="fa fa-user bigicon"></i></label>
+                            <input class="form-control" id="apellido" name="apellido" type="text" placeholder="apellido"
+                                [(ngModel)]="cliente.apellido" #apellido="ngModel" [ngClass]="'input'">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group-inner">
+                            <label for="direccion"><i class="fa fa-map-marker-alt bigicon"></i></label>
+                            <input class="form-control" id="direccion" name="direccion" type="text"
+                                placeholder="direccion" [(ngModel)]="cliente.direccion" #direccion="ngModel"
+                                [ngClass]="'input'">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group-inner">
+                            <label for="telefono"><i class="fa fa-phone bigicon"></i></label>
+                            <input class="form-control" id="telefono" name="telefono" type="text" placeholder="telefono"
+                                [(ngModel)]="cliente.telefono" #telefono="ngModel" [ngClass]="'input'">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group-inner">
+                            <label for="email"><i class="fa fa-envelope bigicon"></i></label>
+                            <input class="form-control" id="email" name="email" type="text" placeholder="email"
+                                [(ngModel)]="cliente.email" #email="ngModel" [ngClass]="'input'">
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group-inner">
+                            <label for="username"><i class="fa fa-user bigicon"></i></label>
+                            <input class="form-control" id="username" name="username" type="text" placeholder="username"
+                                [(ngModel)]="cliente.username" #username="ngModel" [ngClass]="'input'" disabled>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group password-input">
+                            <div class="form-group-inner">
+                                <label for="password"><i class="fa fa-lock bigicon"></i></label>
+                                <input class="form-control" id="password" name="password" type="password"
+                                    placeholder="password" [(ngModel)]="cliente.password" #password="ngModel"
+                                    [ngClass]="'input'">
+                                <i class="fa fa-eye toggle-password"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group-inner">
+                            <label for="id_barrio"><i class="fa fa-home bigicon"></i></label>
+                            <div class="select-container">
+                                <label class="select-placeholder">Barrio</label>
+                                <select class="form-control" id="barrio" name="barrio" [(ngModel)]="cliente.id_barrio"
+                                    #barrio="ngModel" [ngClass]="'input'" required>
+                                    <option value="" disabled selected>Elija su Barrio</option>
+                                    <option *ngFor="let item of barrios" [value]="item.id_barrio">{{ item.barrionombre
+                                        }}</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Modificar</button>
+
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 
 
 </div>

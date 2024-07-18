@@ -90,6 +90,7 @@ export class AdminProductosComponent implements OnInit {
     this.adminService.verificarProducto(this.nuevoProducto.nombre).subscribe(
       productoExistente => {
         if (!productoExistente) {
+
           this.adminService.agregarProducto(this.nuevoProducto).subscribe(
             nuevoProducto => {
               this.adminService.agregarProductoPresentacion({
@@ -106,12 +107,14 @@ export class AdminProductosComponent implements OnInit {
             }
           );
         } else {
+          console.log("producto existente", productoExistente);
           this.adminService.verificarProductoPresentacion(productoExistente.id_producto, +this.nuevoProducto.id_presentacion).subscribe(
             productoPresentacionExistente => {
               if (!productoPresentacionExistente) {
                 this.adminService.agregarProductoPresentacion({
                   id_producto: productoExistente.id_producto,
-                  id_presentacion: +this.nuevoProducto.id_presentacion // Conversión a número
+                  id_presentacion: +this.nuevoProducto.id_presentacion,
+                  imagen: this.img// Conversión a número
                 }).subscribe(() => {
                   this.cargarProductos();
                   this.resetForm();

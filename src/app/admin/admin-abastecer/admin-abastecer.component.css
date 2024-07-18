@@ -1,0 +1,84 @@
+.centered-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.form-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 600px;
+}
+
+.header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 24px;
+    color: #36A0FF;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group-inner {
+    display: flex;
+    align-items: center;
+}
+
+.form-group-inner label {
+    margin-right: 10px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.form-group-inner input,
+.form-group-inner select {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.text-blue {
+    color: #36A0FF;
+}
+
+.text-danger {
+    color: #ff0000;
+    margin-top: 5px;
+}
+
+.select-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    pointer-events: none;
+    color: #999;
+    transition: 0.2s ease-out;
+    font-size: 14px;
+}
+
+.form-control {
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.form-control:focus+.select-placeholder {
+    display: none;
+}

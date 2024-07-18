@@ -47,6 +47,10 @@ export class HomeComponent {
     this.router.navigate(['contacto']);
   }
 
+  navigateToNoticias() {
+    this.router.navigate(['noticias'])
+  }
+
   ngOnInit() {
     //new WOW().init();
     this.cargarProductos();

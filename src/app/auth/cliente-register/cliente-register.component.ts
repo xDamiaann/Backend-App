@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { of, Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Validaciones } from '../../../app/utils/validaciones';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cliente-register',
@@ -22,13 +23,24 @@ export class RegisterComponent implements OnInit {
   };
   passwordVisible: boolean = false;
   private usernameSubject = new Subject<string>();
+  private cedulaSubject = new Subject<string>();
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
   ) { }
 
+
+  AlertaSucess(msj: string) {
+    console.log("alerta", msj);
+    this.toastr.success(msj, 'Éxito', { timeOut: 4000 });
+  }
+
+  AlertaFail(msj: string) {
+    this.toastr.error(msj, 'Error', { timeOut: 4000 });
+  }
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
   }
@@ -71,6 +83,7 @@ export class RegisterComponent implements OnInit {
     });
 
     if (this.clienteForm) {
+
       this.authService.getBarrios().subscribe(
         response => {
           this.barrio = response;
@@ -110,6 +123,43 @@ export class RegisterComponent implements OnInit {
       this.clienteForm.get('username')?.valueChanges.subscribe(username => {
         this.usernameSubject.next(username);
       });
+
+      // Validación de cédula ya registrada
+      this.cedulaSubject.pipe(
+        debounceTime(300),
+        switchMap((cedula: string) => {
+          if (cedula && this.validarCedula({ value: cedula }) === null) {
+            return this.authService.checkCedula(cedula).pipe(
+              switchMap((isTaken: boolean) => of(isTaken))
+            );
+          } else {
+            return of(false);
+          }
+        })
+      ).subscribe(
+        (isTaken: boolean) => {
+          this.validaciones.cedula = !isTaken;
+          if (isTaken) {
+            this.clienteForm.get('cedula')?.setErrors({ taken: true });
+          } else {
+            this.clienteForm.get('cedula')?.setErrors(null);
+          }
+        },
+        (error: any) => {
+          console.error('Error al verificar la cédula', error);
+          this.validaciones.cedula = false;
+        }
+      );
+
+      this.clienteForm.get('cedula')?.valueChanges.subscribe(cedula => {
+        this.clienteForm.get('cedula')?.updateValueAndValidity();
+        this.cedulaSubject.next(cedula);
+
+      });
+
+
+
+
     }
   }
 
@@ -137,16 +187,31 @@ export class RegisterComponent implements OnInit {
     return null;
   }
 
+  onCedulaInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.value.length > 10) {
+      input.value = input.value.slice(0, 10);
+      this.clienteForm.get('cedula')?.setValue(input.value, { emitEvent: false });
+    }
+    this.clienteForm.get('cedula')?.updateValueAndValidity();
+  }
+
   formularioValido(): boolean {
     return this.clienteForm.valid && Object.values(this.validaciones).every(value => value);
   }
+
+
 
   onSubmit() {
     if (this.formularioValido()) {
       this.authService.registerClient(this.clienteForm.value).subscribe(
         response => {
-          console.log('Cliente registrado', response);
-          this.router.navigate(['/login']);
+          const msj = 'Cliente registrado correctamente';
+          this.AlertaSucess(msj);
+          setTimeout(() => {
+            this.router.navigate(['/login-cliente']);
+          }, 2000);
+
         },
         error => {
           console.error('Error al registrar el cliente', error);

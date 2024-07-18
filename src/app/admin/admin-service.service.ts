@@ -155,4 +155,8 @@ export class AdminServiceService {
     return this.http.get<any[]>(`${this.apiUrl}/productopresentacion/totalproductos`);
   }
 
+  getAdminInfoId(AdminId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/admin/info/${AdminId}`);
+  }
+
 }
