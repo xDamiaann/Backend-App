@@ -33,4 +33,20 @@ export class AboutComponent  {
   navigateToContacto() {
     this.router.navigate(['contacto']);
   }
+
+  navigateToNoticias() {
+    this.router.navigate(['noticias']);
+  }
+
+  navigateToCaracteristicas() {
+    this.router.navigate(['noticias']);
+  }
+
+  scrollToElement(id: string): void {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
 }

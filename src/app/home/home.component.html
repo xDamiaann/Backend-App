@@ -12,12 +12,12 @@
                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
                 <a (click)="navigateToAbout()" class="nav-item nav-link">Sobre Nosotros</a>
                 <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
-                <a href="blog.html" class="nav-item nav-link">Noticias</a>
+                <a (click)="navigateToNoticias()" class="nav-item nav-link">Noticias</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu m-0">
-                        <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
-                        <a href="product.html" class="dropdown-item">Nuestros Productos</a>
+                        <a (click)="navigateToCaracteristicas()" class="dropdown-item">Nuestra Caracteristica</a>
+                        <a (click)="navigateToShop()"  class="dropdown-item">Nuestros Productos</a>
                         <a href="team.html" class="dropdown-item">Equipo</a>
                     </div>
                 </div>
@@ -40,6 +40,13 @@
         </div>
     </nav>
 
+
+
+<style>
+    .navbar-nav .nav-link, .dropdown-menu .dropdown-item {
+        cursor: pointer;
+    }
+</style>
     <!-- Carousel Start -->
     <div class="carousel-header">
         <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
@@ -152,7 +159,6 @@
 </div>
 <!-- Modal Search End -->
 
-
 <!-- feature Start -->
 <div class="container-fluid feature bg-light py-5">
     <div class="container py-5">
@@ -162,45 +168,51 @@
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="feature-item p-4">
+                <div class="feature-item p-4" style="display: flex; flex-direction: column; height: 100%;">
                     <div class="feature-icon mb-3"><i class="fas fa-water text-white fa-3x"></i></div>
                     <a href="#" class="h4 mb-3">Calidad del Agua</a>
                     <p class="mb-3">En Intagua, aseguramos la pureza y seguridad de nuestra agua embotellada a
                         través de rigurosos controles de calidad y procesos de filtración avanzada.</p>
-                    <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="feature-item p-4">
+                <div class="feature-item p-4" style="display: flex; flex-direction: column; height: 100%;">
                     <div class="feature-icon mb-3"><i class="fas fa-shipping-fast text-white fa-3x"></i></div>
                     <a href="#" class="h4 mb-3">Entrega Eficiente</a>
                     <p class="mb-3">Disfruta de nuestro servicio de entrega rápida y confiable, asegurando que
                         recibas tu agua embotellada en la puerta de tu hogar sin demoras.</p>
-                    <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="feature-item p-4">
+                <div class="feature-item p-4" style="display: flex; flex-direction: column; height: 100%;">
                     <div class="feature-icon mb-3"><i class="fas fa-mobile-alt text-white fa-3x"></i></div>
                     <a href="#" class="h4 mb-3">Intapp Web App</a>
                     <p class="mb-3">Gestiona tus pedidos y pagos de agua embotellada de manera sencilla y segura con
                         Intapp, nuestra aplicación web accesible desde cualquier dispositivo.</p>
-                    <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                <div class="feature-item p-4">
+                <div class="feature-item p-4" style="display: flex; flex-direction: column; height: 100%;">
                     <div class="feature-icon mb-3"><i class="fas fa-laptop-code text-white fa-3x"></i></div>
                     <a href="#" class="h4 mb-3">Notificaciones en Tiempo Real</a>
                     <p class="mb-3">Recibe actualizaciones instantáneas sobre el estado de tus pedidos y gestiona tu
                         cuenta con facilidad gracias a las notificaciones en tiempo real de Intapp.</p>
-                    <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
+        
+       
+
+
+        <!-- Botón centrado -->
+        <div class="d-flex justify-content-center mt-5 rounded-bottom p-4">
+            <a (click)="navigateToAbout()" class="btn btn-secondary rounded-pill py-3 px-5">Leer Más</a>
+        </div>
+        
     </div>
 </div>
 <!-- feature End -->
+
 
 <!-- About Start -->
 <div class="container-fluid about overflow-hidden py-5">
@@ -276,7 +288,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-secondary rounded-pill py-3 px-5">Leer Más</a>
+                    <a (click)="navigateToAbout()" class="btn btn-secondary rounded-pill py-3 px-5">Leer Más</a>
                 </div>
             </div>
         </div>
@@ -463,46 +475,46 @@
             <h1 class="display-3 text-capitalize mb-3">Últimas Noticias y Actualizaciones</h1>
         </div>
         <div class="row g-4 justify-content-center">
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="assets/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="">
+            <div class="col-lg-6 col-xl-4 wow fadeInUp d-flex" data-wow-delay="0.2s">
+                <div class="blog-item d-flex flex-column" style="flex: 1;">
+                    <div class="blog-img" style="height: 250px; overflow: hidden;">
+                        <img src="assets/img/blog-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
                         <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> {{ currentDate |
                             date:'mediumDate' }}</div>
                     </div>
-                    <div class="blog-content rounded-bottom p-4">
+                    <div class="blog-content rounded-bottom p-4 d-flex flex-column" style="flex: 1;">
                         <a href="#" class="h4 d-inline-block mb-3">Intagua: Innovación y Calidad</a>
-                        <p>Descubre cómo Intagua se compromete a ofrecer la mejor calidad de agua embotellada, para
+                        <p class="flex-grow-1">Descubre cómo Intagua se compromete a ofrecer la mejor calidad de agua embotellada, para
                             cada necesidad.</p>
-                        <a href="#" class="fw-bold text-secondary">Leer Más <i class="fa fa-angle-right"></i></a>
+                        <a href="#" class="fw-bold text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="assets/img/blog-3.jpg" class="img-fluid rounded-top w-100" alt="">
+            <div class="col-lg-6 col-xl-4 wow fadeInUp d-flex" data-wow-delay="0.4s">
+                <div class="blog-item d-flex flex-column" style="flex: 1;">
+                    <div class="blog-img" style="height: 250px; overflow: hidden;">
+                        <img src="assets/img/blog-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
                         <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
                     </div>
-                    <div class="blog-content rounded-bottom p-4">
+                    <div class="blog-content rounded-bottom p-4 d-flex flex-column" style="flex: 1;">
                         <a href="#" class="h4 d-inline-block mb-3">Presentación de 500ml</a>
-                        <p>Conoce nuestra práctica y cómoda presentación de 500ml, ideal para llevar a cualquier
+                        <p class="flex-grow-1">Conoce nuestra práctica y cómoda presentación de 500ml, ideal para llevar a cualquier
                             lugar y mantenerte hidratado.</p>
-                        <a href="#" class="fw-bold text-secondary">Leer Más <i class="fa fa-angle-right"></i></a>
+                        <a href="#" class="fw-bold text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="assets/img/blog-2.jpg" class="img-fluid rounded-top w-100" alt="">
+            <div class="col-lg-6 col-xl-4 wow fadeInUp d-flex" data-wow-delay="0.6s">
+                <div class="blog-item d-flex flex-column" style="flex: 1;">
+                    <div class="blog-img" style="height: 250px; overflow: hidden;">
+                        <img src="assets/img/blog-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
                         <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
                     </div>
-                    <div class="blog-content rounded-bottom p-4">
+                    <div class="blog-content rounded-bottom p-4 d-flex flex-column" style="flex: 1;">
                         <a href="#" class="h4 d-inline-block mb-3">Botellones de 20Lt</a>
-                        <p>Nuestra opción más económica y práctica para el hogar y la oficina. Los botellones de
+                        <p class="flex-grow-1">Nuestra opción más económica y práctica para el hogar y la oficina. Los botellones de
                             20Lt te aseguran agua pura por más tiempo.</p>
-                        <a href="#" class="fw-bold text-secondary">Leer Más <i class="fa fa-angle-right"></i></a>
+                        <a href="#" class="fw-bold text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -510,6 +522,8 @@
     </div>
 </div>
 <!-- Blog End -->
+
+
 
 
 <!-- Team Start -->
@@ -633,5 +647,7 @@
 </div>
 <!-- Team End -->
 
+<!-- Back to Top -->
+<a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 <app-footer></app-footer>

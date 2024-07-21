@@ -44,6 +44,7 @@ import { FooterComponent } from "./shared/footer/footer.component";
 import { MenuDistribuidorComponent } from "./shared/menu-distribuidor/menu-distribuidor.component";
 import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
 
+
 @NgModule({
   declarations: [
     AppComponent,

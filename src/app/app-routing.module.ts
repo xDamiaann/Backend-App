@@ -24,6 +24,9 @@ import { FacturasAllComponent } from './facturacion/components/facturas-all/fact
 import { Validaciones } from './utils/validaciones';
 import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-confirmado.component';
 import { AboutComponent } from './about/about.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { CaracteristicasComponent } from './caracteristicas/caracteristicas.component';
+
 import { ShopComponent } from './shop/shop.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { MapaComponent } from './distribuidor/mapa/mapa.component';
@@ -63,6 +66,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'contacto', component: ContactoComponent },
+  { path: 'noticias', component: NoticiasComponent },
+  { path: 'caracteristicas', component: CaracteristicasComponent },
 
   { path: 'mapa', component: MapaComponent },
   { path: 'admin-profile', component: AdminProfileComponent },

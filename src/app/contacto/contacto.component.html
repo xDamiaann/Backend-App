@@ -39,11 +39,11 @@
                     <a href="index.html" class="nav-item nav-link ">Inicio</a>
                     <a (click)="navigateToAbout()" class="nav-item nav-link">Sobre Nosotros</a>
                     <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
-                    <a href="blog.html" class="nav-item nav-link">Noticias</a>
+                    <a (click)="navigateToNoticias()" class="nav-item nav-link">Noticias</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
                         <div class="dropdown-menu m-0">
-                            <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
+                            <a  class="dropdown-item">Nuestra Caracteristica</a>
                             <a href="product.html" class="dropdown-item">Nuestros Productos</a>
                             <a href="team.html" class="dropdown-item">Equipo</a>
                         </div>
@@ -105,15 +105,17 @@
 <!-- Contact Start -->
 <div class="container-fluid contact bg-light py-5">
     <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-6 h-100 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="text-center mx-auto pb-5" style="max-width: 800px;">
                     <h4 class="text-uppercase text-primary">Conéctate con Nosotros</h4>
                     <h1 class="display-3 text-capitalize mb-3">IntApp</h1>
-                    <p class="mb-0">La empresa Intagua se dedica a la venta y distribución de botellones de agua en Riobamba. Utiliza nuestra aplicación IntApp para hacer tus pedidos de manera fácil y rápida. Cantáctanos! </p>
+                    <p class="mb-4">La empresa Intagua se dedica a la venta y distribución de botellones de agua en Riobamba. Utiliza nuestra aplicación IntApp para hacer tus pedidos de manera fácil y rápida. ¡Contáctanos!</p>
+                    <div class="text-center">
+                        <img src="assets/img/atencion.png" class="img-fluid rounded" alt="Imagen de contacto" style="max-width: 100%; height: auto;">
+                    </div>
                 </div>
             </div>
-            
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="row g-4">
                     <div class="col-12">
@@ -145,7 +147,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="col-12">
                         <div class="h-100 overflow-hidden">
                             <iframe class="w-100 rounded" style="height: 400px;" 
@@ -153,13 +154,25 @@
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Contact End -->
+
+<style>
+    .container .row.align-items-center {
+        align-items: center;
+    }
+    .container .text-center img {
+        margin-top: 20px;
+    }
+</style>
+
+
+ <!-- Back to Top -->
+ <a (click)="navigateToContacto()" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
 
         <!-- Footer Start -->
@@ -184,8 +197,8 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="text-white mb-4">Sobre Nosotros</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Por qué Elegirnos?</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
+                            <a (click)="navigateToAbout()"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros?</a>
+                            <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
                         </div>
                     </div>
@@ -247,9 +260,7 @@
         <!-- Copyright End -->
 
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
+       
         
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

@@ -36,37 +36,37 @@
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link ">Inicio</a>
-                    <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
-                    <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
-                    <a href="blog.html" class="nav-item nav-link">Noticias</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
-                            <a href="product.html" class="dropdown-item">Nuestros Productos</a>
-                            <a href="team.html" class="dropdown-item">Equipo</a>
-                        </div>
-                    </div>
-                    <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+              <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link ">Inicio</a>
+                <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
+                <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
+                <a (click)="navigateToNoticias()" class="nav-item nav-link">Noticias</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                <div class="dropdown-menu m-0">
+                    <a (click)="navigateToCaracteristicas()" class="dropdown-item">Nuestra Caracteristica</a>
+                    <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
+                    <a href="team.html" class="dropdown-item">Equipo</a>
                 </div>
-                <div class="d-none d-xl-flex me-3">
-                    <div class="d-flex flex-column pe-3 border-end border-primary">
-                        <span class="text-body">Contáctanos</span>
-                        <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
-                    </div>
+            </div>
+                <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+            </div>
+            <div class="d-none d-xl-flex me-3">
+                <div class="d-flex flex-column pe-3 border-end border-primary">
+                    <span class="text-body">Contáctanos</span>
+                    <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
                 </div>
-    
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
-                    <div class="dropdown-menu m-0">
-                        
-                        <a (click)="navigateToCliente()" class="dropdown-item  active">Cliente</a>
-                        <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
-                        <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
-                    </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Acceso</a>
+                <div class="dropdown-menu m-0">
+                    
+                    <a (click)="navigateToCliente()" class="dropdown-item active">Cliente</a>
+                    <a (click)="navigateToDistribuidor()" class="dropdown-item ">Distribuidor</a>
+                    <a (click)="navigateToAdmin()" class="dropdown-item ">Administrador</a>
                 </div>
+            </div>
             </div>
         </nav>
 
@@ -239,13 +239,13 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Sobre Nosotros</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Por qué Elegirnos?</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
-                        </div>
-                    </div>
+                      <div class="footer-item d-flex flex-column">
+                          <h4 class="text-white mb-4">Sobre Nosotros</h4>
+                          <a (click)="navigateToAbout()"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros?</a>
+                          <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
+                          <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
+                      </div>
+                  </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="text-white mb-4">Horario de Atención</h4>

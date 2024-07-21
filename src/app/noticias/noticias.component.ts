@@ -1,27 +1,27 @@
-
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-shop',
-  templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.css']
+  selector: 'app-noticias',
+  templateUrl: './noticias.component.html',
+  styleUrls: ['./noticias.component.css']
 })
-export class ShopComponent {
-  constructor(private router: Router, private elementRef: ElementRef) {}
+
+export class NoticiasComponent {
+
+  constructor(private router: Router) {}
 
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
   }
-
   navigateToDistribuidor() {
     this.router.navigate(['login-distribuidor']);
   }
-
   navigateToAdmin() {
     this.router.navigate(['login-admin']);
   }
 
+  
   navigateToAbout() {
     this.router.navigate(['about']);
   }
@@ -34,19 +34,12 @@ export class ShopComponent {
     this.router.navigate(['contacto']);
   }
 
-  scrollToElement(elementId: string): void {
-    const element = this.elementRef.nativeElement.querySelector('#' + elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
   navigateToNoticias() {
     this.router.navigate(['noticias']);
   }
 
-
   navigateToCaracteristicas() {
     this.router.navigate(['caracteristicas']);
   }
+  
 }

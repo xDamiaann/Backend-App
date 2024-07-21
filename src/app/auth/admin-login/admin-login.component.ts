@@ -45,6 +45,13 @@ export class AdminLoginComponent {
     this.router.navigate(['contacto']);
   }
 
+  navigateToNoticias() {
+    this.router.navigate(['noticias']);
+  }
+
+  navigateToCaracteristicas() {
+    this.router.navigate(['caracteristicas']);
+  }
 
   onSubmit() {
     this.authService.loginAdmin(this.credentials).subscribe(

@@ -51,7 +51,12 @@ export class HomeComponent {
   }
 
 
-  
+  navigateToNoticias() {
+    this.router.navigate(['noticias']);
+  }
+  navigateToCaracteristicas() {
+    this.router.navigate(['noticias']);
+  }
 
 
   currentDate: Date = new Date();

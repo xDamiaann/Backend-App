@@ -40,15 +40,15 @@
                     <a href="index.html" class="nav-item nav-link ">Inicio</a>
                     <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
                     <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
-                    <a href="blog.html" class="nav-item nav-link">Noticias</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
-                            <a href="product.html" class="dropdown-item">Nuestros Productos</a>
-                            <a href="team.html" class="dropdown-item">Equipo</a>
-                        </div>
+                    <a (click)="navigateToNoticias()" class="nav-item nav-link">Noticias</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                    <div class="dropdown-menu m-0">
+                        <a (click)="navigateToCaracteristicas()" class="dropdown-item active">Nuestra Caracteristica</a>
+                        <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
+                        <a href="team.html" class="dropdown-item">Equipo</a>
                     </div>
+                </div>
                     <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
                 </div>
                 <div class="d-none d-xl-flex me-3">
@@ -59,12 +59,12 @@
                 </div>
     
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Acceso</a>
                     <div class="dropdown-menu m-0">
                         
                         <a (click)="navigateToCliente()" class="dropdown-item">Cliente</a>
-                        <a (click)="navigateToDistribuidor()" class="dropdown-item active">Distribuidor</a>
-                        <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
+                        <a (click)="navigateToDistribuidor()" class="dropdown-item ">Distribuidor</a>
+                        <a (click)="navigateToAdmin()" class="dropdown-item active">Administrador</a>
                     </div>
                 </div>
             </div>

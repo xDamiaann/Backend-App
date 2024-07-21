@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -31,5 +31,14 @@ export class ContactoComponent {
   navigateToContacto() {
     this.router.navigate(['contacto']);
   }
+
+  navigateToNoticias() {
+    this.router.navigate(['noticias']);
+  }
+
+  navigateToCaracteristicas() {
+    this.router.navigate(['noticias']);
+  }
+
 
 }

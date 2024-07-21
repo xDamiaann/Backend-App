@@ -41,12 +41,12 @@
                 <a href="index.html" class="nav-item nav-link ">Inicio</a>
                 <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
                 <a (click)="navigateToShop()" class="nav-item nav-link active">Productos</a>
-                <a href="blog.html" class="nav-item nav-link">Noticias</a>
+                <a (click)="navigateToNoticias()" class="nav-item nav-link">Noticias</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu m-0">
-                        <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
-                        <a href="product.html" class="dropdown-item">Nuestros Productos</a>
+                        <a (click)="navigateToCaracteristicas()" class="dropdown-item">Nuestra Caracteristica</a>
+                        <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
                         <a href="team.html" class="dropdown-item">Equipo</a>
                     </div>
                 </div>
@@ -105,8 +105,6 @@
     </div>
 </div>
 <!-- Modal Search End -->
-
-
   <!-- Products Start -->
   <div class="container-fluid product py-5">
     <div class="container py-5">
@@ -114,84 +112,71 @@
             <h4 class="text-uppercase text-primary">Nuestros Productos</h4>
             <h1 class="display-3 text-capitalize mb-3">"Protege a Tu Familia con Agua de la Mejor Calidad"</h1>
         </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="product-item">
-                    <img src="assets/img/product-1.png" class="img-fluid w-100 rounded-top"  alt="Image">
-                    <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <p>500ml Cada Botella</p>
-                        <a href="#" class="h4 d-inline-block mb-3">Botella de Agua Mineral</a>
-                        <p class="fs-4 text-primary mb-3">$0.50</p>
-                        <a (click)="scrollToElement('info-botella-500ml')"  class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-6 col-xl-4 product-item">
+                            <div class="product-item">
+                                <img src="assets/img/product-1.png" class="img-fluid w-100 rounded-top" alt="Image">
+                                <div class="product-content bg-light text-center rounded-bottom p-4">
+                                    <p>500ml Cada Botella</p>
+                                    <a href="#" class="h4 d-inline-block mb-3">Botella de Agua Mineral</a>
+                                    <p class="fs-4 text-primary mb-3">$0.50</p>
+                                    <a (click)="scrollToElement('info-botella-500ml')" class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-4 product-item">
+                            <div class="product-item">
+                                <img src="assets/img/product-2.png" class="img-fluid w-100 rounded-top" alt="Image">
+                                <div class="product-content bg-light text-center rounded-bottom p-4">
+                                    <p>20L Cada Botellón</p>
+                                    <a href="#" class="h4 d-inline-block mb-3">Botellón de agua mineral</a>
+                                    <p class="fs-4 text-primary mb-3">$1.00</p>
+                                    <a (click)="scrollToElement('info-botellon')" class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="product-item">
-                    <img src="assets/img/product-2.png" class="img-fluid w-100 rounded-top"  alt="Image">
-                    <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <p>20L Cada Botellón</p>
-                        <a href="#" class="h4 d-inline-block mb-3">Botellón de agua mineral</a>
-                        <p class="fs-4 text-primary mb-3">$1.00</p>
-                        <a (click)="scrollToElement('info-botellon')"  class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-6 col-xl-4 product-item">
+                            <div class="product-item">
+                                <img src="assets/img/product-3.png" class="img-fluid w-100 rounded-top" alt="Image">
+                                <div class="product-content bg-light text-center rounded-bottom p-4">
+                                    <p>1L Cada Botella</p>
+                                    <a href="#" class="h4 d-inline-block mb-3">Botella de Agua Mineral</a>
+                                    <p class="fs-4 text-primary mb-3">$0.75</p>
+                                    <a (click)="scrollToElement('info-botella-1L')" class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-4 product-item">
+                            <div class="product-item">
+                                <img src="assets/img/product-4.png" class="img-fluid w-100 rounded-top" alt="Image">
+                                <div class="product-content bg-light text-center rounded-bottom p-4">
+                                    <p>15L Cada Botellón</p>
+                                    <a href="#" class="h4 d-inline-block mb-3">Botellón de agua mineral</a>
+                                    <p class="fs-4 text-primary mb-3">$1.50</p>
+                                    <a (click)="scrollToElement('info-botellon-15L')" class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Add more carousel-item sections here for additional products -->
             </div>
-            
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
-<p>
-
-</p>
-<p>
-
-</p>
-<!-- Información adicional más abajo -->
-
-
-<div class="bg-light rounded p-4 mb-4 wow fadeInRight" data-wow-delay="0.2s">
-    <div class="row align-items-center">
-        <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
-            <img src="assets/img/product-1.png" alt="Botella de agua mineral de 500ml" class="img-fluid rounded">
-        </div>
-        <div class="col-lg-8">
-            <div id="info-botella-500ml" class="mt-5">
-                <h2>Botella de agua mineral de 500ml</h2>
-                <p class="text-justify">Disfruta del refrescante sabor y la comodidad de nuestra botella de agua mineral de 500ml. Esta botella está diseñada para mantener la pureza y frescura del agua, ideal para llevar contigo a donde vayas.</p>
-                <ul>
-                    <li><strong>Contenido:</strong> 500ml de agua mineral purificada.</li>
-                    <li><strong>Beneficios:</strong> Nutritiva y refrescante, perfecta para hidratarte en cualquier momento del día.</li>
-                    <li><strong>Características:</strong> Tapón hermético para mantener la frescura, etiqueta informativa con detalles sobre el origen y tratamiento del agua.</li>
-                    <li><strong>Uso recomendado:</strong> Ideal para deportistas, oficinistas y cualquier persona consciente de la importancia de la hidratación.</li>
-                </ul>
-                <p class="text-justify">No pierdas la oportunidad de disfrutar de agua pura y de calidad en una botella práctica y fácil de transportar. ¡Ordénala ahora y mantén tu salud siempre en primer lugar!</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="bg-light rounded p-4 mb-4  wow fadeInLeft" data-wow-delay="0.2s">
-    <div class="row align-items-center">
-        <div class="col-lg-8">
-            <div id="info-botellon" class="mt-5">
-                <h2>Botellón de agua mineral de 20L</h2>
-                <p class="text-justify">Nuestro botellón de agua mineral de 20 litros es ideal para hogares, oficinas y eventos que requieren una fuente confiable de agua pura y fresca. Diseñado para mantener la calidad y pureza del agua durante un largo período de tiempo, este botellón es la elección perfecta para satisfacer las necesidades de hidratación de grandes grupos.</p>
-                <ul>
-                    <li><strong>Capacidad:</strong> 20 litros de agua mineral purificada.</li>
-                    <li><strong>Beneficios:</strong> Frescura y pureza garantizadas, ideal para consumir directamente o utilizar en dispensadores de agua.</li>
-                    <li><strong>Características:</strong> Tapón seguro y hermético que asegura la frescura del agua, asa ergonómica para fácil transporte y manejo.</li>
-                    <li><strong>Uso recomendado:</strong> Perfecto para hogares grandes, oficinas, centros educativos, y eventos donde se requiere una fuente continua de agua de calidad.</li>
-                </ul>
-                <p class="text-justify">No te preocupes por quedarte sin agua en momentos clave. Con nuestro botellón de 20 litros, tendrás agua pura y segura siempre disponible, asegurando la salud y bienestar de todos los que dependen de una hidratación adecuada.</p>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-3 mb-lg-0">
-            <img src="assets/img/product-2.png" alt="Botellón de agua mineral de 20L" class="img-fluid rounded float-end">
-        </div>
-    </div>
-</div>
-
-
 
     </div>
 </div>
@@ -221,8 +206,8 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="text-white mb-4">Sobre Nosotros</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Por qué Elegirnos?</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
+                            <a (click)="navigateToAbout()"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros?</a>
+                            <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
                         </div>
                     </div>
@@ -285,7 +270,7 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        <a (click)="navigateToShop()" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
         
     <!-- JavaScript Libraries -->
