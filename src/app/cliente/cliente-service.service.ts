@@ -108,4 +108,14 @@ export class ClienteServiceService {
     return this.http.get<any>(`${this.apiUrl}/cliente/info/${clienteId}`);
   }
 
+
+  updateCliente(clienteId: string, clienteData: any): Observable<any> {
+    console.log(clienteData)
+    return this.http.put<any>(`${this.apiUrl}/cliente/info/${clienteId}`, clienteData);
+  }
+
+  getFacturaById(id_factura: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cliente/factura/detalle/${id_factura}`);
+  }
+
 }

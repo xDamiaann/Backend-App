@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClienteServiceService } from '../cliente-service.service';
 import { MenuClienteComponent } from "../../shared/menu-cliente/menu-cliente.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
@@ -13,7 +14,7 @@ export class ClienteFacturasComponent {
   idCliente: any;
   facturas: any;
 
-  constructor(private clienteService: ClienteServiceService,) {
+  constructor(private clienteService: ClienteServiceService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -39,6 +40,6 @@ export class ClienteFacturasComponent {
   }
 
   detalleFactura(id: string) {
-
+    this.router.navigate(['factura-detalle', id]);
   }
 }

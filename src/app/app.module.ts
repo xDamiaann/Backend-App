@@ -47,6 +47,7 @@ import { ClienteFacturasComponent } from "./cliente/cliente-facturas/cliente-fac
 import { GroupByPipe } from './shared/group-by.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { NoticiasComponent } from './noticias/noticias.component';
+import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detalle/cliente-factura-detalle.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { NoticiasComponent } from './noticias/noticias.component';
     ClientePerfilComponent,
     GroupByPipe,
     ClienteFacturasComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    ClienteFacturaDetalleComponent,
   ],
 
   imports: [

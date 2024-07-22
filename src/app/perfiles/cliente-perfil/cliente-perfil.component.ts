@@ -1,14 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-
-// import { ToastrService } from 'ngx-toastr';
-import { NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
-
-declare var bootstrap: any;
 
 @Component({
   selector: 'app-cliente-perfil',
@@ -19,8 +14,10 @@ export class ClientePerfilComponent implements OnInit {
   idCliente: any;
   cliente: any;
   barrios: any = [];
-  constructor(private authService: AuthService, private ClienteService: ClienteServiceService, private router: Router, private toastr: ToastrService,) { }
+  isFormDisabled: boolean = true;  // Estado para habilitar/deshabilitar el formulario
+  showPassword: boolean = false;  // Estado para mostrar/ocultar la contraseña
 
+  constructor(private authService: AuthService, private ClienteService: ClienteServiceService, private router: Router, private toastr: ToastrService,) { }
 
   username: string = '';
   clienteForm!: FormGroup;
@@ -34,7 +31,6 @@ export class ClientePerfilComponent implements OnInit {
       this.cargarDatosCliente();
       this.getBarrios();
     }
-
   }
 
   cargarDatosCliente() {
@@ -69,24 +65,49 @@ export class ClientePerfilComponent implements OnInit {
       }
     );
   }
-  onSubmit(form: any) {
 
-    this.authService.registerClient(this.clienteForm.value).subscribe(
-      response => {
-        const msj = 'Cliente registrado correctamente';
-        this.AlertaSucess(msj);
-        setTimeout(() => {
-          this.router.navigate(['/login-cliente']);
-        }, 2000);
-
-      },
-      error => {
-        console.error('Error al registrar el cliente', error);
-      }
-    );
-
+  enableForm() {
+    this.isFormDisabled = false;
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  get passwordFieldType() {
+    return this.showPassword ? 'text' : 'password';
+  }
+
+  onSubmit(form: any) {
+    if (form.valid) {
+      this.authService.checkUsernameForUpdate(form.value.username, this.idCliente).subscribe(
+        (isUsernameTaken) => {
+          if (isUsernameTaken) {
+            this.AlertaFail('El nombre de usuario ya está en uso por otro cliente');
+          } else {
+            const clienteData = { ...form.value, id_barrio: Number(form.value.barrio) };
+            this.ClienteService.updateCliente(this.idCliente, clienteData).subscribe(
+              response => {
+                console.log('Respuesta del servidor:', response);
+                this.isFormDisabled = true;
+                this.AlertaSucess('Datos del cliente actualizados correctamente');
+              },
+              error => {
+                console.error('Error al actualizar los datos del cliente:', error);
+                this.AlertaFail('Error al actualizar los datos del cliente');
+              }
+            );
+          }
+        },
+        error => {
+          console.error('Error al verificar el nombre de usuario:', error);
+          this.AlertaFail('Error al verificar el nombre de usuario');
+        }
+      );
+    }
+  }
+
+
+
+
 }
-
-

@@ -38,6 +38,10 @@ export class AuthService {
     return this.http.get(`${this.apiUrl}/cliente/check-username/${username}`);
   }
 
+  checkUsernameForUpdate(username: string, id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/cliente/check-usernameupdate/${username}/${id}`);
+  }
+
   checkCedula(cedula: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/cliente/check-cedula/${cedula}`);
   }

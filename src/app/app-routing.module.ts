@@ -35,6 +35,7 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
 import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
 import { ClienteFacturasComponent } from './cliente/cliente-facturas/cliente-facturas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
+import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detalle/cliente-factura-detalle.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -71,7 +72,7 @@ const routes: Routes = [
   { path: 'perfil', component: ClientePerfilComponent },
   { path: 'cliente-facturas', component: ClienteFacturasComponent },
   { path: 'noticias', component: NoticiasComponent },
-
+  { path: 'factura-detalle/:id', component: ClienteFacturaDetalleComponent },
   //{ path: '**', redirectTo: '' },// Manejo de rutas no encontradas
 
 ];
