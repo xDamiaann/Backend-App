@@ -50,7 +50,6 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detalle/cliente-factura-detalle.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
