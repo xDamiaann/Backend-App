@@ -82,8 +82,8 @@ export class DistribuidorPedidosComponent implements OnInit, AfterViewInit {
     this.directionsRenderer = new google.maps.DirectionsRenderer();
     this.directionsService = new google.maps.DirectionsService();
     this.map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 7,
-      center: { lat: 41.85, lng: -87.65 },
+      zoom: 13,
+      center: { lat: -1.6688764335447737, lng: - 78.65418090262135 },
       disableDefaultUI: true,
     });
 

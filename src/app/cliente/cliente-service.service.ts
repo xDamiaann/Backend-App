@@ -76,6 +76,9 @@ export class ClienteServiceService {
     return this.http.post<any>(`${this.apiUrl}/payments/capture-order`, { orderId });
   }
 
+  getFacturasByClienteId(clienteId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cliente/factura/${clienteId}`);
+  }
   // getLocation(): Observable<any> {
   //   return this.http.get(`${this.apiUrl}/cliente/location`);
   // }
@@ -101,6 +104,18 @@ export class ClienteServiceService {
     });
   }
 
+  getClienteId(clienteId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cliente/info/${clienteId}`);
+  }
 
+
+  updateCliente(clienteId: string, clienteData: any): Observable<any> {
+    console.log(clienteData)
+    return this.http.put<any>(`${this.apiUrl}/cliente/info/${clienteId}`, clienteData);
+  }
+
+  getFacturaById(id_factura: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cliente/factura/detalle/${id_factura}`);
+  }
 
 }

@@ -76,4 +76,8 @@ export class MenuClienteComponent {
   navigateVerPedido() {
     this.router.navigate(['/cliente-pedidos']);
   }
+
+  navigateVerFactura() {
+    this.router.navigate(['/cliente-facturas']);
+  }
 }

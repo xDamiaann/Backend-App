@@ -1,0 +1,38 @@
+<app-menu-cliente></app-menu-cliente>
+<div class="container m-5 ">
+    <div class="d-flex justify-content-center align-content-justify">
+        <h2>Mis Facturas</h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered  table-hover table-striped text-center">
+            <thead class="thead-lightblue">
+                <tr>
+                    <th>Num. Factura</th>
+                    <th>Fecha</th>
+                    <th>Subtotal</th>
+                    <th>Iva</th>
+                    <th>Total</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let factura of facturas">
+                    <td>{{ factura.numfactura }}</td>
+                    <td>{{ factura.fechafactura }}</td>
+                    <td>{{ factura.subtotal }}</td>
+                    <td>{{ factura.iva }}</td>
+                    <td>{{ factura.valortotal }}</td>
+                    <td>
+                        <button class="btn btn-success" (click)="detalleFactura(factura.id_factura)">Ver
+                            Detalle</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-5 py-5">
+    <app-footer></app-footer>
+</div>

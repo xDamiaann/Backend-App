@@ -43,6 +43,12 @@ import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil
 import { FooterComponent } from "./shared/footer/footer.component";
 import { MenuDistribuidorComponent } from "./shared/menu-distribuidor/menu-distribuidor.component";
 import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
+import { ClienteFacturasComponent } from "./cliente/cliente-facturas/cliente-facturas.component";
+import { GroupByPipe } from './shared/group-by.pipe';
+import { ToastrModule } from 'ngx-toastr';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detalle/cliente-factura-detalle.component';
+
 
 
 @NgModule({
@@ -73,6 +79,10 @@ import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
     DistribuidorProfileComponent,
     AdminProfileComponent,
     ClientePerfilComponent,
+    GroupByPipe,
+    ClienteFacturasComponent,
+    NoticiasComponent,
+    ClienteFacturaDetalleComponent,
   ],
 
   imports: [
@@ -96,7 +106,12 @@ import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
     MenuClienteComponent,
     FooterComponent,
     MenuDistribuidorComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [AdminServiceService],
   bootstrap: [AppComponent]

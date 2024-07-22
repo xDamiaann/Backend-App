@@ -2,19 +2,63 @@
 <div class="container mt-5 ">
   <div class="d-flex justify-content-end">
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-user"></i> {{ username }}
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/distribuidor-profile">Perfil</a>
-        <a class="dropdown-item" href="#" (click)="logout()">Cerrar sesión</a>
-      </div>
     </div>
   </div>
   <h1>Página de Inicio del Distribuidor</h1>
-  <p>Bienvenido a la página de inicio del distribuidor.</p>
-  <a class="btn btn-primary" routerLink="/distribuidor-pedidos">Ver Pedidos Pendientes</a>
+  <!-- Blog Start -->
+  <div class="container-fluid blog pb-5">
+    <div class="container pb-5">
+      <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+        <h4 class="text-uppercase text-primary"></h4>
+        <h1 class="display-3 text-capitalize mb-3">Últimas Noticias y Actualizaciones</h1>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+          <div class="blog-item">
+            <div class="blog-img">
+              <img src="assets/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="">
+              <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
+            </div>
+            <div class="blog-content rounded-bottom p-4">
+              <a href="#" class="h4 d-inline-block mb-3">Intagua: Innovación y Calidad</a>
+              <p>Descubre cómo Intagua se compromete a ofrecer la mejor calidad de agua embotellada, para
+                cada necesidad.</p>
+              <a href="#" class="fw-bold text-secondary">Leer Más <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+          <div class="blog-item">
+            <div class="blog-img">
+              <img src="assets/img/blog-3.jpg" class="img-fluid rounded-top w-100" alt="">
+              <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
+            </div>
+            <div class="blog-content rounded-bottom p-4">
+              <a href="#" class="h4 d-inline-block mb-3">Presentación de 500ml</a>
+              <p>Conoce nuestra práctica y cómoda presentación de 500ml, ideal para llevar a cualquier
+                lugar y mantenerte hidratado.</p>
+              <a href="#" class="fw-bold text-secondary">Leer Más <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+          <div class="blog-item">
+            <div class="blog-img">
+              <img src="assets/img/blog-2.jpg" class="img-fluid rounded-top w-100" alt="">
+              <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
+            </div>
+            <div class="blog-content rounded-bottom p-4">
+              <a href="#" class="h4 d-inline-block mb-3">Botellones de 20Lt</a>
+              <p>Nuestra opción más económica y práctica para el hogar y la oficina. Los botellones de
+                20Lt te aseguran agua pura por más tiempo.</p>
+              <a href="#" class="fw-bold text-secondary">Leer Más <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Blog End -->
 
 </div>
 

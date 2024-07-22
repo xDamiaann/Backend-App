@@ -31,7 +31,7 @@ export class LoginComponent {
   }
 
   navigateToRegister() {
-    this.router.navigate(['/register']); // Navega a la ruta '/register'
+    this.router.navigate(['/register-cliente']); // Navega a la ruta '/register'
   }
 
   navigateToAbout() {

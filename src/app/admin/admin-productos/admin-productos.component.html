@@ -87,6 +87,17 @@
                 <label for="stock">Stock:</label>
                 <input type="number" id="stock" [(ngModel)]="nuevoProducto.stock" name="stock" class="form-control" required>
               </div> -->
+            <div class="form-group col-md-12 col-sm-12 m-2 mt-4">
+              <label>Imagen Referencial</label>
+              <input id="imageCourse" type="file" class="form-control" required ngModel
+                (change)="onFileSelected($event)" accept="image/*" name="imageCourse" #imageCourse="ngModel"
+                [ngClass]="'input'" />
+              <div class="d-flex justify-content-center align-items-center mt-2">
+                <img *ngIf="imageUrl" [src]="imageUrl" alt="Previsualización de la imagen" width="350px" height="350px">
+
+              </div>
+
+            </div>
 
             <button type="submit" class="btn btn-primary">Agregar</button>
           </form>

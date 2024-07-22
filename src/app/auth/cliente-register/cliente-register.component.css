@@ -23,7 +23,8 @@
 }
 
 .bigicon {
-  font-size: 24px; /* Tamaño del icono reducido */
+  font-size: 24px;
+  /* Tamaño del icono reducido */
   color: #36A0FF;
 }
 
@@ -78,25 +79,63 @@
 .select-container {
   position: relative;
   display: inline-block;
-  width: 100%; /* Ajusta el ancho del contenedor según sea necesario */
+  width: 100%;
+  /* Ajusta el ancho del contenedor según sea necesario */
 }
 
 .select-placeholder {
   position: absolute;
-  top: 50%; /* Centra verticalmente el texto placeholder */
+  top: 50%;
+  /* Centra verticalmente el texto placeholder */
   transform: translateY(-50%);
-  left: 10px; /* Ajusta el espacio a la izquierda para el icono o el borde del contenedor */
-  pointer-events: none; /* Evita que el label interfiera con los eventos del select */
+  left: 10px;
+  /* Ajusta el espacio a la izquierda para el icono o el borde del contenedor */
+  pointer-events: none;
+  /* Evita que el label interfiera con los eventos del select */
   color: #999;
   transition: 0.2s ease-out;
-  font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
+  font-size: 14px;
+  /* Ajusta el tamaño de fuente según sea necesario */
 }
 
 .form-control {
-  padding-left: 30px; /* Ajusta el espacio para el icono o el borde del contenedor */
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  padding-left: 30px;
+  /* Ajusta el espacio para el icono o el borde del contenedor */
+  box-sizing: border-box;
+  /* Asegura que el padding no afecte el ancho total */
 }
 
-.form-control:focus + .select-placeholder {
-  display: none; /* Oculta el placeholder cuando el select está enfocado */
+.form-control:focus+.select-placeholder {
+  display: none;
+  /* Oculta el placeholder cuando el select está enfocado */
+}
+
+
+
+
+.toast-container {
+  width: max-content !important;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.toast-container {
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.toast-container {
+  --bs-toast-zindex: 1090;
+  position: absolute;
+  z-index: var(--bs-toast-zindex);
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.toast-container {
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
 }

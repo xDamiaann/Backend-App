@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-noticias',
   templateUrl: './noticias.component.html',
-  styleUrls: ['./noticias.component.css']
+  styleUrls: ['./noticias.component.css'] // Corregido: styleUrl -> styleUrls
 })
-
 export class NoticiasComponent {
+  currentDate: Date = new Date();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
@@ -20,16 +20,12 @@ export class NoticiasComponent {
   navigateToAdmin() {
     this.router.navigate(['login-admin']);
   }
-
-  
   navigateToAbout() {
     this.router.navigate(['about']);
   }
-
   navigateToShop() {
     this.router.navigate(['shop']);
   }
-
   navigateToContacto() {
     this.router.navigate(['contacto']);
   }
@@ -38,8 +34,4 @@ export class NoticiasComponent {
     this.router.navigate(['noticias']);
   }
 
-  navigateToCaracteristicas() {
-    this.router.navigate(['caracteristicas']);
-  }
-  
 }

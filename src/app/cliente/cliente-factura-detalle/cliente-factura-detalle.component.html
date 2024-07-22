@@ -1,0 +1,67 @@
+<app-menu-cliente></app-menu-cliente>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4">Factura</h1>
+            <img src="assets/img/logo.png" alt="Logo" class="img-fluid my-4" style="max-width: 150px;">
+        </div>
+    </div>
+
+    <div id="invoice" class="invoice p-3 mb-3" *ngIf="factura">
+        <div class="row">
+            <div class="col-6">
+                <h4>Datos del Cliente</h4>
+                <p><strong>Nombre:</strong> {{ factura.nombrecliente }} {{ factura.apellidocliente }}</p>
+                <p><strong>Cédula:</strong> {{ factura.cedulacliente }}</p>
+                <p><strong>Dirección:</strong> {{ factura.direccioncliente }}</p>
+                <p><strong>Teléfono:</strong> {{ factura.telefonocliente }}</p>
+                <p><strong>Email:</strong> {{ factura.emailcliente }}</p>
+            </div>
+            <div class="col-6 text-right">
+                <h4>Factura</h4>
+                <p><strong>Número:</strong> {{ factura.numfactura }}</p>
+                <p><strong>Fecha:</strong> {{ factura.fechafactura | date:'dd/MM/yyyy' }}</p>
+                <p><strong>Pedido:</strong> {{ factura.id_pedido }}</p>
+                <p><strong>Fecha Pedido:</strong> {{ factura.fechapedido | date:'dd/MM/yyyy' }}</p>
+            </div>
+        </div>
+
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered table-hover table-striped text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Presentación</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let detalle of detalles">
+                        <td>{{ detalle.producto }}</td>
+                        <td>{{ detalle.presentacion }}</td>
+                        <td>{{ detalle.cantidad }}</td>
+                        <td>{{ detalle.precio | currency }}</td>
+                        <td>{{ detalle.totaldetalle | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 text-right">
+                <h4>Subtotal: {{ factura.subtotal | currency }}</h4>
+                <h4>IVA: {{ factura.iva | currency }}</h4>
+                <h4>Total: {{ factura.valortotal | currency }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" (click)="downloadPDF()">Descargar PDF</button>
+    </div>
+</div>
+<div class="mt-5 py-5">
+    <app-footer></app-footer>
+</div>

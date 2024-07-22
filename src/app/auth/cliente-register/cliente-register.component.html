@@ -1,144 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- index.html -->
-<head>
-
-    <title>IntApp</title>
-    <meta charset="utf-8">
-    <title>IntApp</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-     <!-- Google Web Fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
-
-     <!-- Icon Font Stylesheet -->
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-   
-
-  
-</head>
-
-<body>
-     <!-- Navbar & Hero Start -->
-     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
-                <h1 class="text-primary"><img src="assets/img/logo.png" alt="Logo"> Intapp</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link ">Inicio</a>
-                <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
-                <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
-                <a (click)="navigateToNoticias()" class="nav-item nav-link">Noticias</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
-                <div class="dropdown-menu m-0">
-                    <a (click)="navigateToCaracteristicas()" class="dropdown-item">Nuestra Caracteristica</a>
-                    <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
-                    <a href="team.html" class="dropdown-item">Equipo</a>
-                </div>
-            </div>
-                <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
-            </div>
-            <div class="d-none d-xl-flex me-3">
-                <div class="d-flex flex-column pe-3 border-end border-primary">
-                    <span class="text-body">Contáctanos</span>
-                    <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
-                </div>
-            </div>
-
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Acceso</a>
-                <div class="dropdown-menu m-0">
-                    
-                    <a (click)="navigateToCliente()" class="dropdown-item active">Cliente</a>
-                    <a (click)="navigateToDistribuidor()" class="dropdown-item ">Distribuidor</a>
-                    <a (click)="navigateToAdmin()" class="dropdown-item ">Administrador</a>
-                </div>
-            </div>
-            </div>
-        </nav>
-
-    <!-- Header Start -->
-    <div class="container-fluid bg-breadcrumb">
-        <div class="container text-center py-5" style="max-width: 900px;">
-            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Registro Cliente</h4>
-            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
-                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                <li class="breadcrumb-item active text-primary">Registro Cliente</li>
-            </ol>    
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+  <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+    <a href="" class="navbar-brand p-0">
+      <h1 class="text-primary"><img src="assets/img/logo.png" alt="Logo"> Intapp</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto py-0">
+        <a href="index.html" class="nav-item nav-link ">Inicio</a>
+        <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
+        <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
+        <a href="blog.html" class="nav-item nav-link">Noticias</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+          <div class="dropdown-menu m-0">
+            <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
+            <a href="product.html" class="dropdown-item">Nuestros Productos</a>
+            <a href="team.html" class="dropdown-item">Equipo</a>
+          </div>
         </div>
+        <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+      </div>
+      <div class="d-none d-xl-flex me-3">
+        <div class="d-flex flex-column pe-3 border-end border-primary">
+          <span class="text-body">Contáctanos</span>
+          <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
+        </div>
+      </div>
+
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
+        <div class="dropdown-menu m-0">
+
+          <a (click)="navigateToCliente()" class="dropdown-item  active">Cliente</a>
+          <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
+          <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
+        </div>
+      </div>
     </div>
-    <!-- Header End -->
+  </nav>
+
+  <!-- Header Start -->
+  <div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+      <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Registro Cliente</h4>
+      <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item active text-primary">Registro Cliente</li>
+      </ol>
+    </div>
+  </div>
+  <!-- Header End -->
 </div>
 <!-- Navbar & Hero End -->
 
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex align-items-center">
-                <div class="input-group w-75 mx-auto d-flex">
-                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                    <span id="search-icon-1" class="input-group-text btn border p-3"><i class="fa fa-search text-white"></i></span>
-                </div>
-            </div>
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex align-items-center">
+        <div class="input-group w-75 mx-auto d-flex">
+          <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+          <span id="search-icon-1" class="input-group-text btn border p-3"><i
+              class="fa fa-search text-white"></i></span>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container-fluid centered-form">
   <div class="form-container">
     <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
       <fieldset>
-            <h4 class="text-blue display-4 mb-4 wow fadeInDown text-center" data-wow-delay="0.1s">Registro Cliente</h4>
+        <h4 class="text-blue display-4 mb-4 wow fadeInDown text-center" data-wow-delay="0.1s">Registro Cliente</h4>
 
-            <div class="form-group">
-              <div class="form-group-inner">
-                <label for="cedula"><i class="fa fa-id-card bigicon"></i></label>
-                <input class="form-control" id="cedula" name="name" type="text" formControlName="cedula" placeholder="Cédula">
-              </div>
-              <div *ngIf="clienteForm.get('cedula')?.invalid && clienteForm.get('cedula')?.touched" class="text-danger">
-                Cédula inválida
-              </div>
+        <div class="form-group">
+          <div class="form-group-inner">
+            <label for="cedula"><i class="fa fa-id-card bigicon"></i></label>
+            <input class="form-control" id="cedula" name="name" type="text" formControlName="cedula"
+              placeholder="Cédula" maxlength="10">
+          </div>
+          <div
+            *ngIf="clienteForm.get('cedula')?.invalid && (clienteForm.get('cedula')?.touched || clienteForm.get('cedula')?.dirty)"
+            class="text-danger">
+            <div *ngIf="clienteForm.get('cedula')?.errors?.['invalidCedula']" class="text-danger">
+              Cédula inválida
             </div>
-              
-            <div class="form-group">
-
-            <div class="form-group-inner">
-                  <label for="nombre"><i class="fa fa-user bigicon"></i></label>
-                  <input id="nombre" name="nombre" type="text" formControlName="nombre" required placeholder="Nombre" class="form-control">
-              </div>
-
-            </div>
-            <div class="form-group">
-
-              <div class="form-group-inner">
-                <label for="apellido"><i class="fa fa-user bigicon"></i></label>
-                <input id="apellido" name="apellido" type="text" formControlName="apellido" required placeholder="Apellido" class="form-control">
+            <div *ngIf="clienteForm.get('cedula')?.errors?.['taken']" class="text-danger">
+              Cédula ya registrada
             </div>
           </div>
+        </div>
 
-          <div class="form-group">
+        <div class="form-group">
 
-            <div class="form-group-inner">
-              <label for="direccion"><i class="fa fa-map-marker-alt bigicon"></i></label>
-              <input id="direccion" name="direccion" type="text" formControlName="direccion" required placeholder="Dirección" class="form-control">
+          <div class="form-group-inner">
+            <label for="nombre"><i class="fa fa-user bigicon"></i></label>
+            <input id="nombre" name="nombre" type="text" formControlName="nombre" required placeholder="Nombre"
+              class="form-control">
+          </div>
+
+        </div>
+        <div class="form-group">
+
+          <div class="form-group-inner">
+            <label for="apellido"><i class="fa fa-user bigicon"></i></label>
+            <input id="apellido" name="apellido" type="text" formControlName="apellido" required placeholder="Apellido"
+              class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+
+          <div class="form-group-inner">
+            <label for="direccion"><i class="fa fa-map-marker-alt bigicon"></i></label>
+            <input id="direccion" name="direccion" type="text" formControlName="direccion" required
+              placeholder="Dirección" class="form-control">
           </div>
         </div>
 
@@ -146,18 +130,21 @@
 
           <div class="form-group-inner">
             <label for="telefono"><i class="fa fa-phone bigicon"></i></label>
-            <input id="telefono" name="telefono" type="text" formControlName="telefono" required placeholder="Teléfono" class="form-control">
-            <div *ngIf="clienteForm.get('telefono')?.invalid && clienteForm.get('telefono')?.touched" class="text-danger">
+            <input id="telefono" name="telefono" type="text" formControlName="telefono" required placeholder="Teléfono"
+              class="form-control">
+            <div *ngIf="clienteForm.get('telefono')?.invalid && clienteForm.get('telefono')?.touched"
+              class="text-danger">
               Teléfono inválido
             </div>
           </div>
         </div>
-        
+
         <div class="form-group">
 
           <div class="form-group-inner">
             <label for="email"><i class="fa fa-envelope bigicon"></i></label>
-            <input id="email" name="email" type="text" formControlName="email" required placeholder="Email" class="form-control">
+            <input id="email" name="email" type="text" formControlName="email" required placeholder="Email"
+              class="form-control">
             <div *ngIf="clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched" class="text-danger">
               Correo inválido
             </div>
@@ -165,11 +152,13 @@
         </div>
 
         <div class="form-group">
- 
-        <div class="form-group-inner">
+
+          <div class="form-group-inner">
             <label for="username"><i class="fa fa-user bigicon"></i></label>
-            <input id="username" name="username" type="text" formControlName="username" required placeholder="Nombre de Usuario" class="form-control">
-            <div *ngIf="clienteForm.get('username')?.invalid && clienteForm.get('username')?.touched" class="text-danger">
+            <input id="username" name="username" type="text" formControlName="username" required
+              placeholder="Nombre de Usuario" class="form-control">
+            <div *ngIf="clienteForm.get('username')?.invalid && clienteForm.get('username')?.touched"
+              class="text-danger">
               Nombre de usuario ya tomado
             </div>
           </div>
@@ -180,565 +169,44 @@
           <div class="form-group password-input">
             <div class="form-group-inner">
               <label for="password"><i class="fa fa-lock bigicon"></i></label>
-              <input class="form-control" id="password" name="password" type="password" formControlName="password" placeholder="Contraseña">
+              <input class="form-control" id="password" name="password" type="password" formControlName="password"
+                placeholder="Contraseña">
               <i class="fa fa-eye toggle-password" (click)="togglePasswordVisibility()"></i>
             </div>
           </div>
-      </div>
+        </div>
 
-      <div class="form-group">
+        <div class="form-group">
 
-        <div class="form-group-inner">
-          <label for="id_barrio"><i class="fa fa-home bigicon"></i></label>
-          <div class="select-container">
-            <label class="select-placeholder">Barrio</label>
-            <select class="form-control" id="id_barrio" formControlName="id_barrio" required>
-              <option value="" disabled selected>Elija su Barrio</option>
+          <div class="form-group-inner">
+            <label for="id_barrio"><i class="fa fa-home bigicon"></i></label>
+            <div class="select-container">
+              <label class="select-placeholder">Barrio</label>
+              <select class="form-control" id="id_barrio" formControlName="id_barrio" required>
+                <option value="" disabled selected>Elija su Barrio</option>
 
-              <option *ngFor="let barrio of barrio" [value]="barrio.id_barrio">{{ barrio.nombre }}</option>
-            </select>
+                <option *ngFor="let barrio of barrio" [value]="barrio.id_barrio">{{ barrio.barrionombre }}</option>
+              </select>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+        <div class="form-group">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="!formularioValido()">Registrarse</button>
+
           </div>
         </div>
-        
-        
-        
-      </div>
-
-             
-              <div class="form-group">
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!formularioValido()">Registrarse</button>
-  
-                  </div>
-              </div>
-          </fieldset>
-      </form>
+      </fieldset>
+    </form>
   </div>
 </div>
 
 
 <p></p>
 <p></p>
-        <!-- Footer Start -->
-        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-            <div class="container py-5">
-                
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <div class="footer-item">
-                               
-                                <h3 class="text-white mb-4">
-                                    <img src="assets/img/logo.png" alt="Logo" style="height: 40px; width: auto;" class="me-2">
-                                    IntApp
-                                </h3>
-
-                               <p class="mb-3">Intagua es una marca que parece estar relacionada con productos de agua, ofreciendo diferentes presentaciones.</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                      <div class="footer-item d-flex flex-column">
-                          <h4 class="text-white mb-4">Sobre Nosotros</h4>
-                          <a (click)="navigateToAbout()"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros?</a>
-                          <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
-                          <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
-                      </div>
-                  </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Horario de Atención</h4>
-                            <div class="mb-3">
-                                <h6 class="text-muted mb-0">Lun - Viern:</h6>
-                                <p class="text-white mb-0">09.00 am A 07.00 pm</p>
-                            </div>
-                            <div class="mb-3">
-                                <h6 class="text-muted mb-0">Sábado:</h6>
-                                <p class="text-white mb-0">10.00 am A 05.00 pm</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Información de Contacto</h4>
-                            <a href="#"><i class="fa fa-map-marker-alt me-2"></i>123 Calle Principal, Riobamba, Ecuador</a>
-                            <a href="mailto:info&#64;intagua.com"><i class="fas fa-envelope me-2"></i> info&#64;intagua.com</a>
-                            <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i> +1-800-555-1234</a>
-                            <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i> +593 984291013</a>
-                        </div>
-
-                        
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
-                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-secondary btn-md-square rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                       
-                    
-
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-        
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright py-4">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-start mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>IntApp</a>, Todos los Derechos Reservados.</span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end text-body">
-                          Diseñado por IntApp <a class="border-bottom text-white" href="">IntApp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
-        
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/lib/wow/wow.min.js"></script>
-    <script src="assets/lib/easing/easing.min.js"></script>
-    <script src="assets/lib/waypoints/waypoints.min.js"></script>
-    <script src="assets/lib/counterup/counterup.min.js"></script>
-    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
-    
-<!-- Bootstrap Bundle with Popper -->
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<!-- Wow.js -->
-<script src="assets/js/wow.min.js"></script>
-<!-- Initialize Wow.js -->
-<script>
-    new WOW().init();
-</script>
-
-    <!-- Template Javascript -->
-    <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>   
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    
-
-        <title>IntApp</title>
-        <meta charset="utf-8">
-        <base href="/">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Íconos y fuentes --
-        <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-        <script src="assets/js/jquery-1.11.0.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-      
-
-</head>
-
-<body>
-  <!-- Start Top Nav --
-  <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-   <div class="container text-light">
-       <div class="w-100 d-flex justify-content-between">
-           <div>
-               <i class="fa fa-envelope mx-2"></i>
-               <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:intapp@agua.ec">contacto@intagua.com</a>
-               <i class="fa fa-phone mx-2"></i>
-               <a class="navbar-sm-brand text-light text-decoration-none" href="tel:0984291013">0984291013</a>
-           </div>
-           <div>
-               <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-               <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-               <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-               <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
-           </div>
-       </div>
-   </div>
-</nav>
-<!-- Close Top Nav -->
-
-
-   <!-- Header --
-   <nav class="navbar navbar-expand-lg navbar-light shadow">
-       <div class="container d-flex justify-content-between align-items-center">
-
-           <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-               IntApp
-           </a>
-
-           <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-           </button>
-
-           <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-               <div class="flex-fill">
-                   <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                       <li class="nav-item">
-                           <a href="index.html" class="nav-item nav-link active"  >Inicio</a>
-                       </li>
-                       <li class="nav-item">
-                         <a routerLink="/about" class="nav-link">Sobre Nosotros</a>
-                     </li>
-                       <li class="nav-item">
-                           <a class="nav-link" href="shop.html">Comprar</a>
-                       </li>
-                       <li class="nav-item">
-                           <a class="nav-link" href="contact.html">Contactos</a>
-                       </li>
-                       <div class="nav-item dropdown">
-                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
-                         <div class="dropdown-menu text-capitalize">
-                           <a (click)="navigateToCliente()" class="dropdown-item">Cliente</a>
-                           <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
-                           <a (click)="navigateToAdmin()" class="dropdown-item">Admin</a>
-                         </div>
-                     </div>
-                   </ul>
-               </div>
-               <div class="navbar align-self-center d-flex">
-                   <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                       <div class="input-group">
-                           <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                           <div class="input-group-text">
-                               <i class="fa fa-fw fa-search"></i>
-                           </div>
-                       </div>
-                   </div>
-                   <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                       <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                   </a>
-                   <a class="nav-icon position-relative text-decoration-none" href="#">
-                       <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                       <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                   </a>
-                   <a class="nav-icon position-relative text-decoration-none" href="#">
-                       <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                       <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                   </a>
-               </div>
-           </div>
-
-       </div>
-   </nav>
-   <!-- Close Header --
-    
-   <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="w-100 pt-1 mb-5 text-right">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="" method="get" class="modal-content modal-body border-0 p-0">
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                <button type="submit" class="input-group-text bg-success text-light">
-                    <i class="fa fa-fw fa-search text-white"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-<section class="bg-success py-5">
- 
-
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      
-      <div class="col-md-8 text-white">
-        <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <h1><p class="navbar-brand  logo h1 align-self-center" >Registro de Cliente</p>
-            </h1>
-          </div>
-
-          <p ></p>
-          <p ></p>
-          <p ></p>
-
-          <div data-mdb-input-init class="form-outline mb-4">
-            
-            <input type="text" class="form-control" id="cedula" formControlName="cedula" required>
-            <div *ngIf="clienteForm.get('cedula')?.invalid && clienteForm.get('cedula')?.touched" class="text-danger">
-              Cédula inválida
-            </div>
-
-            <label class="form-label" for="form3Example3">Cédula</label>
-          </div>
-
-          <div data-mdb-input-init class="form-outline mb-4">
-                       
-            <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
-
-            <label class="form-label" for="form3Example3">Nombre</label>
-          </div>
-
-          <div data-mdb-input-init class="form-outline mb-4">
-                       
-            <input type="text" class="form-control" id="apellido" formControlName="apellido" required>
-
-            <label class="form-label" for="form3Example3">Apellido</label>
-          </div>
-
-          <div data-mdb-input-init class="form-outline mb-4">
-                       
-            <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
-
-            <label class="form-label" for="form3Example3">Dirección</label>
-          </div>
-
-          <div data-mdb-input-init class="form-outline mb-4">
-                       
-            <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
-            <div *ngIf="clienteForm.get('telefono')?.invalid && clienteForm.get('telefono')?.touched" class="text-danger">
-              Teléfono inválido
-            </div>
-
-            <label class="form-label" for="form3Example3">Teléfono</label>
-          </div>
-         
-
-          <div data-mdb-input-init class="form-outline mb-4">
-                       
-            <input type="email" class="form-control" id="email" formControlName="email" required>
-            <div *ngIf="clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched" class="text-danger">
-              Correo inválido
-            </div>
-
-            <label class="form-label" for="form3Example3">Email</label>
-          </div>
-
-
-          <div data-mdb-input-init class="form-outline mb-4">
-                                
-            <input type="text" class="form-control" id="username" formControlName="username" required>
-            <div *ngIf="clienteForm.get('username')?.invalid && clienteForm.get('username')?.touched" class="text-danger">
-              Nombre de usuario ya tomado
-            </div>
-
-            <label class="form-label" for="form3Example3">Nombre de Usuario</label>
-          </div>
-
-          <div data-mdb-input-init class="form-outline mb-4">
-            
-            <input type="password" class="form-control" id="password" formControlName="password" required>
-            <label class="form-label" for="form3Example3">Contraseña</label>
-          </div>
-
-
-          <div data-mdb-input-init class="form-outline mb-4">
-            
-            <select class="form-control" id="id_barrio" formControlName="id_barrio" required>
-              <option *ngFor="let barrio of barrio" [value]="barrio.id_barrio">{{ barrio.nombre }}</option>
-            </select>
-
-            <label class="form-label" for="form3Example3">Barrio</label>
-          </div>
-
-
-          <div class="d-flex justify-content-between align-items-center">
-
-            
-
-            <button type="submit" class="btn btn-green" [disabled]="!formularioValido()">Registrarse</button>
-          </div>
-
-          
-         
-          
-
-        </form>
-
-      
-      </div>
-    </div>
-  </div>
-
-</section>
-    
-    <!-- Start Footer --
-    <footer class="bg-dark" id="tempaltemo_footer">
-      <div class="container">
-          <div class="row">
-
-              <div class="col-md-4 pt-5">
-                  <h2 class="h2 text-success border-bottom pb-3 border-light logo">IntApp</h2>
-                  <ul class="list-unstyled text-light footer-link-list">
-                      <li>
-                          <i class="fas fa-map-marker-alt fa-fw"></i>
-                          Calle Principal 123, Riobamba, Ecuador
-                      </li>
-                      <li>
-                          <i class="fa fa-phone fa-fw"></i>
-                          <a class="text-decoration-none" href="tel:0984291013">0984291013</a>
-                      </li>
-                      <li>
-                          <i class="fa fa-envelope fa-fw"></i>
-                          <a class="text-decoration-none" href="mailto:info@company.com">contacto@intagua.com</a>
-                      </li>
-                  </ul>
-              </div>
-
-              <div class="col-md-4 pt-5">
-                  <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
-                  <ul class="list-unstyled text-light footer-link-list">
-                      <li><a class="text-decoration-none" href="#">Botellón 20L</a></li>
-                      <li><a class="text-decoration-none" href="#">Botella 500ml</a></li>
-                  </ul>
-              </div>
-
-              <div class="col-md-4 pt-5">
-                  <h2 class="h2 text-light border-bottom pb-3 border-light">Información Adicional</h2>
-                  <ul class="list-unstyled text-light footer-link-list">
-                      <li><a href="index.html" class="text-decoration-none"  >Inicio</a></li>
-                      <li>      <a routerLink="/about" class="text-decoration-none">Sobre Nosotros</a></li>
-                      <li><a class="text-decoration-none" href="#">Inicio Sesión</a></li>
-                      <li><a class="text-decoration-none" href="#">Contacto</a></li>
-                  </ul>
-              </div>
-
-          </div>
-
-          <div class="row text-light mb-4">
-              <div class="col-12 mb-3">
-                  <div class="w-100 my-3 border-top border-light"></div>
-              </div>
-              <div class="col-auto me-auto">
-                  <ul class="list-inline text-left footer-icons">
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                      </li>
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                      </li>
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                      </li>
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="col-auto">
-                  <label class="sr-only" for="subscribeEmail">Email address</label>
-                  <div class="input-group mb-2">
-                      <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                      <div class="input-group-text btn-success text-light">Subscribe</div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="w-100 bg-black py-3">
-          <div class="container">
-              <div class="row pt-2">
-                  <div class="col-12">
-                      <p class="text-left text-light">
-                          Copyright &copy; 2024 IntApp
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-  </footer>
-  <!-- End Footer -->
-   
-
-  <!-- Start Script --
-  <script src="assets/js/jquery-1.11.0.min.js"></script>
-  <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/templatemo.js"></script>
-  <script src="assets/js/custom.js"></script>
-  <!-- End Script --
-
-
-</body>
-</html>
--->
-<!-- 
-
-<div class="container mt-5">
-  <h2>Registro de Cliente</h2>
-  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="cedula">Cédula</label>
-      <input type="text" class="form-control" id="cedula" formControlName="cedula" required>
-      <div *ngIf="clienteForm.get('cedula')?.errors && clienteForm.get('cedula')?.touched">
-        <span *ngIf="clienteForm.get('cedula')?.hasError('invalidCedula')" class="text-danger">Cédula inválida</span>
-        <span *ngIf="clienteForm.get('cedula')?.hasError('taken')" class="text-danger">Cédula ya está en uso</span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="nombre">Nombre</label>
-      <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
-    </div>
-    <div class="form-group">
-      <label for="apellido">Apellido</label>
-      <input type="text" class="form-control" id="apellido" formControlName="apellido" required>
-    </div>
-    <div class="form-group">
-      <label for="direccion">Dirección</label>
-      <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
-    </div>
-    <div class="form-group">
-      <label for="telefono">Teléfono</label>
-      <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
-      <div *ngIf="clienteForm.get('telefono')?.invalid && clienteForm.get('telefono')?.touched" class="text-danger">
-        Teléfono inválido
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" formControlName="email" required>
-      <div *ngIf="clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched" class="text-danger">
-        Correo inválido
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="username">Nombre de Usuario</label>
-      <input type="text" class="form-control" id="username" formControlName="username" required>
-      <div *ngIf="clienteForm.get('username')?.invalid && clienteForm.get('username')?.touched" class="text-danger">
-        Nombre de usuario ya tomado
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="password">Contraseña</label>
-      <input type="password" class="form-control" id="password" formControlName="password" required>
-    </div>
-    <div class="form-group">
-      <label for="id_barrio">Barrio</label>
-      <select class="form-control" id="id_barrio" formControlName="id_barrio" required>
-        <option *ngFor="let barrio of barrio" [value]="barrio.id_barrio">{{ barrio.barrionombre }}</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!formularioValido()">Registrarse</button>
-  </form>
-</div>
-
--->
+<app-footer></app-footer>

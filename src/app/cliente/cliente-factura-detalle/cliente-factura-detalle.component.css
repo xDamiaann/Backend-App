@@ -1,0 +1,14 @@
+.invoice {
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.invoice h4 {
+    margin-top: 0;
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: #fff;
+}

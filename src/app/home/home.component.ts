@@ -3,7 +3,7 @@ import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { WOW } from 'wowjs';
-
+import { AdminServiceService } from '../admin/admin-service.service';
 
 @Component({
   selector: 'app-home',
@@ -21,9 +21,10 @@ import { WOW } from 'wowjs';
 })
 
 export class HomeComponent {
+  productos: any[] = [];
+  presentaciones: any[] = [];
+  constructor(private router: Router, private adminService: AdminServiceService) { }
 
-  constructor(private router: Router) { }
-  
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
   }
@@ -46,8 +47,13 @@ export class HomeComponent {
     this.router.navigate(['contacto']);
   }
 
+  navigateToNoticias() {
+    this.router.navigate(['noticias'])
+  }
+
   ngOnInit() {
     //new WOW().init();
+    this.cargarProductos();
   }
 
 
@@ -60,6 +66,19 @@ export class HomeComponent {
 
 
   currentDate: Date = new Date();
+
+
+  cargarProductos() {
+    this.adminService.getAllProductosPresentaciones().subscribe(
+      data => {
+        this.productos = data;
+        console.log("productos", this.productos);
+      },
+      error => {
+        console.error('Error al cargar productos:', error);
+      }
+    );
+  }
 
 
 }
