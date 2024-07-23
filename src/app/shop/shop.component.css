@@ -10,3 +10,7 @@
     flex: 1;
     margin: 0 15px;
 }
+.product-item img {
+    max-height: 300px;
+    object-fit: contain;
+}

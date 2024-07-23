@@ -34,4 +34,9 @@ export class NoticiasComponent {
     this.router.navigate(['noticias']);
   }
 
+  navigateToCaracteristicas() {
+    this.router.navigate(['caracteristicas']);
+  }
+
+
 }
