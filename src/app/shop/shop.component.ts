@@ -41,6 +41,10 @@ export class ShopComponent {
     }
   }
 
+  navigateToTerminos() {
+    this.router.navigate(['terminos']);
+  }
+
   navigateToNoticias() {
     this.router.navigate(['noticias']);
   }

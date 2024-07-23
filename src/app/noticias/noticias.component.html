@@ -49,7 +49,6 @@
                         <div class="dropdown-menu m-0">
                             <a (click)="navigateToCaracteristicas()" class="dropdown-item">Nuestra Caracteristica</a>
                             <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
-                            <a href="team.html" class="dropdown-item">Equipo</a>
                         </div>
                     </div>
                     <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
@@ -109,68 +108,106 @@
     </div>
     <!-- Modal Search End -->
 
-
-    <!-- Blog Start -->
-    <div class="container-fluid blog py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-uppercase text-primary">Nuestro Blog</h4>
-                <h1 class="display-3 text-capitalize mb-3">Últimas Noticias y Actualizaciones</h1>
+<!-- Blog Start -->
+<div class="container-fluid blog py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-uppercase text-primary">Nuestro Blog</h4>
+            <h1 class="display-3 text-capitalize mb-3">Últimas Noticias y Actualizaciones</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item d-flex flex-column h-100">
+                    <div class="blog-img position-relative" style="height: 250px; overflow: hidden;">
+                        <img src="assets/img/blog-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
+                        <div class="blog-date position-absolute top-0 start-0 bg-primary text-white px-4 py-2">
+                            <i class="fa fa-calendar-alt me-1"></i> Jan 12 2025
+                        </div>
+                    </div>
+                    <div class="blog-content rounded-bottom p-4 flex-grow-1 d-flex flex-column">
+                        <a (click)="scrollToElement('noticia-1')" class="h4 d-inline-block mb-3 text-primary">Intagua: Innovación y Calidad</a>
+                        <p>Descubre cómo Intagua se compromete a ofrecer la mejor calidad de agua embotellada, para cada necesidad.</p>
+                        <a (click)="scrollToElement('noticia-1')" class="fw-bold text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="blog-item d-flex flex-column h-100">
-                        <div class="blog-img" style="height: 250px; overflow: hidden;">
-                            <img src="assets/img/blog-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                                alt="">
-                            <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
-                        </div>
-                        <div class="blog-content rounded-bottom p-4 flex-grow-1">
-                            <a href="#" class="h4 d-inline-block mb-3">Intagua: Innovación y Calidad</a>
-                            <p>Descubre cómo Intagua se compromete a ofrecer la mejor calidad de agua embotellada, para
-                                cada necesidad.</p>
-                            <a (click)="navigateToNoticias()" class="fw-bold text-secondary mt-auto">Leer Más <i
-                                    class="fa fa-angle-right"></i></a>
+            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="blog-item d-flex flex-column h-100">
+                    <div class="blog-img position-relative" style="height: 250px; overflow: hidden;">
+                        <img src="assets/img/blog-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
+                        <div class="blog-date position-absolute top-0 start-0 bg-primary text-white px-4 py-2">
+                            <i class="fa fa-calendar-alt me-1"></i> Jan 12 2025
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="blog-item d-flex flex-column h-100">
-                        <div class="blog-img" style="height: 250px; overflow: hidden;">
-                            <img src="assets/img/blog-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                                alt="">
-                            <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
-                        </div>
-                        <div class="blog-content rounded-bottom p-4 flex-grow-1">
-                            <a href="#" class="h4 d-inline-block mb-3">Presentación de 500ml</a>
-                            <p>Conoce nuestra práctica y cómoda presentación de 500ml, ideal para llevar a cualquier
-                                lugar y mantenerte hidratado.</p>
-                            <a (click)="navigateToNoticias()" class="fw-bold text-secondary mt-auto">Leer Más <i
-                                    class="fa fa-angle-right"></i></a>
-                        </div>
+                    <div class="blog-content rounded-bottom p-4 flex-grow-1 d-flex flex-column">
+                        <a (click)="scrollToElement('noticia-2')" class="h4 d-inline-block mb-3 text-primary">Presentación de 500ml</a>
+                        <p>Conoce nuestra práctica y cómoda presentación de 500ml, ideal para llevar a cualquier lugar y mantenerte hidratado.</p>
+                        <a (click)="scrollToElement('noticia-2')" class="fw-bold text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="blog-item d-flex flex-column h-100">
-                        <div class="blog-img" style="height: 250px; overflow: hidden;">
-                            <img src="assets/img/blog-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                                alt="">
-                            <div class="blog-date px-4 py-2"><i class="fa fa-calendar-alt me-1"></i> Jan 12 2025</div>
+            </div>
+            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="blog-item d-flex flex-column h-100">
+                    <div class="blog-img position-relative" style="height: 250px; overflow: hidden;">
+                        <img src="assets/img/blog-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
+                        <div class="blog-date position-absolute top-0 start-0 bg-primary text-white px-4 py-2">
+                            <i class="fa fa-calendar-alt me-1"></i> Jan 12 2025
                         </div>
-                        <div class="blog-content rounded-bottom p-4 flex-grow-1">
-                            <a href="#" class="h4 d-inline-block mb-3">Botellones de 20Lt</a>
-                            <p>Nuestra opción más económica y práctica para el hogar y la oficina. Los botellones de
-                                20Lt te aseguran agua pura por más tiempo.</p>
-                            <a (click)="navigateToNoticias()" class="fw-bold text-secondary mt-auto">Leer Más <i
-                                    class="fa fa-angle-right"></i></a>
-                        </div>
+                    </div>
+                    <div class="blog-content rounded-bottom p-4 flex-grow-1 d-flex flex-column">
+                        <a (click)="scrollToElement('noticia-3')" class="h4 d-inline-block mb-3 text-primary">Botellones de 20Lt</a>
+                        <p>Nuestra opción más económica y práctica para el hogar y la oficina. Los botellones de 20Lt te aseguran agua pura por más tiempo.</p>
+                        <a (click)="scrollToElement('noticia-3')" class="fw-bold text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Blog End -->
+</div>
+<!-- Blog End -->
 
+<!-- Noticias Completas Start -->
+<div class="container-fluid noticias-completas py-5 bg-light">
+    <div class="container py-5">
+        <div id="noticia-1" class="mb-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="assets/img/blog-1.jpg" class="img-fluid rounded" alt="Intagua: Innovación y Calidad">
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="text-primary mb-3">Intagua: Innovación y Calidad</h2>
+                    <p>En Intagua nos esforzamos por ofrecer productos de la más alta calidad. Nuestra agua embotellada pasa por estrictos controles de calidad para asegurar que cada botella que llega a nuestros clientes es de la mejor pureza. Nos comprometemos a utilizar tecnología de punta para mantener los estándares más altos en cada paso del proceso de producción.</p>
+                    <p>La innovación es clave para nosotros. Estamos constantemente buscando nuevas maneras de mejorar nuestros productos y servicios. Desde la implementación de tecnologías de filtración avanzada hasta el uso de materiales de embalaje sostenibles, Intagua está a la vanguardia de la industria del agua embotellada.</p>
+                </div>
+            </div>
+        </div>
+        <div id="noticia-2" class="mb-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="assets/img/blog-3.jpg" class="img-fluid rounded" alt="Presentación de 500ml">
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="text-primary mb-3">Presentación de 500ml</h2>
+                    <p>Nuestra nueva presentación de 500ml es ideal para quienes están en movimiento. Perfecta para llevar en la mochila, el coche o el bolso, esta presentación ofrece la misma pureza y calidad que nuestras otras opciones, en un tamaño más conveniente.</p>
+                    <p>El diseño ergonómico de la botella facilita su uso y transporte, asegurando que puedas mantenerte hidratado donde quiera que vayas. Además, nuestra presentación de 500ml está disponible en empaques reciclables, reafirmando nuestro compromiso con el medio ambiente.</p>
+                </div>
+            </div>
+        </div>
+        <div id="noticia-3" class="mb-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="assets/img/blog-2.jpg" class="img-fluid rounded" alt="Botellones de 20Lt">
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="text-primary mb-3">Botellones de 20Lt</h2>
+                    <p>Nuestros botellones de 20 litros son la opción perfecta para hogares y oficinas. Con esta presentación, puedes asegurarte de tener suficiente agua purificada durante más tiempo, reduciendo la necesidad de reemplazos frecuentes.</p>
+                    <p>El proceso de embotellado garantiza que el agua se mantenga fresca y pura, y los botellones están diseñados para ser reutilizables, lo que los hace una opción ecológica y económica. Además, ofrecemos servicios de entrega a domicilio para mayor comodidad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Noticias Completas End -->
 
 
 
@@ -201,9 +238,9 @@
                 <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="footer-item d-flex flex-column">
                         <h4 class="text-white mb-4">Sobre Nosotros</h4>
-                        <a href="#"><i class="fas fa-angle-right me-2"></i> Por qué Elegirnos?</a>
-                        <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
-                        <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
+                        <a (click)="navigateToAbout()"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros?</a>
+                            <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
+                            <a (click)="navigateToTerminos()"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3">

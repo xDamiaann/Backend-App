@@ -69,6 +69,11 @@ export class RegisterComponent implements OnInit {
     passwordInput.type = this.passwordVisible ? 'text' : 'password';
   }
 
+
+  navigateToCaracteristicas() {
+    this.router.navigate(['caracteristicas']);
+  }
+
   ngOnInit(): void {
     this.clienteForm = this.fb.group({
       cedula: ['', [Validators.required, this.validarCedula.bind(this)]],

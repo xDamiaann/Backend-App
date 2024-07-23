@@ -15,9 +15,8 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu m-0">
-                        <a href="feature.html" class="dropdown-item">Nuestra Caracteristica</a>
-                        <a href="product.html" class="dropdown-item">Nuestros Productos</a>
-                        <a href="team.html" class="dropdown-item">Equipo</a>
+                        <a (click)="navigateToCaracteristicas()" class="dropdown-item active">Nuestra Caracteristica</a>
+                        <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
                     </div>
                 </div>
                 <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>

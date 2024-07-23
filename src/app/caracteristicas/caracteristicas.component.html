@@ -45,7 +45,6 @@
                     <div class="dropdown-menu m-0">
                         <a (click)="navigateToCaracteristicas()" class="dropdown-item active">Nuestra Caracteristica</a>
                         <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
-                        <a href="team.html" class="dropdown-item">Equipo</a>
                     </div>
                 </div>
                 <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
@@ -103,7 +102,6 @@
     </div>
 </div>
 <!-- Modal Search End -->
-
 <!-- Sección de características -->
 <div class="container-fluid feature bg-light py-5">
     <div class="container py-5">
@@ -116,36 +114,36 @@
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="feature-item p-4 h-100">
                     <div class="feature-icon mb-3"><i class="fas fa-hand-holding-water text-white fa-3x"></i></div>
-                    <a href="#" class="h4 mb-3 d-block">Control de Calidad</a>
+                    <a (click)="scrollToElement('info-calidad')" class="h4 mb-3 d-block">Control de Calidad</a>
                     <p class="mb-3">Descubre cómo Intagua garantiza la más alta calidad en cada gota de agua embotellada. Utilizamos tecnologías avanzadas para asegurar la pureza y frescura en cada botella.</p>
-                    <a (click)="scrollToElement('info-control')"  class="btn text-secondary mt-auto">Leer Más</a>
+                    <a (click)="scrollToElement('info-calidad')" class="btn text-secondary mt-auto">Leer Más</a>
                 </div>
             </div>
             <!-- Característica 2: Filtración en 5 Pasos -->
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="feature-item p-4 h-100">
                     <div class="feature-icon mb-3"><i class="fas fa-filter text-white fa-3x"></i></div>
-                    <a href="#" class="h4 mb-3 d-block">Filtración en 5 Pasos</a>
+                    <a (click)="scrollToElement('info-filtracion')" class="h4 mb-3 d-block">Filtración en 5 Pasos</a>
                     <p class="mb-3">Conoce nuestro riguroso proceso de filtración que garantiza la eliminación de impurezas y la retención de minerales esenciales para una hidratación óptima.</p>
-                    <a href="#" class="btn text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
+                    <a (click)="scrollToElement('info-filtracion')" class="btn text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <!-- Característica 3: Composición -->
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="feature-item p-4 h-100">
-                    <div class="feature-icon mb-3"><i class="fas fa-recycle text-white fa-3x"></i></div>
-                    <a href="#" class="h4 mb-3 d-block">Composición</a>
+                    <div class="feature-icon mb3"><i class="fas fa-recycle text-white fa-3x"></i></div>
+                    <a (click)="scrollToElement('info-composicion')" class="h4 mb-3 d-block">Composición</a>
                     <p class="mb-3">Descubre la composición única de Intagua, diseñada para ofrecer un equilibrio perfecto entre sabor y salud, utilizando materiales reciclables y eco-amigables.</p>
-                    <a (click)="scrollToElement('info-control')"  class="btn btn-secondary rounded-pill py-2 px-4">Leer Más</a>
+                    <a (click)="scrollToElement('info-composicion')" class="btn text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <!-- Característica 4: Control de Laboratorio -->
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="feature-item p-4 h-100">
                     <div class="feature-icon mb-3"><i class="fas fa-microscope text-white fa-3x"></i></div>
-                    <a href="#" class="h4 mb-3 d-block">Control de Laboratorio</a>
+                    <a (click)="scrollToElement('info-laboratorio')" class="h4 mb-3 d-block">Control de Laboratorio</a>
                     <p class="mb-3">Nuestros procesos de control de laboratorio aseguran que cada botella de Intagua cumpla con los estándares más exigentes de calidad y seguridad alimentaria.</p>
-                    <a href="#" class="btn text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
+                    <a (click)="scrollToElement('info-laboratorio')" class="btn text-secondary mt-auto">Leer Más <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -153,7 +151,7 @@
 </div>
 <!-- Fin de la sección de características -->
 
-
+<!-- Sección adicional: Control de Calidad -->
 <div class="bg-light rounded p-4 mb-4 wow fadeInRight" data-wow-delay="0.2s">
     <div class="p-3 border rounded bg-white">
         <div class="row align-items-center">
@@ -161,7 +159,7 @@
                 <img src="assets/img/calidad.png" alt="Botella de agua mineral de 500ml" class="img-fluid rounded">
             </div>
             <div class="col-lg-8">
-                <div id="info-control">
+                <div id="info-calidad">
                     <h2>Control de Calidad en Intagua</h2>
                     <p class="text-justify">En Intagua, nuestro compromiso con la calidad comienza desde el origen mismo del agua y se extiende a través de un riguroso proceso de control y monitoreo en todas las etapas de producción.</p>
                     <ul>
@@ -177,32 +175,81 @@
     </div>
 </div>
 
+<!-- Sección adicional: Filtración en 5 Pasos -->
 <div class="bg-light rounded p-4 mb-4 wow fadeInRight" data-wow-delay="0.2s">
     <div class="p-3 border rounded bg-white">
         <div class="row align-items-center">
             <div class="col-lg-4 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
-                <img src="assets/img/calidad.png" alt="Botella de agua mineral de 500ml" class="img-fluid rounded">
+                <img src="assets/img/filtracion.jpg" alt="Proceso de filtración" class="img-fluid rounded">
             </div>
             <div class="col-lg-8">
-                <div id="info-control">
-                    <h2>Control de Calidad en Intagua</h2>
-                    <p class="text-justify">En Intagua, nuestro compromiso con la calidad comienza desde el origen mismo del agua y se extiende a través de un riguroso proceso de control y monitoreo en todas las etapas de producción.</p>
+                <div id="info-filtracion">
+                    <h2>Filtración en 5 Pasos</h2>
+                    <p class="text-justify">Nuestro proceso de filtración en 5 pasos asegura que cada botella de Intagua sea de la más alta calidad. Cada paso está diseñado para eliminar impurezas y mantener los minerales esenciales.</p>
                     <ul>
-                        <li><strong>Origen del Agua:</strong> Seleccionamos cuidadosamente fuentes naturales de agua conocidas por su calidad excepcional y pureza.</li>
-                        <li><strong>Proceso de Captación y Tratamiento:</strong> El agua se captura y se somete a un proceso inicial de filtración para eliminar impurezas gruesas y sedimentos.</li>
-                        <li><strong>Tecnologías de Purificación Avanzada:</strong> Implementamos un proceso de purificación en varias etapas que incluye tecnologías como la ósmosis inversa y el carbón activado.</li>
-                        <li><strong>Pruebas de Calidad Continuas:</strong> Durante todo el proceso de producción, llevamos a cabo pruebas rigurosas de calidad en nuestros laboratorios.</li>
+                        <li><strong>Filtración Inicial:</strong> Eliminamos las impurezas más grandes y sedimentos del agua captada.</li>
+                        <li><strong>Filtración de Carbón Activado:</strong> Removemos contaminantes químicos y mejoramos el sabor del agua.</li>
+                        <li><strong>Ósmosis Inversa:</strong> Eliminamos hasta el 99% de las partículas disueltas y microorganismos.</li>
+                        <li><strong>Filtración Ultravioleta:</strong> Utilizamos luz UV para destruir bacterias y virus restantes.</li>
+                        <li><strong>Filtración Final:</strong> Pasamos el agua a través de filtros finos para garantizar la pureza final.</li>
                     </ul>
-                    <p class="text-justify">Este enfoque integral en el control de calidad nos permite ofrecer a nuestros consumidores un producto confiable y de alta calidad, asegurando que cada botella de Intagua sea un testimonio de nuestro compromiso con la excelencia y la satisfacción del cliente.</p>
+                    <p class="text-justify">Este proceso meticuloso nos permite ofrecer agua embotellada que no solo es segura y pura, sino también saludable y refrescante.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Sección adicional: Composición -->
+<div class="bg-light rounded p-4 mb-4 wow fadeInRight" data-wow-delay="0.2s">
+    <div class="p-3 border rounded bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
+                <img src="assets/img/composicion.png" alt="Composición del agua" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-8">
+                <div id="info-composicion">
+                    <h2>Composición de Intagua</h2>
+                    <p class="text-justify">La composición de Intagua ha sido cuidadosamente diseñada para ofrecer un equilibrio perfecto entre sabor y salud. Utilizamos materiales reciclables y eco-amigables para contribuir al cuidado del medio ambiente.</p>
+                    <ul>
+                        <li><strong>Minerales Esenciales:</strong> Nuestra agua contiene minerales esenciales como calcio y magnesio, importantes para la salud.</li>
+                        <li><strong>Sabor Equilibrado:</strong> La combinación de minerales asegura un sabor suave y refrescante.</li>
+                        <li><strong>Eco-Amigable:</strong> Utilizamos envases reciclables para reducir nuestro impacto ambiental.</li>
+                    </ul>
+                    <p class="text-justify">Cada botella de Intagua refleja nuestro compromiso con la calidad, la salud y el medio ambiente, proporcionando a nuestros consumidores una opción de hidratación responsable y deliciosa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección adicional: Control de Laboratorio -->
+<div class="bg-light rounded p-4 mb-4 wow fadeInRight" data-wow-delay="0.2s">
+    <div class="p-3 border rounded bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
+                <img src="assets/img/laboratorio.jpg" alt="Control de laboratorio" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-8">
+                <div id="info-laboratorio">
+                    <h2>Control de Laboratorio en Intagua</h2>
+                    <p class="text-justify">En Intagua, nuestros procesos de control de laboratorio son fundamentales para garantizar que cada botella cumpla con los estándares más exigentes de calidad y seguridad alimentaria.</p>
+                    <ul>
+                        <li><strong>Pruebas Físico-Químicas:</strong> Realizamos análisis exhaustivos de los parámetros físico-químicos del agua.</li>
+                        <li><strong>Pruebas Microbiológicas:</strong> Controlamos la presencia de microorganismos patógenos para asegurar la seguridad del producto.</li>
+                        <li><strong>Monitoreo Continuo:</strong> Implementamos un sistema de monitoreo continuo para verificar la consistencia de la calidad.</li>
+                        <li><strong>Auditorías Internas:</strong> Llevamos a cabo auditorías internas periódicas para evaluar y mejorar nuestros procesos.</li>
+                    </ul>
+                    <p class="text-justify">Este enfoque riguroso nos permite mantener altos estándares de calidad y ofrecer a nuestros consumidores un producto seguro y confiable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <p></p>
 <p></p>
+
         <!-- Footer Start -->
         <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
             <div class="container py-5">
@@ -227,7 +274,7 @@
                             <h4 class="text-white mb-4">Sobre Nosotros</h4>
                             <a (click)="navigateToAbout()"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros?</a>
                             <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
+                            <a (click)="navigateToTerminos()"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">

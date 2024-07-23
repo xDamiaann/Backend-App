@@ -26,6 +26,7 @@ import { PagoConfirmadoComponent } from './facturacion/pago-confirmado/pago-conf
 import { AboutComponent } from './about/about.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CaracteristicasComponent } from './caracteristicas/caracteristicas.component';
+import { TerminosComponent } from './terminos/terminos.component';
 
 import { ShopComponent } from './shop/shop.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -66,6 +67,8 @@ const routes: Routes = [
   { path: 'pago-confirmado', component: PagoConfirmadoComponent },
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },
+  { path: 'terminos', component: TerminosComponent },
+
   { path: 'contacto', component: ContactoComponent },
   { path: 'noticias', component: NoticiasComponent },
   { path: 'caracteristicas', component: CaracteristicasComponent },

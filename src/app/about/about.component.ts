@@ -42,6 +42,10 @@ export class AboutComponent  {
     this.router.navigate(['noticias']);
   }
 
+  navigateToTerminos() {
+    this.router.navigate(['terminos']);
+  }
+
   scrollToElement(id: string): void {
     const element = document.getElementById(id);
     if (element) {

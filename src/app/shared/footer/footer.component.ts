@@ -25,4 +25,8 @@ export class FooterComponent {
     this.router.navigate(['contacto']);
   }
 
+  navigateToTerminos() {
+    this.router.navigate(['terminos']);
+  }
+
 }

@@ -1,0 +1,254 @@
+
+<!-- index.html -->
+<head>
+
+    <title>IntApp</title>
+    <meta charset="utf-8">
+    <title>IntApp</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+
+     <!-- Icon Font Stylesheet -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  
+  
+</head>
+
+
+<body>
+
+ <!-- Navbar & Hero Start -->
+ <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="text-primary"><img src="assets/img/logo.png" alt="Logo"> Intapp</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link ">Inicio</a>
+                <a (click)="navigateToAbout()" class="nav-item nav-link ">Sobre Nosotros</a>
+                <a (click)="navigateToShop()" class="nav-item nav-link">Productos</a>
+                <a (click)="navigateToNoticias()" class="nav-item nav-link">Noticias</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Páginas</a>
+                    <div class="dropdown-menu m-0">
+                        <a (click)="navigateToCaracteristicas()" class="dropdown-item active">Nuestra Caracteristica</a>
+                        <a (click)="navigateToShop()" class="dropdown-item">Nuestros Productos</a>
+                    </div>
+                </div>
+                <a (click)="navigateToContacto()" class="nav-item nav-link">Contactos</a>
+            </div>
+            <div class="d-none d-xl-flex me-3">
+                <div class="d-flex flex-column pe-3 border-end border-primary">
+                    <span class="text-body">Contáctanos</span>
+                    <a href="tel:+4733378901"><span class="text-primary">Ec: +593 984291013</span></a>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Acceso</a>
+                <div class="dropdown-menu m-0">
+                    
+                    <a (click)="navigateToCliente()" class="dropdown-item">Cliente</a>
+                    <a (click)="navigateToDistribuidor()" class="dropdown-item">Distribuidor</a>
+                    <a (click)="navigateToAdmin()" class="dropdown-item">Administrador</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Términos & Condiciones</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active text-primary">Términos & Condiciones</li>
+            </ol>    
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+
+
+
+ <!-- Modal Search Start -->
+ <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h4 class="modal-title mb-0" id="exampleModalLabel">Buscar por palabra clave</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="input-group-text btn border p-3"><i class="fa fa-search text-white"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Search End -->
+
+ <!-- Main Content Start -->
+ <main class="container my-5">
+    <section class="mb-5">
+        <h2 class="text-primary">1. Introducción</h2>
+        <p>Bienvenido a Intagua. Estos términos y condiciones describen las reglas y regulaciones para el uso del
+            sitio web de Intagua y la aplicación Intapp.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="text-primary">2. Aceptación de los Términos</h2>
+        <p>Al acceder a este sitio web y/o usar nuestra aplicación Intapp, asumimos que aceptas estos términos y
+            condiciones en su totalidad. No continúes utilizando los servicios de Intagua si no aceptas todos los
+            términos y condiciones establecidos en esta página.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="text-primary">3. Servicios de Intagua</h2>
+        <p>Intagua ofrece una variedad de productos de agua embotellada, incluyendo presentaciones de 500ml y
+            botellones de 20Lt. Nos comprometemos a brindar productos de la más alta calidad a nuestros clientes,
+            utilizando tecnología avanzada y procesos de filtración rigurosos.</p>
+        <p>Para más información sobre nuestros productos, visita nuestra <a href="productos.html">página de
+                productos</a>.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="text-primary">4. Uso de la Aplicación Intapp</h2>
+        <p>La aplicación Intapp está diseñada para facilitar el acceso a nuestros productos y servicios. A través de
+            Intapp, puedes realizar pedidos, rastrear entregas y gestionar tus suscripciones de manera eficiente.
+        </p>
+        <p>Para utilizar Intapp, debes descargar la aplicación desde la tienda de aplicaciones correspondiente y
+            registrarte con una cuenta válida. Al usar Intapp, aceptas cumplir con los términos y condiciones
+            específicos de la aplicación, los cuales se encuentran disponibles en la sección de configuración de la
+            aplicación.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="text-primary">5. Privacidad</h2>
+        <p>Nos tomamos muy en serio tu privacidad. Por favor, revisa nuestra <a href="privacidad.html">Política de
+                Privacidad</a> para entender cómo manejamos tu información personal.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="text-primary">6. Cambios a los Términos</h2>
+        <p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Te notificaremos
+            sobre cualquier cambio significativo a través de nuestro sitio web y/o la aplicación Intapp. Es tu
+            responsabilidad revisar estos términos periódicamente para estar al tanto de cualquier modificación.
+        </p>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="text-primary">7. Contacto</h2>
+        <p>Si tienes alguna pregunta o inquietud sobre estos términos y condiciones, por favor contáctanos a través
+            de nuestro <a href="contacto.html">formulario de contacto</a> o envíanos un correo electrónico a
+            soporte"&#64;"intagua.com.</p>
+    </section>
+</main>
+<!-- Main Content End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <div class="footer-item">
+                               
+                                <h3 class="text-white mb-4">
+                                    <img src="assets/img/logo.png" alt="Logo" style="height: 40px; width: auto;" class="me-2">
+                                    IntApp
+                                </h3>
+
+                               <p class="mb-3">Intagua es una marca que parece estar relacionada con productos de agua, ofreciendo diferentes presentaciones.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Sobre Nosotros</h4>
+                            <a (click)="navigateToAbout()"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros?</a>
+                            <a (click)="navigateToContacto()"><i class="fas fa-angle-right me-2"></i> Contáctanos</a>
+                            <a (click)="navigateToTerminos()"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Horario de Atención</h4>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Lun - Viern:</h6>
+                                <p class="text-white mb-0">09.00 am A 07.00 pm</p>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Sábado:</h6>
+                                <p class="text-white mb-0">10.00 am A 05.00 pm</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Información de Contacto</h4>
+                            <a href="#"><i class="fa fa-map-marker-alt me-2"></i>123 Calle Principal, Riobamba, Ecuador</a>
+                            <a href="mailto:info&#64;intagua.com"><i class="fas fa-envelope me-2"></i> info&#64;intagua.com</a>
+                            <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i> +1-800-555-1234</a>
+                            <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i> +593 984291013</a>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-secondary btn-md-square rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                       
+                    
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>IntApp</a>, Todos los Derechos Reservados.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-body">
+                          Diseñado por IntApp <a class="border-bottom text-white" href="">IntApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+<!-- Back to Top -->
+<a (click)="navigateToAbout()" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+

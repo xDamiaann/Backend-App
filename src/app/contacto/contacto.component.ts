@@ -40,5 +40,8 @@ export class ContactoComponent {
     this.router.navigate(['noticias']);
   }
 
+  navigateToTerminos() {
+    this.router.navigate(['terminos']);
+  }
 
 }

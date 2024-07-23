@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-caracteristicas',
-
-  templateUrl: './caracteristicas.component.html',
-  styleUrl: './caracteristicas.component.css'
+  selector: 'app-terminos',
+  templateUrl: './terminos.component.html',
+  styleUrl: './terminos.component.css'
 })
-export class CaracteristicasComponent {
+export class TerminosComponent {
+
   constructor(private router: Router) {}
 
   navigateToCliente() {
@@ -45,11 +45,5 @@ export class CaracteristicasComponent {
   navigateToTerminos() {
     this.router.navigate(['terminos']);
   }
-  
-  scrollToElement(id: string): void {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }
+
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class NoticiasComponent {
   currentDate: Date = new Date();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private elementRef: ElementRef) { }
 
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
@@ -38,5 +38,15 @@ export class NoticiasComponent {
     this.router.navigate(['caracteristicas']);
   }
 
+  navigateToTerminos() {
+    this.router.navigate(['terminos']);
+  }
+
+  scrollToElement(elementId: string): void {
+    const element = this.elementRef.nativeElement.querySelector('#' + elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
 
 }

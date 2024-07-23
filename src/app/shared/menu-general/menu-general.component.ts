@@ -40,4 +40,8 @@ export class MenuGeneralComponent {
     this.router.navigate(['contacto']);
   }
 
+  navigateToCaracteristicas() {
+    this.router.navigate(['caracteristicas']);
+  }
+
 }
