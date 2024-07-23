@@ -29,8 +29,8 @@ export class DistribuidorService {
 
 
   //facturas
-  generarFactura(id_pedido: number, pedido: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/factura/${id_pedido}`, { pedido });
+  generarFactura(id_pedido: number, iva: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/factura/${id_pedido}`, { iva: iva });
   }
 
   getLocation(): Observable<any> {
@@ -60,6 +60,14 @@ export class DistribuidorService {
 
   getDistribuidorInfo(DistribuidorId: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/distribuidor/info/${DistribuidorId}`);
+  }
+
+  updateDistribuidor(id: number, distribuidor: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/distribuidor/${id}`, distribuidor);
+  }
+
+  checkUsernameForUpdate(username: string, id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/distribuidor/username/${username}/${id}`);
   }
 
 }

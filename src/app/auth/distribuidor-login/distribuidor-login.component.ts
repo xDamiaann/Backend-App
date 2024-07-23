@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-distribuidor-login',
@@ -18,7 +19,7 @@ export class DistribuidorLoginComponent {
   distribuidor: any;
   private watchId: number | null = null;
 
-  constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient, private toastr: ToastrService) { }
 
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
@@ -45,11 +46,19 @@ export class DistribuidorLoginComponent {
         localStorage.setItem('token', this.token);
         localStorage.setItem('distribuidor', JSON.stringify(this.distribuidor));
         this.startTrackingLocation();
+        this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
         // Redirigir a la página de inicio del cliente
         this.router.navigate(['/distribuidor-home']);
       },
       error => {
-        console.error('Error al iniciar sesión:', error);
+        // Manejar errores de inicio de sesión
+        if (error.status === 401) {
+          this.toastr.error('Usuario o Contraseña incorrecta', 'Error');
+        } else if (error.status === 404) {
+          this.toastr.error('Usuario no encontrado', 'Error');
+        } else {
+          this.toastr.error('Error al iniciar sesión', 'Error');
+        }
       }
     );
   }

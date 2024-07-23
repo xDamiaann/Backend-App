@@ -159,4 +159,13 @@ export class AdminServiceService {
     return this.http.get<any>(`${this.apiUrl}/admin/info/${AdminId}`);
   }
 
+  getIva(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/admin/iva`);
+  }
+
+  // Métodos para administrador
+  updateAdmin(id: number, admin: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/admin/${id}`, admin);
+  }
+
 }

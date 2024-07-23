@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -96,7 +96,7 @@ export class MmodalComponent implements OnInit {
   }
 
   confirmarDistribuidoresCombinados() {
-    this.confirmarCombinados.emit(this.detallesDistribuidores);
+    this.confirmarCombinados.emit();
   }
 
 }

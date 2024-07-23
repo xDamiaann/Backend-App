@@ -40,6 +40,8 @@ import { MenuGeneralComponent } from "./shared/menu-general/menu-general.compone
 import { MenuClienteComponent } from "./shared/menu-cliente/menu-cliente.component";
 import { RouterModule } from '@angular/router';
 import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil.component';
+import { AdminPerfilComponent } from './perfiles/admin-perfil/admin-perfil.component';
+
 import { FooterComponent } from "./shared/footer/footer.component";
 import { MenuDistribuidorComponent } from "./shared/menu-distribuidor/menu-distribuidor.component";
 import { MenuAdminComponent } from "./shared/menu-admin/menu-admin.component";
@@ -48,7 +50,13 @@ import { GroupByPipe } from './shared/group-by.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detalle/cliente-factura-detalle.component';
+import { RecoveryAccountComponent } from './recovery-account/recovery-account.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from './http-error.interceptor'; // Asegúrate de ajustar la ruta
+import { DistribuidorPerfilComponent } from './perfiles/distribuidor-perfil/distribuidor-perfil.component';
 
 @NgModule({
   declarations: [
@@ -78,10 +86,15 @@ import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detall
     DistribuidorProfileComponent,
     AdminProfileComponent,
     ClientePerfilComponent,
+    AdminPerfilComponent,
+    DistribuidorPerfilComponent,
     GroupByPipe,
     ClienteFacturasComponent,
     NoticiasComponent,
     ClienteFacturaDetalleComponent,
+    RecoveryAccountComponent,
+    ResetPasswordComponent,
+
   ],
 
   imports: [
@@ -107,12 +120,13 @@ import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detall
     MenuDistribuidorComponent,
     MenuAdminComponent,
     BrowserAnimationsModule,
+    NgxPaginationModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
   ],
-  providers: [AdminServiceService],
+  providers: [AdminServiceService, { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

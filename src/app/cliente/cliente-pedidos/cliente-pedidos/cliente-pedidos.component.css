@@ -1,0 +1,87 @@
+/* cliente-pedidos.component.css */
+
+.container {
+    max-width: 1200px;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.nav-tabs .nav-link {
+    color: #555;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem 0.25rem 0 0;
+    padding: 10px 15px;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #fff;
+    border-bottom-color: transparent;
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    color: #555;
+}
+
+.btn-primary {
+    background-color: #333;
+    border-color: #333;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.page-link {
+    color: #333;
+}
+
+.page-item.active .page-link {
+    background-color: #333;
+    border-color: #333;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+#map {
+    height: 400px;
+    margin-top: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}

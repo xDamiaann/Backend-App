@@ -73,4 +73,8 @@ export class MenuAdminComponent {
     this.router.navigate(['/admin-abastecer']);
   }
 
+  navigateToAdminProfile() {
+    this.router.navigate(['/admin-perfil']);
+  }
+
 }

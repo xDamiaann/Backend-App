@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ClienteServiceService } from '../../cliente/cliente-service.service'; // Cambiamos al servicio correcto
 import { AdminServiceService } from 'src/app/admin/admin-service.service';
 import { MmodalComponent } from 'src/app/shared/mmodal/mmodal.component';
-
+import { ToastrService } from 'ngx-toastr';
 
 interface Producto {
   id_producto: number;
@@ -38,7 +38,7 @@ export class ClientePedidoComponent implements OnInit {
 
   @ViewChild('distribuidoresModal') distribuidoresModal!: MmodalComponent;
   @ViewChild('distribuidoresCombinadosModal') distribuidoresCombinadosModal!: MmodalComponent;
-  //productos: Producto[] = [];
+
   pedido = {
     ubicacion: '',
     detalles: [] as PedidoDetalle[]
@@ -53,7 +53,6 @@ export class ClientePedidoComponent implements OnInit {
     precio: null
   };
 
-
   productos: any[] = [];
   presentaciones: any[] = [];
   selectedProducto: number | null = null;
@@ -67,7 +66,8 @@ export class ClientePedidoComponent implements OnInit {
 
   distribuidoresCombinados: any[] = [];
 
-  constructor(private clienteService: ClienteServiceService, private router: Router, private adminService: AdminServiceService) { }
+  constructor(private clienteService: ClienteServiceService,
+    private router: Router, private adminService: AdminServiceService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     const adminJson = localStorage.getItem('cliente');
@@ -77,35 +77,15 @@ export class ClientePedidoComponent implements OnInit {
     }
     this.cargarProductos();
     this.obtenerUbicacionCliente();
+    this.getIva();
   }
-
-  // cargarProductos() {
-  //   this.adminService.cargarProductos().subscribe(
-  //     (data: Producto[]) => {
-  //       // Filtrar productos únicos con el mayor stock
-  //       const productosMap = new Map<string, Producto>();
-  //       data.forEach((producto: Producto) => {
-  //         const existingProducto = productosMap.get(producto.nombre);
-  //         if (!existingProducto || producto.stock > existingProducto.stock) {
-  //           productosMap.set(producto.nombre, producto);
-  //         }
-  //       });
-  //       this.productos = Array.from(productosMap.values());
-  //       console.log(this.productos);
-  //     },
-  //     error => {
-  //       console.error('Error al cargar productos:', error);
-  //     }
-  //   );
-  // }
-
 
   cargarProductos() {
     this.adminService.cargarProductos().subscribe(
       data => {
         this.productos = data;
         this.productos.forEach(producto => {
-          producto.id_producto = producto.id_producto; // Verifica que esta propiedad exista
+          producto.id_producto = producto.id_producto;
           this.adminService.obtenerPresentacionesPorProducto(producto.id_producto).subscribe(
             presentaciones => {
               producto.presentaciones = presentaciones;
@@ -119,18 +99,19 @@ export class ClientePedidoComponent implements OnInit {
     );
   }
 
-
-  getPresentaciones(id: number) {
-
-
-  }
-
   onPresentacionChange(event: any, producto: any) {
     const idPresentacion = +event.target.value;
     this.adminService.obtenerPresentacionesPorID(idPresentacion).subscribe(
       data => {
         producto.precioSeleccionado = data.precio;
         producto.presentacionSeleccionada = data;
+        console.log("data", data); // Verifica que data.imagen no sea undefined
+        if (data.imagen) {
+          producto.imagenSeleccionada = `data:image/png;base64,${data.imagen}`;
+        } else {
+          producto.imagenSeleccionada = null; // Manejar el caso cuando la imagen no está presente
+        }
+        console.log(data.imagen);
       },
       error => console.error(error)
     );
@@ -139,7 +120,7 @@ export class ClientePedidoComponent implements OnInit {
   agregarAlPedido(producto: any) {
     const presentacionSeleccionada = producto.presentacionSeleccionada;
     if (!presentacionSeleccionada) {
-      return; // No se puede agregar el producto sin una presentación seleccionada
+      return;
     }
     const detalleExistente = this.pedido.detalles.find(detalle =>
       detalle.producto === producto && detalle.presentacion.id_presentacion === presentacionSeleccionada.id_presentacion
@@ -154,6 +135,7 @@ export class ClientePedidoComponent implements OnInit {
         precio: producto.precioSeleccionado
       });
     }
+    console.log("pedido", this.pedido.detalles);
   }
 
   isProductoPresentacionEnPedido(producto: any, presentacion: any): boolean {
@@ -164,26 +146,6 @@ export class ClientePedidoComponent implements OnInit {
 
   productoSeleccionado(producto: Producto): boolean {
     return this.pedido.detalles.some(detalle => detalle.producto === producto);
-  }
-
-  toggleProductoSeleccionado(producto: any, event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    const isChecked = inputElement.checked;
-    if (isChecked) {
-      const detalleExistente = this.pedido.detalles.find(detalle => detalle.producto === producto);
-      if (detalleExistente) {
-        detalleExistente.cantidad += Math.min(detalleExistente.cantidad + 1, producto.stock);
-      } else {
-        this.pedido.detalles.push({
-          producto,
-          presentacion: producto.presentacionSeleccionada,
-          cantidad: 1,
-          precio: producto.precioSeleccionado
-        });
-      }
-    } else {
-      this.pedido.detalles = this.pedido.detalles.filter(detalle => detalle.producto !== producto);
-    }
   }
 
   eliminarProducto(detalle: PedidoDetalle) {
@@ -201,6 +163,13 @@ export class ClientePedidoComponent implements OnInit {
     }
   }
 
+  validateNumber(event: KeyboardEvent) {
+    const charCode = event.charCode;
+    if (charCode !== 0 && (charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+    }
+  }
+
   realizarPedido() {
     if (this.idCliente != '') {
       this.clienteService.getDistribuidoresConStock(this.pedido.detalles).subscribe(
@@ -212,14 +181,17 @@ export class ClientePedidoComponent implements OnInit {
           } else {
             this.clienteService.getDistribuidoresCombinados(this.pedido.detalles).subscribe(
               (distribuidores: any[]) => {
-                this.distribuidoresCombinados = distribuidores;
-                this.distribuidoresCombinadosModal.distribuidores = distribuidores;
-                this.distribuidoresCombinadosModal.detalles = this.pedido.detalles;
-                console.log('combinados', this.distribuidoresCombinados);
-                this.distribuidoresCombinadosModal.abrir();
+                // this.distribuidoresCombinados = distribuidores;
+                // this.distribuidoresCombinadosModal.distribuidores = distribuidores;
+                // this.distribuidoresCombinadosModal.detalles = this.pedido.detalles;
+                // console.log('combinados', this.distribuidoresCombinados);
+                // this.distribuidoresCombinadosModal.abrir();
+
+                this.toastr.info('No se encuentran distribuidores disponibles para tu pedido, intentalo mas tarde', 'Distribuidores no disponibles');
               },
               error => {
                 console.error('Error al obtener distribuidores combinados:', error);
+                this.toastr.info('No se encuentran distribuidores disponibles para tu pedido, intentalo mas tarde', 'Distribuidores no disponibles');
               }
             );
           }
@@ -230,19 +202,19 @@ export class ClientePedidoComponent implements OnInit {
       );
     }
   }
-  onSelect(event: any) {
 
+  onSelect(event: any) {
     console.log("ubicacion", this.ubicacion);
-    const distribuidorSeleccionado = event; // Obtener el distribuidor seleccionado del evento
+    const distribuidorSeleccionado = event;
     const pedidoFinal = {
       ...this.pedido,
       ubicacion: this.ubicacion,
       detalles: this.pedido.detalles.map(detalle => ({
-        id_producto: detalle.producto.id_producto,  // Asegurarse de que este ID esté presente
-        id_presentacion: detalle.presentacion.id_presentacion,  // Asegurarse de que este ID esté presente
+        id_producto: detalle.producto.id_producto,
+        id_presentacion: detalle.presentacion.id_presentacion,
         cantidad: detalle.cantidad,
         precio: detalle.precio,
-        id_distribuidor: distribuidorSeleccionado.id_distribuidor // Asegúrate de incluir id_distribuidor aquí
+        id_distribuidor: distribuidorSeleccionado.id_distribuidor
       })),
       id_cliente: this.idCliente,
       id_distribuidor: distribuidorSeleccionado.id_distribuidor
@@ -261,6 +233,11 @@ export class ClientePedidoComponent implements OnInit {
     );
   }
 
+  onSelect1(event: any) {
+    this.router.navigate(['/cliente-home']);
+    window.location.reload();
+  }
+
   reasignarDistribuidor(pedido: any) {
     this.clienteService.reasignarDistribuidor(pedido.id_pedido, pedido.id_distribuidor).subscribe(
       (res) => {
@@ -274,12 +251,23 @@ export class ClientePedidoComponent implements OnInit {
     );
   }
 
-
   obtenerUbicacionCliente() {
     this.clienteService.obtenerUbicacion().subscribe(
       (ubicacion: any) => {
         this.ubicacion = `${ubicacion.lat},${ubicacion.lng}`;
         console.log(this.ubicacion);
+      },
+      error => {
+        console.error('Error al obtener la ubicación del cliente:', error);
+      }
+    );
+  }
+
+  getIva() {
+    this.adminService.getIva().subscribe(
+      (iva: any) => {
+
+        console.log("iva", iva);
       },
       error => {
         console.error('Error al obtener la ubicación del cliente:', error);

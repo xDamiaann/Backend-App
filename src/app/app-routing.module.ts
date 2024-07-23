@@ -36,6 +36,10 @@ import { ClientePerfilComponent } from './perfiles/cliente-perfil/cliente-perfil
 import { ClienteFacturasComponent } from './cliente/cliente-facturas/cliente-facturas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ClienteFacturaDetalleComponent } from './cliente/cliente-factura-detalle/cliente-factura-detalle.component';
+import { RecoveryAccountComponent } from './recovery-account/recovery-account.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AdminPerfilComponent } from './perfiles/admin-perfil/admin-perfil.component';
+import { DistribuidorPerfilComponent } from './perfiles/distribuidor-perfil/distribuidor-perfil.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -68,11 +72,17 @@ const routes: Routes = [
 
   { path: 'mapa', component: MapaComponent },
   { path: 'admin-profile', component: AdminProfileComponent },
+
   { path: 'distribuidor-profile', component: DistribuidorProfileComponent },
   { path: 'perfil', component: ClientePerfilComponent },
+  { path: 'admin-perfil', component: AdminPerfilComponent },
+  { path: 'distribuidor-perfil', component: DistribuidorPerfilComponent },
   { path: 'cliente-facturas', component: ClienteFacturasComponent },
   { path: 'noticias', component: NoticiasComponent },
   { path: 'factura-detalle/:id', component: ClienteFacturaDetalleComponent },
+  { path: 'recovery-account', component: RecoveryAccountComponent },
+  { path: 'recover-account', component: RecoveryAccountComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent }
   //{ path: '**', redirectTo: '' },// Manejo de rutas no encontradas
 
 ];

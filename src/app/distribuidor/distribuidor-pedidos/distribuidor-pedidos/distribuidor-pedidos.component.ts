@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { DistribuidorService } from '../../distribuidor-service.service';
 import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
+import { AdminServiceService } from 'src/app/admin/admin-service.service';
 
 declare var google: any;
 
@@ -42,9 +43,15 @@ export class DistribuidorPedidosComponent implements OnInit, AfterViewInit {
   private startCoordinates: Coordinates | null = null;
   private waypoints: Waypoint[] = [];
   private currentRoute: RouteLeg[] | null = null;
+  page: number = 1;
+  tableSize: number = 5;
+  count: number = 0;
+  ivaP: number = 0;
 
   constructor(
-    private renderer: Renderer2, private distribuidorService: DistribuidorService, private clienteService: ClienteServiceService
+    private renderer: Renderer2, private distribuidorService: DistribuidorService,
+    private clienteService: ClienteServiceService,
+    private adminService: AdminServiceService
   ) { }
 
   ngOnInit(): void {
@@ -55,6 +62,7 @@ export class DistribuidorPedidosComponent implements OnInit, AfterViewInit {
     }
     this.cargarPedidosPendientes();
     this.cargarPedidosEntregados();
+    this.getIva();
   }
 
   ngAfterViewInit(): void {
@@ -222,9 +230,11 @@ export class DistribuidorPedidosComponent implements OnInit, AfterViewInit {
   finalizarPedido(pedido: any) {
     this.clienteService.updateEstadoPedido(pedido.id_pedido, 7).subscribe(() => { // 8: Finalizado
       // Generar la factura
-      this.distribuidorService.generarFactura(pedido.id_pedido, pedido).subscribe(() => {
-        window.location.reload();
-      });
+      pedido.iva = this.ivaP;
+      this.distribuidorService.generarFactura(pedido.id_pedido, this.ivaP).
+        subscribe(() => {
+          window.location.reload();
+        });
     });
   }
 
@@ -232,5 +242,29 @@ export class DistribuidorPedidosComponent implements OnInit, AfterViewInit {
     window.alert(browserHasGeolocation
       ? 'Error: The Geolocation service failed.'
       : "Error: Your browser doesn't support geolocation.");
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.cargarPedidosPendientes();
+  }
+
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.cargarPedidosEntregados();
+  }
+
+
+  getIva() {
+    this.adminService.getIva().subscribe(
+      (iva: any) => {
+        this.ivaP = iva.iva
+        console.log("iva", this.ivaP);
+      },
+      error => {
+        console.error('Error al obtener la ubicación del cliente:', error);
+      }
+    );
   }
 }

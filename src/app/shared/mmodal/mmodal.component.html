@@ -13,33 +13,40 @@
       </div>
       <div class="modal-body">
         <ng-container *ngIf="tipo === 1">
-          <div *ngFor="let distribuidor of distribuidores">
-            <div class="card mb-3">
+          <h2 class="text-center mb-4">Distribuidores Disponibles</h2>
+          <div>
+            <div class="card distribuidor-card mb-3" *ngFor="let distribuidor of distribuidores">
               <div class="card-body">
                 <h5 class="card-title">{{ distribuidor.nombre }} {{ distribuidor.apellido }}</h5>
-                <p class="card-text">Dirección: {{ distribuidor.direccion }}</p>
-                <p class="card-text">Teléfono: {{ distribuidor.telefono }}</p>
-                <p class="card-text">Email: {{ distribuidor.email }}</p>
-                <button class="btn btn-primary" (click)="Selectdistribuidor(distribuidor)">
+                <p class="card-text"><strong>Dirección:</strong> {{ distribuidor.direccion }}</p>
+                <p class="card-text"><strong>Teléfono:</strong> {{ distribuidor.telefono }}</p>
+                <p class="card-text"><strong>Email:</strong> {{ distribuidor.email }}</p>
+                <button class="btn btn-primary btn-block" (click)="Selectdistribuidor(distribuidor)">
                   Seleccionar
                 </button>
               </div>
             </div>
           </div>
         </ng-container>
+
+
         <ng-container *ngIf="tipo === 3">
-          <ng-container *ngIf="this.val==0">
-            <button class="btn btn-warning" (click)="MetodoPago(1)">Efectivo</button>
-            <button class="btn btn-warning" (click)="MetodoPago(2)">PayPal</button>
-            <div id="paypal-button-container"></div>
-
+          <ng-container *ngIf="val === 0">
+            <h2 class="text-center mb-4">Escoja su forma de pago</h2>
+            <div class="d-flex justify-content-center mb-3">
+              <button class="btn btn-warning mx-2" (click)="MetodoPago(1)">Efectivo</button>
+              <button class="btn btn-warning mx-2" (click)="MetodoPago(2)">PayPal</button>
+            </div>
+            <div id="paypal-button-container" class="d-flex justify-content-center"></div>
           </ng-container>
-          <ng-container *ngIf="this.val==1">
-            <h3> Por favor, realice el pago al distribuidor</h3>
+          <ng-container *ngIf="val === 1">
+            <div class="alert alert-info text-center" role="alert">
+              <h3>Por favor, realice el pago al distribuidor</h3>
+            </div>
           </ng-container>
-
-
         </ng-container>
+
+
         <ng-container *ngIf="tipo === 4">
           <ng-container *ngIf="this.valor==1">
             <h3>Tu pago ha sido procesado correctamente</h3>
@@ -59,22 +66,7 @@
 
         </ng-container>
         <ng-container *ngIf="tipo === 5">
-          <div *ngFor="let distribuidor of distribuidores; let i = index">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">{{ distribuidor.nombre }} {{ distribuidor.apellido }}</h5>
-                <p class="card-text">Dirección: {{ distribuidor.direccion }}</p>
-                <p class="card-text">Teléfono: {{ distribuidor.telefono }}</p>
-                <p class="card-text">Email: {{ distribuidor.email }}</p>
-                <p class="card-text">Stock Disponible: {{ distribuidor.stock }}</p>
-                <div *ngFor="let detalle of detalles; let j = index">
-                  <label>{{ detalle.producto.nombre }} - {{ detalle.presentacion.nombre }}: </label>
-                  <input type="number" [(ngModel)]="detallesDistribuidores[i][j].cantidad" [max]="distribuidor.stock"
-                    (change)="onCantidadChange(detalle, distribuidor, detallesDistribuidores[i][j].cantidad)">
-                </div>
-              </div>
-            </div>
-          </div>
+          <span>No se encuentran distribuidores para realizar tu pedido, intentalo mas tarde</span>
           <button class="btn btn-success" (click)="confirmarDistribuidoresCombinados()">Confirmar</button>
         </ng-container>
       </div>

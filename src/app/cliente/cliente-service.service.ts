@@ -69,6 +69,7 @@ export class ClienteServiceService {
   }
 
   createPayPalOrder(data: any): Observable<any> {
+    console.log("datos pago", data);
     return this.http.post<any>(`${this.apiUrl}/payments/create-order`, { data });
   }
 

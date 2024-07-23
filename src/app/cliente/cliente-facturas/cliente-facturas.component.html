@@ -17,7 +17,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let factura of facturas">
+                <tr *ngFor="let factura of facturas| paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };">
                     <td>{{ factura.numfactura }}</td>
                     <td>{{ factura.fechafactura }}</td>
                     <td>{{ factura.subtotal }}</td>
@@ -30,6 +35,11 @@
                 </tr>
             </tbody>
         </table>
+        <div class="d-flex justify-content-center mt-3">
+            <pagination-controls previousLabel="Anterior" nextLabel="Siguiente"
+                (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+        </div>
     </div>
 </div>
 

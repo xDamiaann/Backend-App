@@ -57,5 +57,14 @@ export class AuthService {
   isDistribuidorLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
+
+  recoverAccount(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/recover-account`, { email });
+  }
+
+  resetPassword(token: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/reset-password`, { token, password });
+  }
+
   // Otros métodos como login, logout, etc.
 }

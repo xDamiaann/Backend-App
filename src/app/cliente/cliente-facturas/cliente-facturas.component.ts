@@ -13,6 +13,10 @@ export class ClienteFacturasComponent {
   username: any;
   idCliente: any;
   facturas: any;
+  page: number = 1;
+  tableSize: number = 15;
+  count: number = 0;
+
 
   constructor(private clienteService: ClienteServiceService, private router: Router) {
 
@@ -41,5 +45,16 @@ export class ClienteFacturasComponent {
 
   detalleFactura(id: string) {
     this.router.navigate(['factura-detalle', id]);
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getFacturas();
+  }
+
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getFacturas();
   }
 }

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MmodalComponent } from 'src/app/shared/mmodal/mmodal.component';
 // import { ToastrService } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
+import { AdminServiceService } from 'src/app/admin/admin-service.service';
 
 declare var bootstrap: any;
 
@@ -14,6 +15,10 @@ declare var bootstrap: any;
 })
 export class ClientePedidosComponent implements OnInit {
   pedidos: any[] = [];
+  pedidosPendientes: any[] = [];
+  pedidosEnCamino: any[] = [];
+  pedidosRecibidos: any[] = [];
+  pedidosFinalizados: any[] = [];
   idCliente: string = '';
   distribuidores: any[] = [];
   pedidoSeleccionado: any;
@@ -23,6 +28,9 @@ export class ClientePedidosComponent implements OnInit {
   totalPages = 0;
   pages: number[] = [];
   paginatedPedidos: any[] = [];
+  page: number = 1;
+  tableSize: number = 5;
+  count: number = 0;
 
   @ViewChild('distribuidoresModal') distribuidoresModal!: MmodalComponent;
   @ViewChild('pagoModal') pagoModal!: MmodalComponent;
@@ -33,11 +41,16 @@ export class ClientePedidosComponent implements OnInit {
   IdPedido: any;
   pedido: any;
   valor: number = 0;
+  subtotalP: number = 0;
+  ivaC: number = 0;
+  ivaP: number = 0;
+  totalP: number = 0;
 
 
 
-  constructor(private clienteService: ClienteServiceService, private router: Router, private renderer: Renderer2, private route: ActivatedRoute,
-
+  constructor(private clienteService: ClienteServiceService,
+    private router: Router, private renderer: Renderer2, private route: ActivatedRoute,
+    private adminService: AdminServiceService
   ) { }
 
   total: any;
@@ -48,7 +61,7 @@ export class ClientePedidosComponent implements OnInit {
       this.idCliente = cliente ? cliente.id : '';
     }
     this.cargarPedidosCliente();
-    this.updatePaginatedPedidos();
+    this.getIva();
 
     this.route.queryParams.subscribe(params => {
       this.orderId = params['token']; // PayPal usa 'token' como nombre del parámetro para el orderId
@@ -99,7 +112,11 @@ export class ClientePedidosComponent implements OnInit {
     this.clienteService.getPedidosCliente(this.idCliente).subscribe(
       data => {
         this.pedidos = data;
-        console.log(this.pedidos);
+        this.pedidosPendientes = this.pedidos.filter(p => p.id_estadopedido === 1);
+        this.pedidosEnCamino = this.pedidos.filter(p => p.id_estadopedido === 2);
+        this.pedidosRecibidos = this.pedidos.filter(p => p.id_estadopedido === 3);
+        this.pedidosFinalizados = this.pedidos.filter(p => p.id_estadopedido === 7);
+
       },
       error => {
         console.error('Error al cargar los pedidos del cliente:', error);
@@ -167,6 +184,7 @@ export class ClientePedidosComponent implements OnInit {
     this.IdPedido = this.pedidoSeleccionado.id_pedido;
     localStorage.setItem('idPedido', JSON.stringify(this.IdPedido));
     console.log("pedido seleccionado", this.pedidoSeleccionado);
+
     this.pagoModal.abrir();
   }
 
@@ -178,21 +196,32 @@ export class ClientePedidosComponent implements OnInit {
         window.location.reload();
       });
     }
-
     if (metodo == 2) {
+      console.log("pedido seleccionado", this.pedidoSeleccionado);
 
+      let total = 0;
+      let subtotal = 0;
+      let iva = 0;
+      this.pedidoSeleccionado.detalles.forEach((detalles: { total: any; }) => {
+        console.log("total detalle", detalles.total);
+        subtotal += parseFloat(detalles.total);
+        console.log("subtotal", subtotal);
+      });
+      iva = subtotal * this.ivaP;
+      console.log("iva", iva);
+
+      total = subtotal + iva;
+      console.log("total", total);
       const producto = {
-
         "intent": "CAPTURE",
         "purchase_units": [
           {
             "amount": {
               "currency_code": "USD",
-              "value": "100.00"
+              "value": total.toFixed(2)
             }
           }
         ]
-
       }
 
       this.clienteService.createPayPalOrder(producto).subscribe(
@@ -211,21 +240,46 @@ export class ClientePedidosComponent implements OnInit {
 
   }
 
+  calcularTotal(detalle: any) {
+    let total = 0;
+    let subtotal = 0;
+    let iva = 0;
+    detalle.forEach((detalle: { total: any; }) => {
+      console.log("total detalle", total);
+      this.subtotalP += parseFloat(detalle.total);
+      console.log("subtotal", subtotal);
+    });
+    this.ivaP = subtotal * 0.12;
+    this.totalP = subtotal + iva;
+  }
+
+
   onSelectPago(event: any) {
     // Este método puede quedar vacío si no se requiere acción adicional
   }
-  updatePaginatedPedidos(): void {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedPedidos = this.pedidos.slice(startIndex, endIndex);
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.cargarPedidosCliente();
   }
 
-  changePage(page: number): void {
-    if (page < 1 || page > this.totalPages) {
-      return;
-    }
-    this.currentPage = page;
-    this.updatePaginatedPedidos();
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.cargarPedidosCliente();
+  }
+
+
+  getIva() {
+    this.adminService.getIva().subscribe(
+      (iva: any) => {
+        this.ivaP = iva.iva
+        console.log("iva", this.ivaP);
+      },
+      error => {
+        console.error('Error al obtener la ubicación del cliente:', error);
+      }
+    );
   }
 }
 

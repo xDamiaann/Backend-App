@@ -72,6 +72,9 @@ export class MenuDistribuidorComponent {
     this.router.navigate(['/admin-abastecer']);
   }
 
+  navigateToDistribuidorProfile() {
+    this.router.navigate(['/distribuidor-perfil']);
+  }
 
 
 }

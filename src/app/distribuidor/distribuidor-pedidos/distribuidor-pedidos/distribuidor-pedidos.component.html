@@ -29,7 +29,12 @@
                 <div class="tab-pane fade show active bg-white p-3" id="admin-home" role="tabpanel"
                     aria-labelledby="admin-home-tab">
                     <h2>Pedidos Pendientes</h2>
-                    <div *ngFor="let pedido of pedidospendientes" class="card mb-3">
+                    <div *ngFor="let pedido of pedidospendientes | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };" class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Pedido #{{ pedido.id_pedido }}</h5>
                             <p class="card-text">Cliente: {{ pedido.nombre }}</p>
@@ -50,12 +55,22 @@
                                 (click)="actualizarEstadoPedido(pedido.id_pedido, 'Rechazar')">Rechazar</button>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <pagination-controls previousLabel="Anterior" nextLabel="Siguiente"
+                            (pageChange)="onTableDataChange($event)">
+                        </pagination-controls>
+                    </div>
                 </div>
                 <div class="tab-pane fade bg-white" id="admin-profile" role="tabpanel"
                     aria-labelledby="admin-profile-tab">
                     <h2>Pedidos en Camino</h2>
                     <div id="map"></div> <!-- Contenedor del mapa -->
-                    <div *ngFor="let pedido of pedidosencamino" class="card mb-3">
+                    <div *ngFor="let pedido of pedidosencamino | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };" class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Pedido #{{ pedido.id_pedido }}</h5>
                             <p class="card-text">Cliente: {{ pedido.nombre }}</p>
@@ -75,11 +90,21 @@
                                 Entrega</button>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <pagination-controls previousLabel="Anterior" nextLabel="Siguiente"
+                            (pageChange)="onTableDataChange($event)">
+                        </pagination-controls>
+                    </div>
                 </div>
                 <div class="tab-pane fade bg-white" id="admin-entregados" role="tabpanel"
                     aria-labelledby="admin-entregados-tab">
                     <h2>Pedidos entregados</h2>
-                    <div *ngFor="let pedido of pedidosentregados" class="card mb-3">
+                    <div *ngFor="let pedido of pedidosentregados | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };" class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Pedido #{{ pedido.id_pedido }}</h5>
                             <p class="card-text">Cliente: {{ pedido.nombre }}</p>
@@ -98,6 +123,11 @@
                                 <button (click)="finalizarPedido(pedido)">Finalizar</button>
                             </ng-container>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <pagination-controls previousLabel="Anterior" nextLabel="Siguiente"
+                            (pageChange)="onTableDataChange($event)">
+                        </pagination-controls>
                     </div>
                 </div>
             </div>

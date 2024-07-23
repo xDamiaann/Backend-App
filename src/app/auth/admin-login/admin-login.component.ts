@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-login',
@@ -15,7 +16,7 @@ export class AdminLoginComponent {
   token: any;
   admin: any;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     if (this.authService.isAdminLoggedIn()) {
@@ -56,10 +57,18 @@ export class AdminLoginComponent {
         localStorage.setItem('admin', JSON.stringify(this.admin));
 
         // Redirigir a la página de inicio del cliente
+        this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
         this.router.navigate(['/admin-home']);
       },
       error => {
-        console.error('Error al iniciar sesión:', error);
+        // Manejar errores de inicio de sesión
+        if (error.status === 401) {
+          this.toastr.error('Usuario o Contraseña incorrecta', 'Error');
+        } else if (error.status === 404) {
+          this.toastr.error('Usuario no encontrado', 'Error');
+        } else {
+          this.toastr.error('Error al iniciar sesión', 'Error');
+        }
       }
     );
   }

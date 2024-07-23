@@ -69,7 +69,7 @@ export class SolicitudDistribuidorComponent implements OnInit {
         username: '',
         password: '',
         fechasolicitud: new Date().toISOString(),
-        disponibilidad: 'Ofline'
+        disponibilidad: 'Libre'
       };
 
       this.http.post('http://localhost:3000/api/distribuidor', solicitudConFecha).subscribe(

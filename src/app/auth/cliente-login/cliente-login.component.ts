@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
 
@@ -8,9 +9,7 @@ import { ClienteServiceService } from 'src/app/cliente/cliente-service.service';
   templateUrl: './cliente-login.component.html',
   styleUrls: ['./cliente-login.component.css']
 })
-export class LoginComponent {
-
-
+export class LoginComponent implements OnInit {
   credentials = {
     username: '',
     password: ''
@@ -18,20 +17,27 @@ export class LoginComponent {
   token: any;
   cliente: any;
 
-  constructor(private authService: AuthService, private router: Router, private ClienteService: ClienteServiceService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private ClienteService: ClienteServiceService,
+    private toastr: ToastrService
+  ) { }
 
   navigateToCliente() {
     this.router.navigate(['login-cliente']);
   }
+
   navigateToDistribuidor() {
     this.router.navigate(['login-distribuidor']);
   }
+
   navigateToAdmin() {
     this.router.navigate(['login-admin']);
   }
 
   navigateToRegister() {
-    this.router.navigate(['/register-cliente']); // Navega a la ruta '/register'
+    this.router.navigate(['/register-cliente']);
   }
 
   navigateToAbout() {
@@ -46,8 +52,9 @@ export class LoginComponent {
     this.router.navigate(['contacto']);
   }
 
-
-
+  navigateToRecoverAccount() {
+    this.router.navigate(['/recover-account']);
+  }
 
   ngOnInit(): void {
     if (this.authService.isClienteLoggedIn()) {
@@ -58,19 +65,24 @@ export class LoginComponent {
   onSubmit() {
     this.authService.loginCliente(this.credentials).subscribe(
       response => {
-        // Aquí manejas la respuesta del backend
+        // Inicio de sesión exitoso
         this.token = response.token;
         this.cliente = response.cliente;
         localStorage.setItem('token', this.token);
         localStorage.setItem('cliente', JSON.stringify(this.cliente));
 
-        //this.obtenerUbicacionCliente();
-
-        // Redirigir a la página de inicio del cliente
+        this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
         this.router.navigate(['/cliente-home']);
       },
       error => {
-        console.error('Error al iniciar sesión:', error);
+        // Manejar errores de inicio de sesión
+        if (error.status === 404) {
+          this.toastr.error('Usuario no encontrado', 'Error');
+        } else if (error.status === 401) {
+          this.toastr.error('Usuario o Contraseña incorrecta', 'Error');
+        } else {
+          this.toastr.error('Error al iniciar sesión', 'Error');
+        }
       }
     );
   }
@@ -78,30 +90,4 @@ export class LoginComponent {
   navigateToClienteRegister() {
     this.router.navigate(['register-cliente']);
   }
-
-  // obtenerUbicacionCliente() {
-  //   this.ClienteService.obtenerUbicacion().subscribe(
-  //     (ubicacion: any) => {
-  //       console.log('Ubicación del cliente:', ubicacion);
-  //       // Aquí puedes manejar la ubicación del cliente, como enviarla al backend si es necesario
-  //       // Por ejemplo:
-  //       // this.clienteService.actualizarUbicacion(ubicacion).subscribe(
-  //       //   () => {
-  //       //     console.log('Ubicación del cliente actualizada correctamente.');
-  //       //   },
-  //       //   error => {
-  //       //     console.error('Error al actualizar la ubicación del cliente:', error);
-  //       //   }
-  //       // );
-  //     },
-  //     error => {
-  //       console.error('Error al obtener la ubicación del cliente:', error);
-  //     }
-  //   );
-  // }
 }
-
-
-
-
-
